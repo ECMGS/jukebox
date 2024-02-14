@@ -124,12 +124,12 @@ size_t port_system_init()
 //------------------------------------------------------
 uint32_t port_system_get_millis()
 {
-  return 0;
+  return msTicks;
 }
 
 void port_system_set_millis(uint32_t ms)
 {
-  
+  msTicks = ms;  
 }
 
 void port_system_delay_ms(uint32_t ms)
@@ -253,6 +253,18 @@ void port_system_gpio_config_alternate(GPIO_TypeDef *p_port, uint8_t pin, uint8_
 
   p_port->AFR[(uint8_t)(pin / 8)] &= ~(base_mask << displacement);
   p_port->AFR[(uint8_t)(pin / 8)] |= (alternate << displacement);
+}
+
+bool port_system_gpio_read(GPIO_TypeDef *p_port, uint8_t pin) {
+  return (bool) (p_port->IDR & BIT_POS_TO_MASK(pin));
+}
+
+void port_system_gpio_write(GPIO_TypeDef *p_port, uint8_t pin, bool value) {
+  p_port->BSRR = value ? BIT_POS_TO_MASK(pin) : BIT_POS_TO_MASK(pin) << 16;
+}
+
+void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin) {
+  port_system_gpio_write(p_port, pin, port_system_gpio_read(p_port, pin));
 }
 
 // ------------------------------------------------------

@@ -80,7 +80,7 @@ size_t port_system_init(void);
 /**
  * @brief Get the count of the System tick in milliseconds
  *
- * > **TO-DO alumnos:**
+ * > **TO-DO alumnos: HECHO**
  * >
  * > ✅ 1. Return System tick \n
  *
@@ -92,7 +92,7 @@ uint32_t port_system_get_millis(void);
  * @brief Sets the number of milliseconds since the system started.
  * @warning This function must be used only by the SysTick_Handler() ISR in file `interr.c`.
  *
- * > **TO-DO alumnos:**
+ * > **TO-DO alumnos: HECHO**
  * >
  * > ✅ 1. Set System tick to the value received \n
  * 
@@ -245,5 +245,31 @@ void port_system_gpio_exti_enable(uint8_t pin, uint8_t priority, uint8_t subprio
  * @retval None
  */
 void port_system_gpio_exti_disable(uint8_t pin);
+
+/**
+ * @brief Reads the digital value of set pin and port
+ * 
+ * @param p_port selected port
+ * @param pin selected pin
+ * 
+ * @retval if the port is high or low
+*/
+bool port_system_gpio_read(GPIO_TypeDef *p_port, uint8_t pin);
+
+/**
+ * @brief Writes the digital value of set pin and port
+ * 
+ * @param p_port selected port
+ * @param pin selected pin
+*/
+void port_system_gpio_write(GPIO_TypeDef *p_port, uint8_t pin, bool value);
+
+/**
+ * @brief toggles the value of the output pin
+ * 
+ * @param p_port selected port
+ * @param pin selected pin
+*/
+void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin);
 
 #endif /* PORT_SYSTEM_H_ */

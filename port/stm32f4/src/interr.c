@@ -18,7 +18,7 @@
  * @note This ISR is called when the SysTick timer generates an interrupt.
  * The program flow jumps to this ISR and increments the tick counter by one millisecond.
  *
- * > **TO-DO alumnos:**
+ * > **TO-DO alumnos: HECHO**
  * >
  * > ✅ 1. **Increment the System tick counter `msTicks` in 1 count.** To do so, use the function `port_system_get_millis()` and `port_system_get_millis()`.
  *
@@ -27,4 +27,7 @@
  */
 void SysTick_Handler(void)
 {
+    uint32_t systemTime = port_system_get_millis();
+
+    port_system_set_millis(systemTime + 1);
 }
