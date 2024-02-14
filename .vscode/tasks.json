@@ -1,0 +1,308 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cortex-debug: Run CMake (stm32f446re)", // PORTABILITY: change this to your platform
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"command": "cmake",
+			"args": [
+				"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
+				"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+				"-DCMAKE_BUILD_TYPE=Debug",
+			],
+			"windows": {
+				"args": [
+					"-G", "MinGW Makefiles",
+					"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
+					"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+					"-DCMAKE_BUILD_TYPE=Debug",
+				]
+			}
+		},
+		{
+			"label": "cortex-debug: Run CMake, Fresh (stm32f446re)", // PORTABILITY: change this to your platform
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"command": "cmake",
+			"args": [
+				"--fresh", 
+				"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
+				"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+				"-DCMAKE_BUILD_TYPE=Debug",
+			],
+			"windows": {
+				"args": [
+					"--fresh",
+					"-G", "MinGW Makefiles",
+					"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
+					"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+					"-DCMAKE_BUILD_TYPE=Debug",
+				]
+			}
+		},
+		{
+			"label": "cortex-debug: Build (stm32f446re)", // PORTABILITY: change this to your platform
+			"dependsOn": [
+				"cortex-debug: Run CMake (stm32f446re)" // PORTABILITY: change this to your platform
+			],
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
+				"${input:cortexTargetID}",
+			]
+		},
+		{
+			"label": "cortex-debug: Clean (stm32f446re)", // PORTABILITY: change this to your platform
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
+				"clean",
+			]
+		},
+		{
+			"label": "cortex-debug: Clean and Build (stm32f446re)", // PORTABILITY: change this to your platform
+			"dependsOn": [
+				"cortex-debug: Run CMake, Fresh (stm32f446re)", // PORTABILITY: change this to your platform
+				"cortex-debug: Clean (stm32f446re)", // PORTABILITY: change this to your platform
+				"cortex-debug: Build (stm32f446re)", // PORTABILITY: change this to your platform				
+			],
+			"dependsOrder": "sequence",
+		},
+		{
+			"label": "native: Run CMake",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"command": "cmake",
+			"args": [
+				"--fresh",
+				"-Bbuild/native/Debug",
+				"-DPLATFORM=native",
+				"-DCMAKE_BUILD_TYPE=Debug",
+			],
+			"windows": {
+				"args": [
+					"-G", "MinGW Makefiles",
+					"-Bbuild/native/Debug",
+					"-DPLATFORM=native",
+					"-DCMAKE_BUILD_TYPE=Debug",
+				]
+			}
+		},
+		{
+			"label": "native: Build",
+			"dependsOn": [
+				"native: Run CMake"
+			],
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/native/Debug",
+				"${input:cortexTargetID}",
+			],
+		},
+		{
+			"label": "Run CMake",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"command": "cmake",
+			"args": [
+				"-Bbuild/${input:platformID}/${input:buildType}",
+				"-DPLATFORM=${input:platformID}",
+				"-DCMAKE_BUILD_TYPE=${input:buildType}",
+			],
+			"windows": {
+				"args": [
+					"-G", "MinGW Makefiles",
+					"-Bbuild/${input:platformID}/${input:buildType}",
+					"-DPLATFORM=${input:platformID}",
+					"-DCMAKE_BUILD_TYPE=${input:buildType}",
+				]
+			}
+		},
+		{
+			"label": "Run CMake (fresh)",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"command": "cmake",
+			"args": [
+				"--fresh",
+				"-Bbuild/${input:platformID}/${input:buildType}",
+				"-DPLATFORM=${input:platformID}",
+				"-DCMAKE_BUILD_TYPE=${input:buildType}",
+			],
+			"windows": {
+				"args": [
+					"--fresh",
+					"-G", "MinGW Makefiles",
+					"-Bbuild/${input:platformID}/${input:buildType}",
+					"-DPLATFORM=${input:platformID}",
+					"-DCMAKE_BUILD_TYPE=${input:buildType}",
+				]
+			}
+		},
+		{
+			"label": "Build",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/${input:platformID}/${input:buildType}",
+				"${input:targetID}",
+			]
+		},
+		{
+			"label": "Flash",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/${input:platformID}/${input:buildType}",
+				"flash-${input:targetID}",
+			]
+		},
+		{
+			"label": "Clean",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/${input:platformID}/${input:buildType}",
+				"clean",
+			]
+		},
+		{
+			"label": "Run tests (PLATFORM MUST BE native, TARGET MUST BE all)",
+			"dependsOn": [
+				"Build"
+			],
+			"options": {
+				"cwd": "${workspaceRoot}",
+			},
+			"group": {
+				"kind": "test"
+			},
+			"command": "ctest",
+			"args": [
+				"--test-dir",
+				"build/${input:platformID}/${input:buildType}",
+				"--output-on-failure",
+			]
+		}
+	],
+	"inputs": [
+		{
+			"id": "runFresh",
+			"type": "pickString",
+			"description": "CMake run mode:",
+			"default": "",
+			"options": [
+				"",
+				"--fresh",
+			]
+		},
+		{
+			"id": "platformID",
+			"type": "pickString",
+			"description": "Enter the platform:",
+			"default": "stm32f446re", // PORTABILITY: change this to your platform
+			"options": [
+				"native",
+				"stm32f401re",
+				"stm32f411re",
+				"stm32f446re",
+			]
+		},
+		{
+			"id": "targetID",
+			"type": "promptString",
+			"description": "Enter the target:",
+			"default": "main"
+		},
+		{
+			"id": "buildType",
+			"type": "pickString",
+			"description": "Enter the build type:",
+			"default": "Release",
+			"options": [
+				"Debug",
+				"Release"
+			]
+		},
+		{
+			"id": "cortexTargetID",
+			"type": "command",
+			"command": "extension.commandvariable.remember",
+      		"args": { "key": "lasttarget" }
+		},
+	]
+}
