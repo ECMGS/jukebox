@@ -74,7 +74,7 @@ fsm_t *fsm_button_new(uint32_t debounce_time, uint32_t button_id);
  * @param p_fsm pointer to the FSM.
  * @param debounce_time time (in ms) the FSM will wait in intermediate steps to avoid mechanical gltiches.
  */
-void fsm_button_init(fsm_t *p_fsm, uint32_t debounce_time);
+void fsm_button_init(fsm_t *p_fsm, uint32_t debounce_time, uint32_t button_id);
 
 /**
  * @brief it returns the latest duration measured by the button FSM.
@@ -87,7 +87,7 @@ void fsm_button_init(fsm_t *p_fsm, uint32_t debounce_time);
  * @param p_fsm pointer to the button FSM.
  * @return uint32_t amount of time (in ms) that the button has been pressed.
  */
-uint32_t fsm_button_get_duration(fsm_t *p_fsm);
+uint32_t fsm_button_get_duration(fsm_t *p_fsm, uint32_t button_id);
 
 /**
  * @brief It sets the duration measured by the button FSM to 0.
@@ -99,6 +99,6 @@ uint32_t fsm_button_get_duration(fsm_t *p_fsm);
  *
  * @param p_fsm pointer to the button FSM.
  */
-void fsm_button_reset_duration(fsm_t *p_fsm);
+void fsm_button_reset_duration(fsm_t *p_fsm, uint32_t button_id);
 
 #endif
