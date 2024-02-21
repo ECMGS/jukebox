@@ -40,7 +40,7 @@ typedef struct {
     fsm_t f;                /*!< Internal FSM*/
     uint32_t debounce_time; /*!< Button debounce time in ms*/
     uint32_t next_timeout;  /*!< Next timeout for debounce in ms*/
-    uint32_t tick_preset;   /*!< Number of sys ticks when the button was pressed*/
+    uint32_t tick_pressed;   /*!< Number of sys ticks when the button was pressed*/
     uint32_t duration;      /*!< How much time the button has been pressed*/
     uint32_t button_id;     /*!< Id of the button*/
 } fsm_button_t;

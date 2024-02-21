@@ -46,7 +46,19 @@ static bool check_timeout(fsm_t *p_this) {
 }
 
 /* State machine output or action functions */
+static void do_store_tick_pressed(fsm_t* p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
 
+    p_fsm->tick_pressed = port_button_get_tick();
+    p_fsm->next_timeout = p_fsm->tick_pressed + p_fsm->debounce_time;
+}
+
+static void do_set_duration(fsm_t* p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
+
+    p_fsm->duration = port_button_get_tick() - p_fsm->tick_pressed;
+    p_fsm->next_timeout = port_button_get_tick() + p_fsm->debounce_time;
+}
 
 /* Other auxiliary functions */
 
