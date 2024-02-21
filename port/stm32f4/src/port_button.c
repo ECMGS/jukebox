@@ -54,6 +54,11 @@ bool port_button_is_pressed (uint32_t button_id) {
     return buttons_arr[button_id].flag_pressed;
 }
 
+/**
+ * @brief Return the count of the System tick in milliseconds.
+ * 
+ * @return uint32_t
+*/
 uint32_t port_button_get_tick (){
     return port_system_get_millis();
 }
