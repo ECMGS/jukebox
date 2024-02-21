@@ -38,3 +38,10 @@ void port_button_init(uint32_t button_id)
     port_system_gpio_exti_enable(buttons_arr[button_id].pin, 1, 0);
 }
 
+bool port_button_is_pressed (uint32_t button_id) {
+    return buttons_arr[button_id].flag_pressed;
+}
+
+uint32_t port_button_get_tick (){
+    return port_system_get_millis();
+}
