@@ -1,9 +1,9 @@
 /**
  * @file fsm_button.c
  * @brief Button FSM main file.
- * @author alumno1
- * @author alumno2
- * @date fecha
+ * @author Jorge Alejandro Estefania Hidalgo
+ * @author Eugenio Cano Muñoz
+ * @date 21/02/2024
  */
 
 /* Includes ------------------------------------------------------------------*/
