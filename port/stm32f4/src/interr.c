@@ -8,7 +8,7 @@
 #include "port_system.h"
 
 // Include headers of different port elements:
-
+#include "port_button.h"
 //------------------------------------------------------
 // INTERRUPT SERVICE ROUTINES
 //------------------------------------------------------
@@ -30,4 +30,16 @@ void SysTick_Handler(void)
     uint32_t systemTime = port_system_get_millis();
 
     port_system_set_millis(systemTime + 1);
+}
+
+void EXTI15_10_IRQHandler ()
+{
+/* ISR user button */
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin))
+    {
+        
+        
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin);
+        buttons_arr[BUTTON_0_ID].flag_pressed = true;
+    }
 }
