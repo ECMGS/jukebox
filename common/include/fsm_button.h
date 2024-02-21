@@ -48,6 +48,8 @@ typedef struct {
  
 
 /* Function prototypes and explanation -------------------------------------------------*/
+fsm_t *fsm_button_new(uint32_t debounce_time, uint32_t button_id);
+void fsm_button_init(fsm_t *p_this, uint32_t debounce_time, uint32_t button_id);
 
 
 #endif
