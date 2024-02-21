@@ -45,6 +45,7 @@ typedef struct {
     uint32_t button_id;     /*!< Id of the button*/
 } fsm_button_t;
 
+ 
 
 /* Function prototypes and explanation -------------------------------------------------*/
 
