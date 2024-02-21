@@ -13,7 +13,8 @@
 /* Standard C includes */
 #include <stdint.h>
 #include <stdbool.h>
-#include <stdlib.h> //
+#include <stdlib.h>
+
 /* Other includes */
 #include "fsm.h"
 
@@ -79,7 +80,7 @@ void fsm_button_init(fsm_t *p_fsm, uint32_t debounce_time, uint32_t button_id);
  * @param button_id id of the button
  * @return uint32_t amount of time (in ms) that the button has been pressed.
  */
-uint32_t fsm_button_get_duration(fsm_t *p_fsm, uint32_t button_id);
+uint32_t fsm_button_get_duration(fsm_t *p_fsm);
 
 /**
  * @brief It sets the duration measured by the button FSM to 0.
@@ -87,6 +88,6 @@ uint32_t fsm_button_get_duration(fsm_t *p_fsm, uint32_t button_id);
  * @param p_fsm pointer to the button FSM.
  * @param button_id id of the button
  */
-void fsm_button_reset_duration(fsm_t *p_fsm, uint32_t button_id);
+void fsm_button_reset_duration(fsm_t *p_fsm);
 
 #endif

@@ -91,5 +91,21 @@ void fsm_button_init(fsm_t *p_this, uint32_t debounce_time, uint32_t button_id)
     fsm_button_t *p_fsm = (fsm_button_t *)(p_this);
     fsm_init(p_this, fsm_trans_button);
 
-    /* TO-DO alumnos: */
+    p_fsm->debounce_time = debounce_time;
+    p_fsm->button_id = button_id;
+
+    p_fsm->tick_pressed = 0;
+    p_fsm->duration = 0;
+
+    port_button_init(button_id);
+}
+
+uint32_t fsm_button_get_duration (fsm_t *p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t *)(p_this);
+    return p_fsm->duration;
+}
+
+void fsm_button_reset_duration (fsm_t *p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t *)(p_this);
+    p_fsm->duration = 0;
 }
