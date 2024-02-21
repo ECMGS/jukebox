@@ -69,6 +69,14 @@ static void do_set_duration(fsm_t* p_this) {
     p_fsm->next_timeout = port_button_get_tick() + p_fsm->debounce_time;
 }
 
+fsm_trans_t fsm_trans_button[] = {
+    { BUTTON_RELEASED, check_button_pressed, BUTTON_PRESSED_WAIT, do_store_tick_pressed },
+    { BUTTON_PRESSED_WAIT, check_timeout, BUTTON_PRESSED, NULL },
+    { BUTTON_PRESSED, check_button_released, BUTTON_RELEASED_WAIT, do_set_duration },
+    { BUTTON_RELEASED_WAIT, check_timeout, BUTTON_RELEASED, NULL },
+    {-1, NULL, -1, NULL },
+};
+
 /* Other auxiliary functions */
 
 fsm_t *fsm_button_new(uint32_t debounce_time, uint32_t button_id)
