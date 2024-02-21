@@ -12,7 +12,27 @@
 
 
 /* State machine input or transition functions */
+/**
+ * @brief Check if the button has been pressed
+ * 
+*/
+static bool check_button_pressed(fsm_t * p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
 
+    return port_button_is_pressed(p_fsm->button_id);
+}	
+
+static bool check_button_released(fsm_t *p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
+
+    return !port_button_is_pressed(p_fsm->button_id);    
+}
+
+static bool check_timeout(fsm_t *p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
+
+    return port_button_get_tick() > p_fsm->next_timeout;
+}
 
 /* State machine output or action functions */
 
