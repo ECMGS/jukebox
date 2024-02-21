@@ -13,7 +13,7 @@
 /* Standard C includes */
 #include <stdint.h>
 #include <stdbool.h>
-
+#include <stdlib.h> //
 /* Other includes */
 #include "fsm.h"
 
