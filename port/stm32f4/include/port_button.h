@@ -37,5 +37,26 @@ typedef struct
 extern port_button_hw_t buttons_arr[];
 
 /* Function prototypes and explanation -------------------------------------------------*/
+/**
+ * @brief Initializes the button.
+ *
+ * @param button_id id of the button
+*/
+void 	port_button_init (uint32_t button_id);
 
+/**
+ * @brief Checks if the button is pressed.
+ *
+ * @param button_id id of the button
+ * @return true if the button is pressed; false otherwise.
+*/
+bool 	port_button_is_pressed (uint32_t button_id);
+
+/**
+ * @brief Gets the current system tick.
+ *
+ * @return current system tick.
+ * 
+*/
+uint32_t port_button_get_tick();
 #endif
