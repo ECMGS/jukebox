@@ -13,13 +13,17 @@
 /* Standard C includes */
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 /* HW dependent includes */
-
+#include "port_system.h"
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
-
+#define BUTTON_0_ID 0
+#define BUTTON_0_GPIO GPIOC
+#define BUTTON_0_PIN 13
+#define BUTTON_0_DEBOUNCE_TIME_MS 33            /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
 
 /* Typedefs --------------------------------------------------------------------*/
 typedef struct
@@ -30,7 +34,7 @@ typedef struct
 } port_button_hw_t;
 
 /* Global variables */
-
+extern port_button_hw_t buttons_arr[];
 
 /* Function prototypes and explanation -------------------------------------------------*/
 
