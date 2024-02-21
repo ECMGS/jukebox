@@ -17,6 +17,11 @@ static port_button_hw_t buttons_arr[] = {
     [BUTTON_0_ID] = {.p_port = BUTTON_0_GPIO, .pin = BUTTON_0_PIN, .flag_pressed = false},
 };
 
+/**
+ * @brief Configure the HW specifications of a given button.
+ * 
+ * @param button_id	Button ID. This index is used to select the element of the buttons_arr[] array
+*/
 void port_button_init(uint32_t button_id)
 {
     GPIO_TypeDef *p_port = buttons_arr[button_id].p_port;
@@ -38,6 +43,13 @@ void port_button_init(uint32_t button_id)
     port_system_gpio_exti_enable(buttons_arr[button_id].pin, 1, 0);
 }
 
+
+/**
+ * @brief Return the status of the button (pressed or not)
+ * 
+ * @param button_id	Button ID. This index is used to select the element of the buttons_arr[] array
+ * @return true If the button has been pressed, false If the button has not been pressed
+*/
 bool port_button_is_pressed (uint32_t button_id) {
     return buttons_arr[button_id].flag_pressed;
 }
