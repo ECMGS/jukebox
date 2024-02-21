@@ -42,7 +42,7 @@ extern port_button_hw_t buttons_arr[];
  *
  * @param button_id id of the button
 */
-void 	port_button_init (uint32_t button_id);
+void port_button_init (uint32_t button_id);
 
 /**
  * @brief Checks if the button is pressed.
@@ -50,7 +50,7 @@ void 	port_button_init (uint32_t button_id);
  * @param button_id id of the button
  * @return true if the button is pressed; false otherwise.
 */
-bool 	port_button_is_pressed (uint32_t button_id);
+bool port_button_is_pressed (uint32_t button_id);
 
 /**
  * @brief Gets the current system tick.
