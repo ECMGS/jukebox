@@ -11,23 +11,34 @@
 #include "port_button.h"
 
 
-/* State machine input or transition functions */
 /**
- * @brief Check if the button has been pressed
+ * @brief checks if the button is pressed.
  * 
-*/
+ * @param p_fsm pointer to the button FSM
+ * @return true if the button is pressed; false otherwise.
+ */
 static bool check_button_pressed(fsm_t * p_this) {
     fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
 
     return port_button_is_pressed(p_fsm->button_id);
 }	
-
+/**
+ * @brief checks if the button is released.
+ *
+ * @param p_fsm pointer to the button FSM
+ * @return true if the button is realeased; false otherwise.
+ */
 static bool check_button_released(fsm_t *p_this) {
     fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
 
     return !port_button_is_pressed(p_fsm->button_id);    
 }
-
+/**
+ * @brief checks if the debounce time has passed.
+ * 
+ * @param p_fsm pointer to the button FSM
+ * @return true if the current system time is greater than the last debounce timeout.
+ */
 static bool check_timeout(fsm_t *p_this) {
     fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
 
