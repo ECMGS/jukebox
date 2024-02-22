@@ -23,7 +23,7 @@
 #define BUTTON_0_ID 0
 #define BUTTON_0_GPIO GPIOC
 #define BUTTON_0_PIN 13
-#define BUTTON_0_DEBOUNCE_TIME_MS 33            /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
+#define BUTTON_0_DEBOUNCE_TIME_MS 32            /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
 
 /* Typedefs --------------------------------------------------------------------*/
 typedef struct
