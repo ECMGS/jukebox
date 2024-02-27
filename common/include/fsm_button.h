@@ -26,7 +26,7 @@
  * 
 */
 enum FSM_BUTTON {
-    BUTTON_RELEASED = 0,        /*!< Starting state, button hasn't been pressed*/
+    BUTTON_RELEASED = 0,    /*!< Starting state, button hasn't been pressed*/
     BUTTON_PRESSED_WAIT,    /*!< Button has been pressed, wait some time to remove false positives from mechanical noise*/
     BUTTON_PRESSED,         /*!< Button is currently pressed*/
     BUTTON_RELEASED_WAIT    /*!< Button has been released, wait some time to filter false positives from mechanical noise*/
