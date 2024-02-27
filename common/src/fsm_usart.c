@@ -1,18 +1,25 @@
 /**
  * @file fsm_usart.c
  * @brief USART FSM main file.
- * @author alumno1
- * @author alumno2
- * @date fecha
+ * @author Jorge Alejandro Estefania Hidalgo
+ * @author Eugenio Cano Muñoz
+ * @date 27/02/2024
  */
 
 /* Includes ------------------------------------------------------------------*/
+#include "port_usart.h"
+#include "fsm_usart.h"
 /* Standard C libraries */
-
+#include <string.h>
+#include <stdlib.h>
 /* Other libraries */
 
 /* State machine input or transition functions */
-
+static bool check_data_rx(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    return port_usart_rx_done();
+}
 
 /* State machine output or action functions */
 

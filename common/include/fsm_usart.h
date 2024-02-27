@@ -6,12 +6,6 @@
  * @date 27/02/2024 
  */
 
-#ifndef FSM_USART_H_
-#define FSM_USART_H_
-#define USART_INPUT_BUFFER_LENGTH
-#define USART_OUTPUT_BUFFER_LENGTH
-
-/* Includes ------------------------------------------------------------------*/
 /* Includes ------------------------------------------------------------------*/
 /* Standard C includes */
 #include <stdint.h>
@@ -20,9 +14,13 @@
 
 /* Other includes */
 #include "fsm.h"
-/* HW dependent includes */
 
 /* Defines and enums ----------------------------------------------------------*/
+#define USART_INPUT_BUFFER_LENGTH   //No se si es necesario
+#define USART_OUTPUT_BUFFER_LENGTH  //No se si es necesario
+#ifndef FSM_USART_H_
+#define FSM_USART_H_
+
 /* Enums */
 /**
  * @brief States for the finite state machine for the usart
