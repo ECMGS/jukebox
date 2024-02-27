@@ -11,13 +11,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
-
 /* Other includes */
 #include "fsm.h"
 
 /* Defines and enums ----------------------------------------------------------*/
-#define USART_INPUT_BUFFER_LENGTH   //No se si es necesario
-#define USART_OUTPUT_BUFFER_LENGTH  //No se si es necesario
+
 #ifndef FSM_USART_H_
 #define FSM_USART_H_
 
@@ -35,11 +33,13 @@ enum FSM_USART {
 /**
  * @brief FSM structure for the usart
 */
+#define USART_INPUT_BUFFER_LENGTH(int);  //REVISAR No se si es necesario
+#define USART_OUTPUT_BUFFER_LENGTH(int);  //REVISAR No se si es necesario
 typedef struct {
     fsm_t f;                                    /*!< USART FSM */
     bool data_received;                         /*!< Flag to indicate that a data has been received*/
-    char in_data[USART_INPUT_BUFFER_LENGTH];    /*!< Input data*/
-    char out_data[USART_OUTPUT_BUFFER_LENGTH];  /*!< Output data*/
+    char in_data[USART_INPUT_BUFFER_LENGTH];    /*!< Input data*/   //REVISAR
+    char out_data[USART_OUTPUT_BUFFER_LENGTH];  /*!< Output data*/  //REVISAR
     uint32_t usart_id;                          /*!< USART ID. Must be unique.*/   
 } fsm_usart_t;
 
@@ -106,7 +106,7 @@ void fsm_usart_get_in_data(fsm_t * p_this, char * p_data);
  * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
  * @param usart_id Unique USART identifier number
  */
-void fsm_usart_init(fsm_usart_t * p_this, uint32_t usart_id);
+void fsm_usart_init(fsm_t * p_this, uint32_t usart_id);
 
 /**
  * @brief Create a new USART FSM.
