@@ -51,10 +51,7 @@ typedef struct {
 /* Function prototypes and explanation -------------------------------------------------*/
 /**
  * @brief Creates a new FSM for measuring how long the button is pressed.
- *
- * @note this function uses malloc to save memory space in the heap for the FSM.
- * @note If you are done with the FSM, you must call fsm_destroy to free memory.
- *
+ * 
  * @param debounce_time time (in ms) the FSM will wait in intermediate steps to avoid mechanical gltiches.
  * @param button_id id of the button
  * 
