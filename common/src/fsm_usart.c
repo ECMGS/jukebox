@@ -105,23 +105,13 @@ static fsm_trans_t fsm_trans_usart[] = {
 };
 
 /* Public functions */
-/**
- * @brief Get the data received.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
- * @param p_data Pointer to the array where the data will be copied from the in_data array
-*/
+
 void fsm_usart_get_in_data(fsm_t *p_this, char *p_data)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     memcpy(p_data, p_fsm->in_data, USART_INPUT_BUFFER_LENGTH);
 }
-/**
- * @brief Set the data to send.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
- * @param p_data Pointer to the array where the data will be copied to the out_data array
-*/
+
 void fsm_usart_set_out_data(fsm_t *p_this, char *p_data)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
@@ -130,24 +120,14 @@ void fsm_usart_set_out_data(fsm_t *p_this, char *p_data)
     memcpy(p_fsm->out_data, p_data, USART_OUTPUT_BUFFER_LENGTH);
 }
 
-/**
- * @brief Create a new USART FSM.
- * @note This FSM implements a USART communication protocol. It is a state machine that sends and receives data.
- * @param usart_id Unique USART identifier number
- * @returns A pointer to the USART FSM
-*/
+
 fsm_t *fsm_usart_new(uint32_t usart_id)
 {
     fsm_t *p_fsm = malloc(sizeof(fsm_usart_t)); /* Do malloc to reserve memory of all other FSM elements, although it is interpreted as fsm_t (the first element of the structure) */
     fsm_usart_init(p_fsm, usart_id);
     return p_fsm;
 }
-/**
- * @brief Initialize a USART FSM.
- * @note This function initializes the default values of the FSM struct and calls to the port to initialize the HW of associated to the given ID.
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
- * @param usart_id Unique USART identifier number
-*/
+
 void fsm_usart_init(fsm_t *p_this, uint32_t usart_id)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
@@ -160,23 +140,13 @@ void fsm_usart_init(fsm_t *p_this, uint32_t usart_id)
     port_usart_init(p_fsm->usart_id);
 }
 
-/**
- * @brief Check if data has been received.
- * 
- * @param p_this	Pointer to an fsm_t struct than contains an fsm_usart_t struct
- * @returns true or false
-*/
+
  bool fsm_usart_check_data_received(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     return p_fsm->data_received;
 }
 
-/**
- * @brief Reset the input data buffer.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
-*/
 void fsm_usart_reset_input_data(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
@@ -185,44 +155,28 @@ void fsm_usart_reset_input_data(fsm_t *p_this)
 }
 
 
-/**
- * @brief Disable the USART RX interrupt.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct 
-*/
+
 void fsm_usart_disable_rx_interrupt(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     port_usart_disable_rx_interrupt(p_fsm->usart_id);
 }
 
-/**
- * @brief Disable the USART TX interrupts.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
-*/
+
 void fsm_usart_disable_tx_interrupt(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     port_usart_disable_tx_interrupt(p_fsm->usart_id);
 }
 
-/**
- * @brief Enable the USART TX interrupts.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
-*/
+
 void fsm_usart_enable_rx_interrupt(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     port_usart_enable_rx_interrupt(p_fsm->usart_id);
 }
 
-/**
- * @brief Enable the USART TX interrupts.
- * 
- * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
-*/
+
 void fsm_usart_enable_tx_interrupt(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
