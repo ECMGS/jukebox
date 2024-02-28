@@ -96,11 +96,11 @@ static void do_tx_end(fsm_t * p_this) {
     memset(p_fsm->out_data, EMPTY_BUFFER_CONSTANT, USART_OUTPUT_BUFFER_LENGTH);
 }
 
-
+/** @brief State machine transitions */
 static fsm_trans_t fsm_trans_usart[] = {
-    {WAIT_DATA, check_data_tx, SEND_DATA, do_set_data_tx},
-    {WAIT_DATA, check_data_rx, WAIT_DATA, do_get_data_rx},
-    {SEND_DATA, check_tx_end, WAIT_DATA, do_tx_end},
+    {WAIT_DATA, check_data_tx, SEND_DATA, do_set_data_tx},  /*!< Initial state. Also comes here when data has been send or read*/
+    {WAIT_DATA, check_data_rx, WAIT_DATA, do_get_data_rx},  /*!< Initial state. Also comes here when data has been send or read*/
+    {SEND_DATA, check_tx_end, WAIT_DATA, do_tx_end},        /*!< Send data state*/
     {-1, NULL, -1, NULL}
 };
 
@@ -130,7 +130,12 @@ void fsm_usart_set_out_data(fsm_t *p_this, char *p_data)
     memcpy(p_fsm->out_data, p_data, USART_OUTPUT_BUFFER_LENGTH);
 }
 
-
+/**
+ * @brief Create a new USART FSM.
+ * @note This FSM implements a USART communication protocol. It is a state machine that sends and receives data.
+ * @param usart_id Unique USART identifier number
+ * @returns A pointer to the USART FSM
+*/
 fsm_t *fsm_usart_new(uint32_t usart_id)
 {
     fsm_t *p_fsm = malloc(sizeof(fsm_usart_t)); /* Do malloc to reserve memory of all other FSM elements, although it is interpreted as fsm_t (the first element of the structure) */
@@ -166,10 +171,6 @@ void fsm_usart_init(fsm_t *p_this, uint32_t usart_id)
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     return p_fsm->data_received;
 }
-
-
-
-
 
 /**
  * @brief Reset the input data buffer.
