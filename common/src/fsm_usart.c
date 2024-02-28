@@ -24,7 +24,6 @@
 */
 static bool check_data_rx(fsm_t *p_this)
 {
-    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this); // REVISAR no se si es necesaria esta linea
     return port_usart_rx_done();
 }
 
@@ -48,7 +47,6 @@ static bool check_data_tx(fsm_t *p_this)
 */
 static bool check_tx_end(fsm_t *p_this)
 {
-    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     return port_usart_tx_done();
 }
 
@@ -99,13 +97,31 @@ static void do_tx_end(fsm_t * p_this) {
 }
 
 
+static fsm_trans_t fsm_trans_usart[] = {
+    {WAIT_DATA, check_data_tx, SEND_DATA, do_set_data_tx},
+    {WAIT_DATA, check_data_rx, WAIT_DATA, do_get_data_rx},
+    {SEND_DATA, check_tx_end, WAIT_DATA, do_tx_end},
+    {-1, NULL, -1, NULL}
+};
+
 /* Public functions */
+/**
+ * @brief Get the data received.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+ * @param p_data Pointer to the array where the data will be copied from the in_data array
+*/
 void fsm_usart_get_in_data(fsm_t *p_this, char *p_data)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     memcpy(p_data, p_fsm->in_data, USART_INPUT_BUFFER_LENGTH);
 }
-
+/**
+ * @brief Set the data to send.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+ * @param p_data Pointer to the array where the data will be copied to the out_data array
+*/
 void fsm_usart_set_out_data(fsm_t *p_this, char *p_data)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
@@ -121,11 +137,94 @@ fsm_t *fsm_usart_new(uint32_t usart_id)
     fsm_usart_init(p_fsm, usart_id);
     return p_fsm;
 }
-
+/**
+ * @brief Initialize a USART FSM.
+ * @note This function initializes the default values of the FSM struct and calls to the port to initialize the HW of associated to the given ID.
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+ * @param usart_id Unique USART identifier number
+*/
 void fsm_usart_init(fsm_t *p_this, uint32_t usart_id)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     
-    /* TO-DO alumnos: */
-
+    fsm_init(p_fsm, fsm_trans_usart);
+    p_fsm->usart_id = usart_id;
+    p_fsm->data_received = false;
+    memset(p_fsm->in_data, EMPTY_BUFFER_CONSTANT, USART_INPUT_BUFFER_LENGTH);
+    memset(p_fsm->out_data, EMPTY_BUFFER_CONSTANT, USART_OUTPUT_BUFFER_LENGTH);
+    port_usart_init(p_fsm->usart_id);
 }
+
+/**
+ * @brief Check if data has been received.
+ * 
+ * @param p_this	Pointer to an fsm_t struct than contains an fsm_usart_t struct
+ * @returns true or false
+*/
+ bool fsm_usart_check_data_received(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    return p_fsm->data_received;
+}
+
+
+
+
+
+/**
+ * @brief Reset the input data buffer.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+*/
+void fsm_usart_reset_input_data(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    memset(p_fsm->in_data, EMPTY_BUFFER_CONSTANT, USART_INPUT_BUFFER_LENGTH);
+    p_fsm->data_received = false;
+}
+
+
+/**
+ * @brief Disable the USART RX interrupt.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct 
+*/
+void fsm_usart_disable_rx_interrupt(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    port_usart_disable_rx_interrupt(p_fsm->usart_id);
+}
+
+/**
+ * @brief Disable the USART TX interrupts.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+*/
+void fsm_usart_disable_tx_interrupt(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    port_usart_disable_tx_interrupt(p_fsm->usart_id);
+}
+
+/**
+ * @brief Enable the USART TX interrupts.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+*/
+void fsm_usart_enable_rx_interrupt(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    port_usart_enable_rx_interrupt(p_fsm->usart_id);
+}
+
+/**
+ * @brief Enable the USART TX interrupts.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+*/
+void fsm_usart_enable_tx_interrupt(fsm_t *p_this)
+{
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    port_usart_enable_tx_interrupt(p_fsm->usart_id);
+}
+
