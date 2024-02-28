@@ -37,7 +37,7 @@ static bool check_data_rx(fsm_t *p_this)
 static bool check_data_tx(fsm_t *p_this)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
-    return out_data[0] != EMPTY_BUFFER_CONSTANT; // REVISAR ayuda con este error, igual mas adelante se arregla solo o Uhe se le ocurre algo magico para arregrarlo
+    return p_fsm->out_data[0] != EMPTY_BUFFER_CONSTANT;
 }
 
 /**
@@ -90,6 +90,13 @@ static void do_set_data_tx(fsm_t *p_this)
  * 
  * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t.
 */
+static void do_tx_end(fsm_t * p_this) {
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+
+    port_usart_reset_output_buffer(p_fsm->usart_id);
+
+    memset(p_fsm->out_data, EMPTY_BUFFER_CONSTANT, USART_OUTPUT_BUFFER_LENGTH);
+}
 
 
 /* Public functions */
