@@ -15,7 +15,7 @@
 /**
  * @brief Happy Birthday melody notes.
  *
- * This array contains the frequencies of the notes for the Happy Birthday song.
+ * This array contains the frequencies of the notes for the Happy Birthday song.1
  * The notes are defined as frequency values in Hertz, and they are arranged in the order they are played in the song.
  */
 static const double happy_birthday_notes[HAPPY_BIRTHDAY_LENGTH] = {
