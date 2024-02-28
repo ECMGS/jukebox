@@ -69,7 +69,7 @@ void port_usart_init(uint32_t usart_id)
         ((SystemCoreClock << 5) / (8*2*9600))+1 // TODO: MEJORA V5 PER
     )>>1 & 0xf;
     p_usart->BRR = (div_int << 4) | div_dec;
-
+        // especial mencion a esta parte, tremendo leño
     p_usart->CR1 |= USART_CR1_TE | USART_CR1_RE;
     p_usart->CR1 |= USART_CR1_RXNEIE;
     p_usart->CR1 &= ~(USART_CR1_TXEIE | USART_CR1_TCIE);
