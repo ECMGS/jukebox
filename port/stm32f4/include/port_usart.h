@@ -13,7 +13,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
-
+#include <sting.h>
 /* HW dependent includes */
 
 /* Inclusion of stm32 libraries*/
