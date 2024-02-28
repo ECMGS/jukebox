@@ -1,0 +1,2 @@
+/usr/bin/arm-none-eabi-ar qc libproject.a CMakeFiles/project.dir/common/src/fsm_button.c.obj CMakeFiles/project.dir/common/src/fsm_usart.c.obj CMakeFiles/project.dir/common/src/melodies.c.obj CMakeFiles/project.dir/common/src/source.c.obj CMakeFiles/project.dir/port/stm32f4/src/interr.c.obj CMakeFiles/project.dir/port/stm32f4/src/port_button.c.obj CMakeFiles/project.dir/port/stm32f4/src/port_system.c.obj CMakeFiles/project.dir/port/stm32f4/src/port_usart.c.obj CMakeFiles/project.dir/port/stm32f4/src/syscalls.c.obj
+/usr/bin/arm-none-eabi-ranlib libproject.a

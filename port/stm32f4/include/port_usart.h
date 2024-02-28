@@ -66,38 +66,88 @@ extern port_usart_hw_t port_usart_hw[];
 
 /* Function prototypes and explanation -------------------------------------------------*/
 /**
- * @brief Function to initialize the USART
- * @param usart_id: USART identifier
- * @return void
+ * @brief Configure the HW specifications of a given USART.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array.
 */
 void port_usart_init (uint32_t usart_id);
 
-void port_usart_init (uint32_t usart_id);
-
+/**
+ * @brief Check if the reception is complete.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+ * @returns True or False
+*/
 bool port_usart_rx_done (uint32_t usart_id);
 
+/**
+ * @brief Get the message received through the USART and store it in the buffer passed as argument. This function is called from the function do_get_data_rx() of the FSM to store the message received to the buffer of the FSM.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+ * @param p_buffer	Pointer to the buffer where the message will be stored
+ * 
+*/
 void port_usart_get_from_input_buffer (uint32_t usart_id, char *p_buffer);
 
+/**
+ * @brief Check if the USART is ready to receive a new message.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+ * @return True or False
+*/
 bool port_usart_get_txr_status (uint32_t usart_id);
 
+/**
+ * @brief Copy the message passed as argument to the output buffer of the USART. This function is called from the function do_set_data_tx() of the FSM to set the message to send to the USART.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+ * @param p_data	Pointer to the message to be sent
+ * @param length	Length of the message to be sent
+*/
 void port_usart_copy_to_output_buffer (uint32_t usart_id, char *p_data, uint32_t length);
 
+/**
+ * @brief Reset the input buffer of the USART. This function is called from the function do_get_data_rx() to reset the input buffer of the USART after the message has been read.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+ * 
+*/
 void port_usart_reset_input_buffer (uint32_t usart_id);
 
+/**
+ * @brief Reset the output buffer of the USART. This function is called from the function do_set_data_tx() and do_tx_end() to reset the output buffer of the USART after the message has been sent.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_reset_output_buffer (uint32_t usart_id);
 
+/**
+ * @brief Function to read the data from the USART Data Register and store it in the input buffer. This function is called from the ISR USART3_IRQHandler() when the RXNE flag is set.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_store_data (uint32_t usart_id);
 
+/**
+ * @brief Function to write the data from the output buffer to the USART Data Register. his function is called from the ISR USART3_IRQHandler() when the TXE flag is set.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_write_data (uint32_t usart_id);
 
+/**
+ * @brief Disable USART RX interrupt.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_disable_rx_interrupt (uint32_t usart_id);
 
+/**
+ * @brief Enable USART TX interrupts.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_disable_tx_interrupt (uint32_t usart_id);
 
-
+/**
+ * @brief Enable USART RX interrupts.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_enable_rx_interrupt (uint32_t usart_id);
 
+/**
+ * @brief Enable USART TX interrupts.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+*/
 void port_usart_enable_tx_interrupt (uint32_t usart_id);
-
 
 #endif
