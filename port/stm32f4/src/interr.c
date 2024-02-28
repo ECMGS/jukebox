@@ -9,6 +9,7 @@
 
 // Include headers of different port elements:
 #include "port_button.h"
+#include "port_usart.h"
 //------------------------------------------------------
 // INTERRUPT SERVICE ROUTINES
 //------------------------------------------------------
@@ -35,5 +36,24 @@ void EXTI15_10_IRQHandler ()
     {
         buttons_arr[BUTTON_0_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_0_ID].p_port,buttons_arr[BUTTON_0_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin);
+    }
+}
+
+/**
+ * @brief This function handles USART3 global interrupt.
+ * First, this function identifies the line/ pin which has raised the interruption. Then, perform the desired action. Before leaving it cleans the interrupt pending register.
+ * The program flow jumps to this ISR when the USART3 generates an interrupt. It can be due to:
+ * Reception of a new byte (RXNE)
+ * Transmission of a byte has finished (TC)
+ * Transmission buffer is empty (TXE)
+ * 
+*/
+void 	USART3_IRQHandler (void)
+{
+    if (USART_SR_RXNE & USART3->SR && USART_CR1_RXNEIE & USART3->CR1){
+        port_usart_store_data(USART_0_ID);
+    }
+    if (USART_SR_TXE & USART3->SR && USART_CR1_TXEIE & USART3->CR1){
+        port_usart_write_data(USART_0_ID);
     }
 }
