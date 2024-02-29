@@ -88,7 +88,7 @@ void port_usart_init(uint32_t usart_id)
 }
 
 void port_usart_get_from_input_buffer (uint32_t usart_id, char *p_buffer){
-    memcpy(*p_buffer, usart_arr[usart_id].input_buffer, USART_INPUT_BUFFER_LENGTH);
+    memcpy(p_buffer, usart_arr[usart_id].input_buffer, USART_INPUT_BUFFER_LENGTH);
 }
 
 bool port_usart_get_txr_status (uint32_t usart_id){
@@ -96,7 +96,7 @@ bool port_usart_get_txr_status (uint32_t usart_id){
 }
 
 void port_usart_copy_to_output_buffer (uint32_t usart_id, char *p_data, uint32_t length){
-    memcpy(usart_arr[usart_id].output_buffer, *p_data, USART_OUTPUT_BUFFER_LENGTH);
+    memcpy(usart_arr[usart_id].output_buffer, p_data, USART_OUTPUT_BUFFER_LENGTH);
 }
 
 void port_usart_reset_input_buffer(uint32_t usart_id){

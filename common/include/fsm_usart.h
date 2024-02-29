@@ -33,8 +33,8 @@ enum FSM_USART {
 /**
  * @brief FSM structure for the usart
 */
-#define USART_INPUT_BUFFER_LENGTH 0 // TODO FIX
-#define USART_OUTPUT_BUFFER_LENGTH 0 // TODO FIX
+//#define USART_INPUT_BUFFER_LENGTH 0 // TODO FIX
+//#define USART_OUTPUT_BUFFER_LENGTH 0 // TODO FIX
 #define EMPTY_BUFFER_CONSTANT 0 // TODO FIX
 
 typedef struct {

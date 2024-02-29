@@ -24,7 +24,8 @@
 */
 static bool check_data_rx(fsm_t *p_this)
 {
-    return port_usart_rx_done();
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    return port_usart_rx_done(p_fsm->usart_id);
 }
 
 /**
@@ -47,7 +48,8 @@ static bool check_data_tx(fsm_t *p_this)
 */
 static bool check_tx_end(fsm_t *p_this)
 {
-    return port_usart_tx_done();
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+    return port_usart_tx_done(p_fsm->usart_id);
 }
 
 /* State machine output or action functions */
@@ -132,7 +134,8 @@ void fsm_usart_init(fsm_t *p_this, uint32_t usart_id)
 {
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
     
-    fsm_init(p_fsm, fsm_trans_usart);
+    //fsm_init(p_fsm, fsm_trans_usart);
+    fsm_init(p_this, fsm_trans_usart); //REVISAR
     p_fsm->usart_id = usart_id;
     p_fsm->data_received = false;
     memset(p_fsm->in_data, EMPTY_BUFFER_CONSTANT, USART_INPUT_BUFFER_LENGTH);

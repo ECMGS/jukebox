@@ -79,6 +79,13 @@ void port_usart_init (uint32_t usart_id);
 bool port_usart_rx_done (uint32_t usart_id);
 
 /**
+ * @brief Check if a transmission is complete.
+ * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
+ * @returns True or False
+*/
+bool port_usart_tx_done (uint32_t usart_id);
+
+/**
  * @brief Get the message received through the USART and store it in the buffer passed as argument. This function is called from the function do_get_data_rx() of the FSM to store the message received to the buffer of the FSM.
  * @param usart_id	USART ID. This index is used to select the element of the usart_arr[] array
  * @param p_buffer	Pointer to the buffer where the message will be stored

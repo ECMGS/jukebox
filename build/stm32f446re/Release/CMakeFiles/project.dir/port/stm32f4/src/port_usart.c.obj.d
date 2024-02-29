@@ -1,5 +1,5 @@
-CMakeFiles/project.dir/common/src/fsm_usart.c.obj: \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/common/src/fsm_usart.c \
+CMakeFiles/project.dir/port/stm32f4/src/port_usart.c.obj: \
+ /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/port_usart.c \
  /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/include/port_usart.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stdbool.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h \
@@ -35,5 +35,4 @@ CMakeFiles/project.dir/common/src/fsm_usart.c.obj: \
  /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_gcc.h \
  /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/mpu_armv7.h \
  /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/common/include/fsm_usart.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../lib/fsm/include/fsm.h
+ /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/include/port_system.h
