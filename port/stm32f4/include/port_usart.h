@@ -62,8 +62,8 @@ typedef struct {
 } port_usart_hw_t;
 
 /* Global variables */
-extern port_usart_hw_t port_usart_hw[];
-
+//extern port_usart_hw_t port_usart_hw[];
+extern port_usart_hw_t usart_arr[];
 /* Function prototypes and explanation -------------------------------------------------*/
 /**
  * @brief Configure the HW specifications of a given USART.

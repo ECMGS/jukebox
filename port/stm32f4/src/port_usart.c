@@ -38,7 +38,7 @@ void _reset_buffer(char *p_buffer, uint32_t length){
 
 /* Public functions */
 
-
+//test  uint32_t usart3_rcc = (RCC->APB1ENR) & RCC_APB1ENR_USART3EN_Msk;
 void port_usart_init(uint32_t usart_id)
 {
     USART_TypeDef *p_usart = usart_arr[usart_id].p_usart;
@@ -55,16 +55,21 @@ void port_usart_init(uint32_t usart_id)
 
     port_system_gpio_config_alternate(p_port_tx, pin_tx, alt_func_tx);
     port_system_gpio_config_alternate(p_port_rx, pin_rx, alt_func_rx);
-
+    
     if (p_port_tx == GPIOB) {
-        RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
+        //RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+        RCC->APB1ENR |= RCC_APB1ENR_USART3EN;// estaba mal el iniciar el reloj de gpiob. con esto ya funciona
     }
+    
+    
 
-    p_usart->CR1 &= ~USART_CR1_UE;
-    p_usart->CR1 &= ~USART_CR1_M;
-    p_usart->CR2 &= ~USART_CR2_STOP;
-    p_usart->CR1 &= ~USART_CR1_PCE;
-    p_usart->CR1 &= ~USART_CR1_OVER8;
+
+    p_usart->CR1 &= ~USART_CR1_UE; // Disable USART
+
+    p_usart->CR1 &= ~USART_CR1_M; // 8 bits
+    p_usart->CR2 &= ~USART_CR2_STOP; // 1 stop bit
+    p_usart->CR1 &= ~USART_CR1_PCE; // Parity disabled
+    p_usart->CR1 &= ~USART_CR1_OVER8; // Oversampling by 16
     
     //p_usart->BRR = 0b0000011010000011;   // Actual value 16MHz/(8x2x96000) = 104.1667 aprox 104,(12.5)
     uint32_t div_int = SystemCoreClock / (8*2*9600);
@@ -72,9 +77,10 @@ void port_usart_init(uint32_t usart_id)
         ((SystemCoreClock << 5) / (8*2*9600))+1 // TODO: MEJORA V5 PER
     )>>1 & 0xf;
     p_usart->BRR = (div_int << 4) | div_dec;
-        // especial mencion a esta parte, tremendo leño
+    // especial mencion a esta parte, tremendo leño
     p_usart->CR1 |= USART_CR1_TE | USART_CR1_RE;
-    p_usart->CR1 |= USART_CR1_RXNEIE;
+    p_usart->CR1 &= ~USART_CR1_RXNEIE; // esto estaba al revés, habilitando interrupciones de recepción en lugar de deshabilitandolas
+    
     p_usart->CR1 &= ~(USART_CR1_TXEIE | USART_CR1_TCIE);
 
     // Enable USART interrupts globally
@@ -84,8 +90,8 @@ void port_usart_init(uint32_t usart_id)
         NVIC_EnableIRQ(USART3_IRQn);
     }
 
-    p_usart->CR1 |= USART_CR1_UE;
-
+    p_usart->CR1 |= USART_CR1_UE; //habilitar usart
+    
     _reset_buffer(usart_arr[USART_0_ID].input_buffer, USART_INPUT_BUFFER_LENGTH);
     _reset_buffer(usart_arr[USART_0_ID].output_buffer, USART_OUTPUT_BUFFER_LENGTH);
 }
