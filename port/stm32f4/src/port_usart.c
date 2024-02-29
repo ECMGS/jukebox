@@ -33,7 +33,7 @@ port_usart_hw_t usart_arr[] = {
 /* Private functions */
 
 void _reset_buffer(char *p_buffer, uint32_t length){
-    memset(*p_buffer, EMPTY_BUFFER_CONSTANT, length);
+    memset(p_buffer, EMPTY_BUFFER_CONSTANT, length);
 }
 
 /* Public functions */
