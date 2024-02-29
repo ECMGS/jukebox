@@ -98,3 +98,35 @@ bool port_usart_get_txr_status (uint32_t usart_id){
 void port_usart_copy_to_output_buffer (uint32_t usart_id, char *p_data, uint32_t length){
     memcpy(usart_arr[usart_id].output_buffer, *p_data, USART_OUTPUT_BUFFER_LENGTH);
 }
+
+void port_usart_reset_input_buffer(uint32_t usart_id){
+    _reset_buffer(usart_arr[usart_id].input_buffer, USART_INPUT_BUFFER_LENGTH);
+    usart_arr[usart_id].read_complete = false;
+}	
+
+void port_usart_reset_output_buffer(uint32_t usart_id){
+    _reset_buffer(usart_arr[usart_id].output_buffer, USART_OUTPUT_BUFFER_LENGTH);
+    usart_arr[usart_id].write_complete = false;
+}
+
+bool port_usart_rx_done (uint32_t usart_id){
+    return usart_arr[usart_id].read_complete;
+}
+
+bool port_usart_tx_done (uint32_t usart_id){
+    return usart_arr[usart_id].write_complete;
+}
+
+void port_usart_store_data(uint32_t usart_id){
+    if (USART3->DR == END_CHAR_CONSTANT)
+    {
+        usart_arr[usart_id].read_complete = true;
+        usart_arr[usart_id].i_idx = 0;
+        return;
+    }
+    if (usart_arr[usart_id].i_idx >= USART_INPUT_BUFFER_LENGTH){
+        usart_arr[usart_id].i_idx = 0;
+    }
+    usart_arr[usart_id].input_buffer[usart_arr[usart_id].i_idx] = USART3->DR;
+    usart_arr[usart_id].i_idx++;
+}
