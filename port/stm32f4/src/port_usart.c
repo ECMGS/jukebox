@@ -10,6 +10,7 @@
 
 /* HW dependent libraries */
 #include "port_usart.h"
+#include "fsm_usart.h"
 #include "port_system.h"
 
 /* Global variables */
@@ -31,7 +32,9 @@ port_usart_hw_t usart_arr[] = {
 
 /* Private functions */
 
-
+void _reset_buffer(char *p_buffer, uint32_t length){
+    memset(*p_buffer, EMPTY_BUFFER_CONSTANT, length);
+}
 
 /* Public functions */
 
@@ -118,7 +121,7 @@ bool port_usart_tx_done (uint32_t usart_id){
 }
 
 void port_usart_store_data(uint32_t usart_id){
-    if (USART3->DR == END_CHAR_CONSTANT)
+    if (USART3->DR == END_CHAR_CONSTANT) //TODO: MEJORA V5 PER varias usart
     {
         usart_arr[usart_id].read_complete = true;
         usart_arr[usart_id].i_idx = 0;
@@ -129,4 +132,36 @@ void port_usart_store_data(uint32_t usart_id){
     }
     usart_arr[usart_id].input_buffer[usart_arr[usart_id].i_idx] = USART3->DR;
     usart_arr[usart_id].i_idx++;
+}
+
+void port_usart_write_data(uint32_t usart_id){
+    if (usart_arr[usart_id].o_idx == USART_OUTPUT_BUFFER_LENGTH - 1 || 
+        usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx] == END_CHAR_CONSTANT)
+    {  //TODO: MEJORA V5 PER varias usart
+       USART3->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx]; 
+       port_usart_disable_tx_interrupt(usart_id);
+       usart_arr[usart_id].o_idx = 0;
+       usart_arr[usart_id].write_complete = true;
+       return;
+    } else if (usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx] != EMPTY_BUFFER_CONSTANT){
+        USART3->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx];
+        usart_arr[usart_id].o_idx++;
+    }
+    return;
+}
+
+void port_usart_enable_rx_interrupt(uint32_t usart_id){
+    USART3->CR1 |= USART_CR1_RXNEIE; //TODO: MEJORA V5 PER varias usart
+}
+
+void port_usart_enable_tx_interrupt(uint32_t usart_id){
+    USART3->CR1 |= USART_CR1_TXEIE; //TODO: MEJORA V5 PER varias usart
+}
+
+void port_usart_disable_rx_interrupt(uint32_t usart_id){
+    USART3->CR1 &= ~USART_CR1_RXNEIE; //TODO: MEJORA V5 PER varias usart
+}
+
+void port_usart_disable_tx_interrupt(uint32_t usart_id){
+    USART3->CR1 &= ~USART_CR1_TXEIE; //TODO: MEJORA V5 PER varias usart
 }
