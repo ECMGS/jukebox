@@ -37,4 +37,6 @@ CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj: \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/string.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/_locale.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/strings.h \
- /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/string.h
+ /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/string.h \
+ /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/common/include/fsm_usart.h \
+ /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../lib/fsm/include/fsm.h

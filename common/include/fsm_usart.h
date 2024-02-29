@@ -13,7 +13,7 @@
 #include <stdlib.h>
 /* Other includes */
 #include "fsm.h"
-
+#include "port_usart.h"
 /* Defines and enums ----------------------------------------------------------*/
 
 #ifndef FSM_USART_H_
@@ -33,8 +33,8 @@ enum FSM_USART {
 /**
  * @brief FSM structure for the usart
 */
-//#define USART_INPUT_BUFFER_LENGTH 0 // TODO FIX
-//#define USART_OUTPUT_BUFFER_LENGTH 0 // TODO FIX
+#define USART_INPUT_BUFFER_LENGTH 10
+#define USART_OUTPUT_BUFFER_LENGTH 100
 #define EMPTY_BUFFER_CONSTANT 0 // TODO FIX
 
 typedef struct {

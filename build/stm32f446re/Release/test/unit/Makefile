@@ -144,12 +144,41 @@ flash-test_fsm_button/fast:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/flash-test_fsm_button.dir/build.make test/unit/CMakeFiles/flash-test_fsm_button.dir/build
 .PHONY : flash-test_fsm_button/fast
 
+# Convenience name for target.
+test/unit/CMakeFiles/test_fsm_uart.dir/rule:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/test_fsm_uart.dir/rule
+.PHONY : test/unit/CMakeFiles/test_fsm_uart.dir/rule
+
+# Convenience name for target.
+test_fsm_uart: test/unit/CMakeFiles/test_fsm_uart.dir/rule
+.PHONY : test_fsm_uart
+
+# fast build rule for target.
+test_fsm_uart/fast:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/build
+.PHONY : test_fsm_uart/fast
+
+# Convenience name for target.
+test/unit/CMakeFiles/flash-test_fsm_uart.dir/rule:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/unit/CMakeFiles/flash-test_fsm_uart.dir/rule
+.PHONY : test/unit/CMakeFiles/flash-test_fsm_uart.dir/rule
+
+# Convenience name for target.
+flash-test_fsm_uart: test/unit/CMakeFiles/flash-test_fsm_uart.dir/rule
+.PHONY : flash-test_fsm_uart
+
+# fast build rule for target.
+flash-test_fsm_uart/fast:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/flash-test_fsm_uart.dir/build.make test/unit/CMakeFiles/flash-test_fsm_uart.dir/build
+.PHONY : flash-test_fsm_uart/fast
+
 __/__/port/stm32f4/src/interr.obj: __/__/port/stm32f4/src/interr.c.obj
 .PHONY : __/__/port/stm32f4/src/interr.obj
 
 # target to build an object file
 __/__/port/stm32f4/src/interr.c.obj:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_button.dir/build.make test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/__/__/port/stm32f4/src/interr.c.obj
 .PHONY : __/__/port/stm32f4/src/interr.c.obj
 
 __/__/port/stm32f4/src/interr.i: __/__/port/stm32f4/src/interr.c.i
@@ -158,6 +187,7 @@ __/__/port/stm32f4/src/interr.i: __/__/port/stm32f4/src/interr.c.i
 # target to preprocess a source file
 __/__/port/stm32f4/src/interr.c.i:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_button.dir/build.make test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.i
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/__/__/port/stm32f4/src/interr.c.i
 .PHONY : __/__/port/stm32f4/src/interr.c.i
 
 __/__/port/stm32f4/src/interr.s: __/__/port/stm32f4/src/interr.c.s
@@ -166,6 +196,7 @@ __/__/port/stm32f4/src/interr.s: __/__/port/stm32f4/src/interr.c.s
 # target to generate assembly for a file
 __/__/port/stm32f4/src/interr.c.s:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_button.dir/build.make test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.s
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/__/__/port/stm32f4/src/interr.c.s
 .PHONY : __/__/port/stm32f4/src/interr.c.s
 
 test_fsm_button.obj: test_fsm_button.c.obj
@@ -192,6 +223,30 @@ test_fsm_button.c.s:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_button.dir/build.make test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.s
 .PHONY : test_fsm_button.c.s
 
+test_fsm_uart.obj: test_fsm_uart.c.obj
+.PHONY : test_fsm_uart.obj
+
+# target to build an object file
+test_fsm_uart.c.obj:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/test_fsm_uart.c.obj
+.PHONY : test_fsm_uart.c.obj
+
+test_fsm_uart.i: test_fsm_uart.c.i
+.PHONY : test_fsm_uart.i
+
+# target to preprocess a source file
+test_fsm_uart.c.i:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/test_fsm_uart.c.i
+.PHONY : test_fsm_uart.c.i
+
+test_fsm_uart.s: test_fsm_uart.c.s
+.PHONY : test_fsm_uart.s
+
+# target to generate assembly for a file
+test_fsm_uart.c.s:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/test_fsm_uart.c.s
+.PHONY : test_fsm_uart.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -201,13 +256,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... flash-test_fsm_button"
+	@echo "... flash-test_fsm_uart"
 	@echo "... test_fsm_button"
+	@echo "... test_fsm_uart"
 	@echo "... __/__/port/stm32f4/src/interr.obj"
 	@echo "... __/__/port/stm32f4/src/interr.i"
 	@echo "... __/__/port/stm32f4/src/interr.s"
 	@echo "... test_fsm_button.obj"
 	@echo "... test_fsm_button.i"
 	@echo "... test_fsm_button.s"
+	@echo "... test_fsm_uart.obj"
+	@echo "... test_fsm_uart.i"
+	@echo "... test_fsm_uart.s"
 .PHONY : help
 
 

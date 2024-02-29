@@ -1,0 +1,8 @@
+# Hashes of file build rules.
+4c0b7aaaa9256e1a0fe967722fcf4955 CMakeFiles/flash-main
+c8aeffa806a143c5ee593a2b434f057a test/integration/CMakeFiles/flash-test_v1
+538b0a02a414aa12e2caebb94819b53e test/integration/CMakeFiles/flash-test_v2
+9c592b8ed6cd67f5d4a3236f17af981e test/unit/CMakeFiles/flash-test_fsm_button
+c50029ccc6c5c9f50c855b61c8d86922 test/unit/CMakeFiles/flash-test_fsm_uart
+eb4f8a833980d2b0e2a2ccbecf538218 test/unit/stm32f4/CMakeFiles/flash-test_port_button
+ea4195ad5a0c1753c295dcb719594e19 test/unit/stm32f4/CMakeFiles/flash-test_port_uart

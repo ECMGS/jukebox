@@ -18,7 +18,7 @@
 
 /* Inclusion of stm32 libraries*/
 #include "stm32f4xx.h"
-
+#include "fsm_usart.h"
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */

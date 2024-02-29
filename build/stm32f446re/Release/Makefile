@@ -221,6 +221,32 @@ flash-test_v1/fast:
 .PHONY : flash-test_v1/fast
 
 #=============================================================================
+# Target rules for targets named test_v2
+
+# Build rule for target.
+test_v2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_v2
+.PHONY : test_v2
+
+# fast build rule for target.
+test_v2/fast:
+	$(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/build
+.PHONY : test_v2/fast
+
+#=============================================================================
+# Target rules for targets named flash-test_v2
+
+# Build rule for target.
+flash-test_v2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flash-test_v2
+.PHONY : flash-test_v2
+
+# fast build rule for target.
+flash-test_v2/fast:
+	$(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/flash-test_v2.dir/build.make test/integration/CMakeFiles/flash-test_v2.dir/build
+.PHONY : flash-test_v2/fast
+
+#=============================================================================
 # Target rules for targets named test_fsm_button
 
 # Build rule for target.
@@ -247,6 +273,32 @@ flash-test_fsm_button/fast:
 .PHONY : flash-test_fsm_button/fast
 
 #=============================================================================
+# Target rules for targets named test_fsm_uart
+
+# Build rule for target.
+test_fsm_uart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_fsm_uart
+.PHONY : test_fsm_uart
+
+# fast build rule for target.
+test_fsm_uart/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/test_fsm_uart.dir/build.make test/unit/CMakeFiles/test_fsm_uart.dir/build
+.PHONY : test_fsm_uart/fast
+
+#=============================================================================
+# Target rules for targets named flash-test_fsm_uart
+
+# Build rule for target.
+flash-test_fsm_uart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flash-test_fsm_uart
+.PHONY : flash-test_fsm_uart
+
+# fast build rule for target.
+flash-test_fsm_uart/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/CMakeFiles/flash-test_fsm_uart.dir/build.make test/unit/CMakeFiles/flash-test_fsm_uart.dir/build
+.PHONY : flash-test_fsm_uart/fast
+
+#=============================================================================
 # Target rules for targets named test_port_button
 
 # Build rule for target.
@@ -271,6 +323,32 @@ flash-test_port_button: cmake_check_build_system
 flash-test_port_button/fast:
 	$(MAKE) $(MAKESILENT) -f test/unit/stm32f4/CMakeFiles/flash-test_port_button.dir/build.make test/unit/stm32f4/CMakeFiles/flash-test_port_button.dir/build
 .PHONY : flash-test_port_button/fast
+
+#=============================================================================
+# Target rules for targets named test_port_uart
+
+# Build rule for target.
+test_port_uart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_port_uart
+.PHONY : test_port_uart
+
+# fast build rule for target.
+test_port_uart/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build.make test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build
+.PHONY : test_port_uart/fast
+
+#=============================================================================
+# Target rules for targets named flash-test_port_uart
+
+# Build rule for target.
+flash-test_port_uart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flash-test_port_uart
+.PHONY : flash-test_port_uart
+
+# fast build rule for target.
+flash-test_port_uart/fast:
+	$(MAKE) $(MAKESILENT) -f test/unit/stm32f4/CMakeFiles/flash-test_port_uart.dir/build.make test/unit/stm32f4/CMakeFiles/flash-test_port_uart.dir/build
+.PHONY : flash-test_port_uart/fast
 
 common/src/fsm_button.obj: common/src/fsm_button.c.obj
 .PHONY : common/src/fsm_button.obj
@@ -581,15 +659,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... flash-main"
 	@echo "... flash-test_fsm_button"
+	@echo "... flash-test_fsm_uart"
 	@echo "... flash-test_port_button"
+	@echo "... flash-test_port_uart"
 	@echo "... flash-test_v1"
+	@echo "... flash-test_v2"
 	@echo "... fsm"
 	@echo "... main"
 	@echo "... platform"
 	@echo "... project"
 	@echo "... test_fsm_button"
+	@echo "... test_fsm_uart"
 	@echo "... test_port_button"
+	@echo "... test_port_uart"
 	@echo "... test_v1"
+	@echo "... test_v2"
 	@echo "... unity"
 	@echo "... common/src/fsm_button.obj"
 	@echo "... common/src/fsm_button.i"

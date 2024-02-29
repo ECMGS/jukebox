@@ -144,12 +144,41 @@ flash-test_v1/fast:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/flash-test_v1.dir/build.make test/integration/CMakeFiles/flash-test_v1.dir/build
 .PHONY : flash-test_v1/fast
 
+# Convenience name for target.
+test/integration/CMakeFiles/test_v2.dir/rule:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/integration/CMakeFiles/test_v2.dir/rule
+.PHONY : test/integration/CMakeFiles/test_v2.dir/rule
+
+# Convenience name for target.
+test_v2: test/integration/CMakeFiles/test_v2.dir/rule
+.PHONY : test_v2
+
+# fast build rule for target.
+test_v2/fast:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/build
+.PHONY : test_v2/fast
+
+# Convenience name for target.
+test/integration/CMakeFiles/flash-test_v2.dir/rule:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/integration/CMakeFiles/flash-test_v2.dir/rule
+.PHONY : test/integration/CMakeFiles/flash-test_v2.dir/rule
+
+# Convenience name for target.
+flash-test_v2: test/integration/CMakeFiles/flash-test_v2.dir/rule
+.PHONY : flash-test_v2
+
+# fast build rule for target.
+flash-test_v2/fast:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/flash-test_v2.dir/build.make test/integration/CMakeFiles/flash-test_v2.dir/build
+.PHONY : flash-test_v2/fast
+
 __/__/port/stm32f4/src/interr.obj: __/__/port/stm32f4/src/interr.c.obj
 .PHONY : __/__/port/stm32f4/src/interr.obj
 
 # target to build an object file
 __/__/port/stm32f4/src/interr.c.obj:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v1.dir/build.make test/integration/CMakeFiles/test_v1.dir/__/__/port/stm32f4/src/interr.c.obj
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/__/__/port/stm32f4/src/interr.c.obj
 .PHONY : __/__/port/stm32f4/src/interr.c.obj
 
 __/__/port/stm32f4/src/interr.i: __/__/port/stm32f4/src/interr.c.i
@@ -158,6 +187,7 @@ __/__/port/stm32f4/src/interr.i: __/__/port/stm32f4/src/interr.c.i
 # target to preprocess a source file
 __/__/port/stm32f4/src/interr.c.i:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v1.dir/build.make test/integration/CMakeFiles/test_v1.dir/__/__/port/stm32f4/src/interr.c.i
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/__/__/port/stm32f4/src/interr.c.i
 .PHONY : __/__/port/stm32f4/src/interr.c.i
 
 __/__/port/stm32f4/src/interr.s: __/__/port/stm32f4/src/interr.c.s
@@ -166,6 +196,7 @@ __/__/port/stm32f4/src/interr.s: __/__/port/stm32f4/src/interr.c.s
 # target to generate assembly for a file
 __/__/port/stm32f4/src/interr.c.s:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v1.dir/build.make test/integration/CMakeFiles/test_v1.dir/__/__/port/stm32f4/src/interr.c.s
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/__/__/port/stm32f4/src/interr.c.s
 .PHONY : __/__/port/stm32f4/src/interr.c.s
 
 test_v1.obj: test_v1.c.obj
@@ -192,6 +223,30 @@ test_v1.c.s:
 	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v1.dir/build.make test/integration/CMakeFiles/test_v1.dir/test_v1.c.s
 .PHONY : test_v1.c.s
 
+test_v2.obj: test_v2.c.obj
+.PHONY : test_v2.obj
+
+# target to build an object file
+test_v2.c.obj:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/test_v2.c.obj
+.PHONY : test_v2.c.obj
+
+test_v2.i: test_v2.c.i
+.PHONY : test_v2.i
+
+# target to preprocess a source file
+test_v2.c.i:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/test_v2.c.i
+.PHONY : test_v2.c.i
+
+test_v2.s: test_v2.c.s
+.PHONY : test_v2.s
+
+# target to generate assembly for a file
+test_v2.c.s:
+	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Release && $(MAKE) $(MAKESILENT) -f test/integration/CMakeFiles/test_v2.dir/build.make test/integration/CMakeFiles/test_v2.dir/test_v2.c.s
+.PHONY : test_v2.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -201,13 +256,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... flash-test_v1"
+	@echo "... flash-test_v2"
 	@echo "... test_v1"
+	@echo "... test_v2"
 	@echo "... __/__/port/stm32f4/src/interr.obj"
 	@echo "... __/__/port/stm32f4/src/interr.i"
 	@echo "... __/__/port/stm32f4/src/interr.s"
 	@echo "... test_v1.obj"
 	@echo "... test_v1.i"
 	@echo "... test_v1.s"
+	@echo "... test_v2.obj"
+	@echo "... test_v2.i"
+	@echo "... test_v2.s"
 .PHONY : help
 
 
