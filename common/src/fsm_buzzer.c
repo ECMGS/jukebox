@@ -10,6 +10,7 @@
 /* Standard C libraries */
 
 /* Other libraries */
+#include "fsm_buzzer.h"
 
 /* State machine input or transition functions */
 
