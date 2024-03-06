@@ -29,7 +29,7 @@
 typedef struct {
     GPIO_TypeDef    *p_port;
     uint8_t         pin;
-    uint8_t         alt_func;
+    uint8_t         alt_func; //AF2
     bool            note_end;
 } port_buzzer_hw_t;
 
