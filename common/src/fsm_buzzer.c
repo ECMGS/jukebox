@@ -13,7 +13,7 @@
 #include "fsm_buzzer.h"
 
 /* State machine input or transition functions */
-
+static bool check_melod
 
 /* State machine output or action functions */
 

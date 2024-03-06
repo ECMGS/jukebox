@@ -20,9 +20,12 @@
 #include "melodies.h"
 
 /* HW dependent includes */
-
+#include "port_buzzer.h"
 
 /* Defines and enums ----------------------------------------------------------*/
+
+#define BUZZER_FSM_BUTTON_ID BUTTON_0_ID
+
 /* Enums */
 
 /**
