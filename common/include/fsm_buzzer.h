@@ -1,9 +1,9 @@
 /**
  * @file fsm_buzzer.h
  * @brief Header for fsm_buzzer.c file.
- * @author alumno1
- * @author alumno2
- * @date fecha
+ * @author Eugenio Cano Muñoz
+ * @author Jorge Alejandro Estefania
+ * @date 06/03/2024
  */
 
 #ifndef FSM_BUZZER_H_
@@ -20,12 +20,9 @@
 #include "melodies.h"
 
 /* HW dependent includes */
-#include "port_buzzer.h"
+
 
 /* Defines and enums ----------------------------------------------------------*/
-
-#define BUZZER_FSM_BUTTON_ID BUTTON_0_ID
-
 /* Enums */
 
 /**
@@ -68,7 +65,7 @@ typedef struct {
  * @param p_melody	Pointer to the melody to play
  * 
 */
-void 	fsm_buzzer_set_melody (fsm_t *p_this, const melody_t *p_melody);
+void fsm_buzzer_set_melody (fsm_t *p_this, const melody_t *p_melody);
 
 /**
  * @brief Set the speed of the player.
@@ -78,7 +75,7 @@ void 	fsm_buzzer_set_melody (fsm_t *p_this, const melody_t *p_melody);
  * @param p_this	Pointer to an fsm_t struct than contains an fsm_buzzer_t struct
  * @param speed	Speed of the player
 */
-void 	fsm_buzzer_set_speed (fsm_t *p_this, double speed);
+void fsm_buzzer_set_speed (fsm_t *p_this, double speed);
 
 /**
  * @brief Set the action to perform on the player.
@@ -141,7 +138,7 @@ fsm_t * fsm_buzzer_new (uint32_t buzzer_id);
  * @param p_this	Pointer to an fsm_t struct than contains an fsm_buzzer_t struct
  * @param Unique    buzzer identifier number
 */
-void 	fsm_buzzer_init (fsm_t *p_this, uint32_t buzzer_id);
+void fsm_buzzer_init (fsm_t *p_this, uint32_t buzzer_id);
 
 /**
  * @brief Creates a new buzzer finite state machine.
@@ -173,6 +170,6 @@ void 	fsm_buzzer_init (fsm_t *p_this, uint32_t buzzer_id);
  * 
  * @returns A pointer to the new buzzer finite state machine
 */
-bool 	fsm_buzzer_check_activity (fsm_t *p_this);
+bool fsm_buzzer_check_activity (fsm_t *p_this);
 
 #endif /* FSM_BUZZER_H_ */
