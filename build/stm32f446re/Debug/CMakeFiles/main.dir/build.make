@@ -53,10 +53,10 @@ RM = /snap/cmake/1366/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox
+CMAKE_SOURCE_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
+CMAKE_BINARY_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/main.dir/progress.make
 include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.c.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/main.c.obj: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/main.c
+CMakeFiles/main.dir/main.c.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/main.c
 CMakeFiles/main.dir/main.c.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.obj"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/main.c.obj -MF CMakeFiles/main.dir/main.c.obj.d -o CMakeFiles/main.dir/main.c.obj -c /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.obj"
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/main.c.obj -MF CMakeFiles/main.dir/main.c.obj.d -o CMakeFiles/main.dir/main.c.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/main.c
 
 CMakeFiles/main.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/main.c.i"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/main.c > CMakeFiles/main.dir/main.c.i
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/main.c > CMakeFiles/main.dir/main.c.i
 
 CMakeFiles/main.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/main.c.s"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/main.c -o CMakeFiles/main.dir/main.c.s
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/main.c -o CMakeFiles/main.dir/main.c.s
 
 CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
+CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
 CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj -MF CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj.d -o CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj -c /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj"
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj -MF CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj.d -o CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
 
 CMakeFiles/main.dir/port/stm32f4/src/interr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/port/stm32f4/src/interr.c.i"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c > CMakeFiles/main.dir/port/stm32f4/src/interr.c.i
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c > CMakeFiles/main.dir/port/stm32f4/src/interr.c.i
 
 CMakeFiles/main.dir/port/stm32f4/src/interr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/port/stm32f4/src/interr.c.s"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c -o CMakeFiles/main.dir/port/stm32f4/src/interr.c.s
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c -o CMakeFiles/main.dir/port/stm32f4/src/interr.c.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -105,19 +105,19 @@ main_OBJECTS = \
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/main.c.obj
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/build.make
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libplatform.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libproject.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libfsm.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libplatform.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf"
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/main.c.obj
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/build.make
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libplatform.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libproject.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libfsm.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: libplatform.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf: CMakeFiles/main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/main.dir/build: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf
+CMakeFiles/main.dir/build: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf
 .PHONY : CMakeFiles/main.dir/build
 
 CMakeFiles/main.dir/clean:
@@ -125,6 +125,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/main.dir/depend
 

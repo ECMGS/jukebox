@@ -8,7 +8,7 @@ events:
       - "CMakeLists.txt:33 (PROJECT)"
     message: |
       The target system is: Generic -  - ARM
-      The host system is: Linux - 6.5.0-21-generic - x86_64
+      The host system is: Linux - 6.6.10-76060610-generic - x86_64
   -
     kind: "message-v1"
     backtrace:
@@ -59,7 +59,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
       
       The C compiler identification is GNU, found in:
-        /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.o
+        /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.o
       
   -
     kind: "message-v1"
@@ -83,24 +83,24 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7"
-      binary: "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7"
+      source: "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue"
+      binary: "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue"
     cmakeVariables:
       CMAKE_C_FLAGS: " -DSTM32F446xx -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard"
       CMAKE_C_FLAGS_DEBUG: "-g"
       CMAKE_EXE_LINKER_FLAGS: ""
-      CMAKE_MODULE_PATH: "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../cmake/modules"
+      CMAKE_MODULE_PATH: "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../cmake/modules"
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7'
+        Change Dir: '/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue'
         
-        Run Build Command(s): /snap/cmake/1366/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_eed56/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_eed56.dir/build.make CMakeFiles/cmTC_eed56.dir/build
-        gmake[1]: Entering directory '/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7'
-        Building C object CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj
-        /opt/MatrixMCU/bin/arm-none-eabi-gcc   -DSTM32F446xx -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard    -v -o CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj -c /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /snap/cmake/1366/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_604c9/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_604c9.dir/build.make CMakeFiles/cmTC_604c9.dir/build
+        gmake[1]: Entering directory '/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue'
+        Building C object CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj
+        /opt/MatrixMCU/bin/arm-none-eabi-gcc   -DSTM32F446xx -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard    -v -o CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj -c /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/opt/MatrixMCU/bin/arm-none-eabi-gcc
         Target: arm-none-eabi
@@ -108,8 +108,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 13.2.1 20231009 (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 
-        COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_eed56.dir/'
-         /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/13.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/ -isysroot /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ -D STM32F446xx /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_eed56.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mlibarch=armv7e-m+fp -march=armv7e-m+fp -version -o /tmp/ccJ6nXcz.s
+        COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_604c9.dir/'
+         /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/13.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/ -isysroot /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ -D STM32F446xx /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_604c9.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mlibarch=armv7e-m+fp -march=armv7e-m+fp -version -o /tmp/ccdpsuQV.s
         GNU C17 (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) version 13.2.1 20231009 (arm-none-eabi)
         	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-44), GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
         
@@ -126,18 +126,18 @@ events:
          /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/include
         End of search list.
         Compiler executable checksum: 3af492648c23d64f81488ff0afc525a8
-        COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_eed56.dir/'
-         /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj /tmp/ccJ6nXcz.s
+        COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_604c9.dir/'
+         /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj /tmp/ccdpsuQV.s
         GNU assembler version 2.41.0 (arm-none-eabi) using BFD version (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 2.41.0.20231009
         COMPILER_PATH=/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/13.2.1/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.'
-        Linking C static library libcmTC_eed56.a
-        /snap/cmake/1366/bin/cmake -P CMakeFiles/cmTC_eed56.dir/cmake_clean_target.cmake
-        /snap/cmake/1366/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eed56.dir/link.txt --verbose=1
-        /usr/bin/arm-none-eabi-ar qc libcmTC_eed56.a CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/arm-none-eabi-ranlib libcmTC_eed56.a
-        gmake[1]: Leaving directory '/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7'
+        COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.'
+        Linking C static library libcmTC_604c9.a
+        /snap/cmake/1366/bin/cmake -P CMakeFiles/cmTC_604c9.dir/cmake_clean_target.cmake
+        /snap/cmake/1366/bin/cmake -E cmake_link_script CMakeFiles/cmTC_604c9.dir/link.txt --verbose=1
+        /usr/bin/ar qc libcmTC_604c9.a CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/ranlib libcmTC_604c9.a
+        gmake[1]: Leaving directory '/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue'
         
       exitCode: 0
   -
@@ -168,14 +168,14 @@ events:
       - "CMakeLists.txt:33 (PROJECT)"
     message: |
       Parsed C implicit link information:
-        link line regex: [^( *|.*[/\\])(arm-none-eabi-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7']
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue']
         ignore line: []
-        ignore line: [Run Build Command(s): /snap/cmake/1366/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_eed56/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_eed56.dir/build.make CMakeFiles/cmTC_eed56.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7']
-        ignore line: [Building C object CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/opt/MatrixMCU/bin/arm-none-eabi-gcc   -DSTM32F446xx -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard    -v -o CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj -c /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /snap/cmake/1366/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_604c9/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_604c9.dir/build.make CMakeFiles/cmTC_604c9.dir/build]
+        ignore line: [gmake[1]: Entering directory '/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue']
+        ignore line: [Building C object CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/opt/MatrixMCU/bin/arm-none-eabi-gcc   -DSTM32F446xx -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard    -v -o CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj -c /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/opt/MatrixMCU/bin/arm-none-eabi-gcc]
         ignore line: [Target: arm-none-eabi]
@@ -183,8 +183,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 13.2.1 20231009 (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_eed56.dir/']
-        ignore line: [ /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/13.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/ -isysroot /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ -D STM32F446xx /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_eed56.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mlibarch=armv7e-m+fp -march=armv7e-m+fp -version -o /tmp/ccJ6nXcz.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_604c9.dir/']
+        ignore line: [ /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/13.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/ -isysroot /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ -D STM32F446xx /snap/cmake/1366/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_604c9.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mlibarch=armv7e-m+fp -march=armv7e-m+fp -version -o /tmp/ccdpsuQV.s]
         ignore line: [GNU C17 (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) version 13.2.1 20231009 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-44)  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
         ignore line: []
@@ -201,18 +201,18 @@ events:
         ignore line: [ /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 3af492648c23d64f81488ff0afc525a8]
-        ignore line: [COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_eed56.dir/']
-        ignore line: [ /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj /tmp/ccJ6nXcz.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_604c9.dir/']
+        ignore line: [ /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj /tmp/ccdpsuQV.s]
         ignore line: [GNU assembler version 2.41.0 (arm-none-eabi) using BFD version (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 2.41.0.20231009]
         ignore line: [COMPILER_PATH=/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/13.2.1/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../libexec/gcc/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/bin/]
         ignore line: [LIBRARY_PATH=/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/:/opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C static library libcmTC_eed56.a]
-        ignore line: [/snap/cmake/1366/bin/cmake -P CMakeFiles/cmTC_eed56.dir/cmake_clean_target.cmake]
-        ignore line: [/snap/cmake/1366/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eed56.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_eed56.a CMakeFiles/cmTC_eed56.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_eed56.a]
-        ignore line: [gmake[1]: Leaving directory '/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-IZOrk7']
+        ignore line: [COLLECT_GCC_OPTIONS='-D' 'STM32F446xx' '-mcpu=cortex-m4' '-mthumb' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-v' '-o' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj' '-c' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C static library libcmTC_604c9.a]
+        ignore line: [/snap/cmake/1366/bin/cmake -P CMakeFiles/cmTC_604c9.dir/cmake_clean_target.cmake]
+        ignore line: [/snap/cmake/1366/bin/cmake -E cmake_link_script CMakeFiles/cmTC_604c9.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/ar qc libcmTC_604c9.a CMakeFiles/cmTC_604c9.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/ranlib libcmTC_604c9.a]
+        ignore line: [gmake[1]: Leaving directory '/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/CMakeScratch/TryCompile-wrkLue']
         ignore line: []
         ignore line: []
         implicit libs: []

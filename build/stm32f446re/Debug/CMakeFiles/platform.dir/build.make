@@ -53,10 +53,10 @@ RM = /snap/cmake/1366/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox
+CMAKE_SOURCE_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
+CMAKE_BINARY_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/platform.dir/depend.make
@@ -69,30 +69,30 @@ include CMakeFiles/platform.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/platform.dir/flags.make
 
-CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj: CMakeFiles/platform.dir/flags.make
-CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj: /home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj -c /home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s
+CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj: CMakeFiles/platform.dir/flags.make
+CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s
 
-CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.i"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s > CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.i
+CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.i"
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s > CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.i
 
-CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.s"
-	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s -o CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.s
+CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.s"
+	/opt/MatrixMCU/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s -o CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.s
 
 # Object files for target platform
 platform_OBJECTS = \
-"CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
+"CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
 
 # External object files for target platform
 platform_EXTERNAL_OBJECTS =
 
-libplatform.a: CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj
+libplatform.a: CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj
 libplatform.a: CMakeFiles/platform.dir/build.make
 libplatform.a: CMakeFiles/platform.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking ASM static library libplatform.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking ASM static library libplatform.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/platform.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/platform.dir/link.txt --verbose=$(VERBOSE)
 
@@ -105,6 +105,6 @@ CMakeFiles/platform.dir/clean:
 .PHONY : CMakeFiles/platform.dir/clean
 
 CMakeFiles/platform.dir/depend:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/platform.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/platform.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/platform.dir/depend
 

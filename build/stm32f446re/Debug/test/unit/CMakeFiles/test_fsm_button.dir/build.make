@@ -53,10 +53,10 @@ RM = /snap/cmake/1366/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox
+CMAKE_SOURCE_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
+CMAKE_BINARY_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
 
 # Include any dependencies generated for this target.
 include test/unit/CMakeFiles/test_fsm_button.dir/depend.make
@@ -70,32 +70,32 @@ include test/unit/CMakeFiles/test_fsm_button.dir/progress.make
 include test/unit/CMakeFiles/test_fsm_button.dir/flags.make
 
 test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj: test/unit/CMakeFiles/test_fsm_button.dir/flags.make
-test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c
+test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c
 test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj: test/unit/CMakeFiles/test_fsm_button.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj -MF CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj.d -o CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj -c /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj -MF CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj.d -o CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c
 
 test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_fsm_button.dir/test_fsm_button.c.i"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c > CMakeFiles/test_fsm_button.dir/test_fsm_button.c.i
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c > CMakeFiles/test_fsm_button.dir/test_fsm_button.c.i
 
 test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_fsm_button.dir/test_fsm_button.c.s"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c -o CMakeFiles/test_fsm_button.dir/test_fsm_button.c.s
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/test_fsm_button.c -o CMakeFiles/test_fsm_button.dir/test_fsm_button.c.s
 
 test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj: test/unit/CMakeFiles/test_fsm_button.dir/flags.make
-test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
+test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
 test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj: test/unit/CMakeFiles/test_fsm_button.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj -MF CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj.d -o CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj -c /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj -MF CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj.d -o CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
 
 test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.i"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c > CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.i
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c > CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.i
 
 test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.s"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c -o CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.s
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c -o CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.s
 
 # Object files for target test_fsm_button
 test_fsm_button_OBJECTS = \
@@ -105,27 +105,27 @@ test_fsm_button_OBJECTS = \
 # External object files for target test_fsm_button
 test_fsm_button_EXTERNAL_OBJECTS =
 
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/build.make
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libplatform.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libproject.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libunity.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libfsm.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libplatform.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_fsm_button.dir/link.txt --verbose=$(VERBOSE)
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/test_fsm_button.c.obj
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/__/__/port/stm32f4/src/interr.c.obj
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/build.make
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libplatform.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libproject.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libunity.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libfsm.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: libplatform.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf: test/unit/CMakeFiles/test_fsm_button.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_fsm_button.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-test/unit/CMakeFiles/test_fsm_button.dir/build: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf
+test/unit/CMakeFiles/test_fsm_button.dir/build: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf
 .PHONY : test/unit/CMakeFiles/test_fsm_button.dir/build
 
 test/unit/CMakeFiles/test_fsm_button.dir/clean:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && $(CMAKE_COMMAND) -P CMakeFiles/test_fsm_button.dir/cmake_clean.cmake
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && $(CMAKE_COMMAND) -P CMakeFiles/test_fsm_button.dir/cmake_clean.cmake
 .PHONY : test/unit/CMakeFiles/test_fsm_button.dir/clean
 
 test/unit/CMakeFiles/test_fsm_button.dir/depend:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/CMakeFiles/test_fsm_button.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/CMakeFiles/test_fsm_button.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : test/unit/CMakeFiles/test_fsm_button.dir/depend
 

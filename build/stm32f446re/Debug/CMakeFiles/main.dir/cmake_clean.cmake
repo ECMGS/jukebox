@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf"
-  "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.pdb"
+  "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.elf"
+  "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/main.pdb"
   "CMakeFiles/main.dir/main.c.obj"
   "CMakeFiles/main.dir/main.c.obj.d"
   "CMakeFiles/main.dir/port/stm32f4/src/interr.c.obj"

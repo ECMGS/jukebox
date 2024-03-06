@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj" "gcc" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj.d"
-  "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj" "gcc" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj.d"
+  "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj" "gcc" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj.d"
+  "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj" "gcc" "test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

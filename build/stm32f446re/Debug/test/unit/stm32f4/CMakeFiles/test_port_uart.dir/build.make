@@ -53,10 +53,10 @@ RM = /snap/cmake/1366/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox
+CMAKE_SOURCE_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
+CMAKE_BINARY_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
 
 # Include any dependencies generated for this target.
 include test/unit/stm32f4/CMakeFiles/test_port_uart.dir/depend.make
@@ -70,32 +70,32 @@ include test/unit/stm32f4/CMakeFiles/test_port_uart.dir/progress.make
 include test/unit/stm32f4/CMakeFiles/test_port_uart.dir/flags.make
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/flags.make
-test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c
+test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj -MF CMakeFiles/test_port_uart.dir/test_port_uart.c.obj.d -o CMakeFiles/test_port_uart.dir/test_port_uart.c.obj -c /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj -MF CMakeFiles/test_port_uart.dir/test_port_uart.c.obj.d -o CMakeFiles/test_port_uart.dir/test_port_uart.c.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_port_uart.dir/test_port_uart.c.i"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c > CMakeFiles/test_port_uart.dir/test_port_uart.c.i
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c > CMakeFiles/test_port_uart.dir/test_port_uart.c.i
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_port_uart.dir/test_port_uart.c.s"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c -o CMakeFiles/test_port_uart.dir/test_port_uart.c.s
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/stm32f4/test_port_uart.c -o CMakeFiles/test_port_uart.dir/test_port_uart.c.s
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/flags.make
-test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
+test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj -MF CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj.d -o CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj -c /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj -MF CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj.d -o CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj -c /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.i"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c > CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.i
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c > CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.i
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.s"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c -o CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.s
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && /opt/MatrixMCU/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/src/interr.c -o CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.s
 
 # Object files for target test_port_uart
 test_port_uart_OBJECTS = \
@@ -105,27 +105,27 @@ test_port_uart_OBJECTS = \
 # External object files for target test_port_uart
 test_port_uart_EXTERNAL_OBJECTS =
 
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build.make
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libplatform.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libproject.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libunity.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libfsm.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libplatform.a
-/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_port_uart.dir/link.txt --verbose=$(VERBOSE)
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/test_port_uart.c.obj
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/__/__/__/port/stm32f4/src/interr.c.obj
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build.make
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libplatform.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libproject.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libunity.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libfsm.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: libplatform.a
+/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf: test/unit/stm32f4/CMakeFiles/test_port_uart.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_port_uart.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf
+test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_port_uart.elf
 .PHONY : test/unit/stm32f4/CMakeFiles/test_port_uart.dir/build
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/clean:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && $(CMAKE_COMMAND) -P CMakeFiles/test_port_uart.dir/cmake_clean.cmake
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 && $(CMAKE_COMMAND) -P CMakeFiles/test_port_uart.dir/cmake_clean.cmake
 .PHONY : test/unit/stm32f4/CMakeFiles/test_port_uart.dir/clean
 
 test/unit/stm32f4/CMakeFiles/test_port_uart.dir/depend:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit/stm32f4 /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4/CMakeFiles/test_port_uart.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit/stm32f4 /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4 /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/stm32f4/CMakeFiles/test_port_uart.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : test/unit/stm32f4/CMakeFiles/test_port_uart.dir/depend
 

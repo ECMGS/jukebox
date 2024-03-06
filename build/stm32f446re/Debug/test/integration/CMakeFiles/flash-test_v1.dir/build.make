@@ -53,10 +53,10 @@ RM = /snap/cmake/1366/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox
+CMAKE_SOURCE_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
+CMAKE_BINARY_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
 
 # Utility rule file for flash-test_v1.
 
@@ -66,9 +66,9 @@ include test/integration/CMakeFiles/flash-test_v1.dir/compiler_depend.make
 # Include the progress variables for this target.
 include test/integration/CMakeFiles/flash-test_v1.dir/progress.make
 
-test/integration/CMakeFiles/flash-test_v1: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_v1.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Flashing test_v1"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration && /home/linuxbrew/.linuxbrew/bin/openocd -f /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../openocd/stm32f4x.cfg -c program\ /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_v1.elf\ verify\ reset\ exit
+test/integration/CMakeFiles/flash-test_v1: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_v1.elf
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Flashing test_v1"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration && /home/linuxbrew/.linuxbrew/bin/openocd -f /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../openocd/stm32f4x.cfg -c program\ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_v1.elf\ verify\ reset\ exit
 
 flash-test_v1: test/integration/CMakeFiles/flash-test_v1
 flash-test_v1: test/integration/CMakeFiles/flash-test_v1.dir/build.make
@@ -79,10 +79,10 @@ test/integration/CMakeFiles/flash-test_v1.dir/build: flash-test_v1
 .PHONY : test/integration/CMakeFiles/flash-test_v1.dir/build
 
 test/integration/CMakeFiles/flash-test_v1.dir/clean:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration && $(CMAKE_COMMAND) -P CMakeFiles/flash-test_v1.dir/cmake_clean.cmake
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration && $(CMAKE_COMMAND) -P CMakeFiles/flash-test_v1.dir/cmake_clean.cmake
 .PHONY : test/integration/CMakeFiles/flash-test_v1.dir/clean
 
 test/integration/CMakeFiles/flash-test_v1.dir/depend:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/integration /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration/CMakeFiles/flash-test_v1.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/integration /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration/CMakeFiles/flash-test_v1.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : test/integration/CMakeFiles/flash-test_v1.dir/depend
 

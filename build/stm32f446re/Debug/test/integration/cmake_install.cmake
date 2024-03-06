@@ -1,4 +1,4 @@
-# Install script for directory: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/integration
+# Install script for directory: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/integration
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

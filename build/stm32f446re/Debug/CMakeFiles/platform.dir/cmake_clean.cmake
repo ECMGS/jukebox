@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
+  "CMakeFiles/platform.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
   "libplatform.a"
   "libplatform.pdb"
 )

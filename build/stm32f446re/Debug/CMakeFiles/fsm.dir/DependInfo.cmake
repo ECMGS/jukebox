@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jorgerente/sdg2/MatrixMCU/lib/fsm/src/fsm.c" "CMakeFiles/fsm.dir/home/jorgerente/sdg2/MatrixMCU/lib/fsm/src/fsm.c.obj" "gcc" "CMakeFiles/fsm.dir/home/jorgerente/sdg2/MatrixMCU/lib/fsm/src/fsm.c.obj.d"
+  "/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/lib/fsm/src/fsm.c" "CMakeFiles/fsm.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/lib/fsm/src/fsm.c.obj" "gcc" "CMakeFiles/fsm.dir/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/lib/fsm/src/fsm.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

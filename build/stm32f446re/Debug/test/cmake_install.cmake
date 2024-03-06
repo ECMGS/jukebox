@@ -1,4 +1,4 @@
-# Install script for directory: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test
+# Install script for directory: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,11 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration/cmake_install.cmake")
+  include("/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/integration/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/cmake_install.cmake")
+  include("/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/cmake_install.cmake")
 endif()
 

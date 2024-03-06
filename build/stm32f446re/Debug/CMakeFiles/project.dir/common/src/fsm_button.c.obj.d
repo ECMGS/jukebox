@@ -1,6 +1,6 @@
 CMakeFiles/project.dir/common/src/fsm_button.c.obj: \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/common/src/fsm_button.c \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/common/include/fsm_button.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/common/src/fsm_button.c \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/common/include/fsm_button.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/stdint.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h \
@@ -23,14 +23,14 @@ CMakeFiles/project.dir/common/src/fsm_button.c.obj: \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/sys/lock.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/machine/stdlib.h \
  /opt/MatrixMCU/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/arm-none-eabi/include/alloca.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../lib/fsm/include/fsm.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/include/port_button.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/port/stm32f4/include/port_system.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/core_cm4.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_version.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_compiler.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_gcc.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/mpu_armv7.h \
- /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../lib/fsm/include/fsm.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/include/port_button.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/port/stm32f4/include/port_system.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/core_cm4.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_version.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_compiler.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/cmsis_gcc.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include/mpu_armv7.h \
+ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h

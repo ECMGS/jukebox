@@ -53,10 +53,10 @@ RM = /snap/cmake/1366/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox
+CMAKE_SOURCE_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
+CMAKE_BINARY_DIR = /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug
 
 # Utility rule file for flash-test_fsm_button.
 
@@ -66,9 +66,9 @@ include test/unit/CMakeFiles/flash-test_fsm_button.dir/compiler_depend.make
 # Include the progress variables for this target.
 include test/unit/CMakeFiles/flash-test_fsm_button.dir/progress.make
 
-test/unit/CMakeFiles/flash-test_fsm_button: /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Flashing test_fsm_button"
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /home/linuxbrew/.linuxbrew/bin/openocd -f /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../openocd/stm32f4x.cfg -c program\ /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf\ verify\ reset\ exit
+test/unit/CMakeFiles/flash-test_fsm_button: /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Flashing test_fsm_button"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && /home/linuxbrew/.linuxbrew/bin/openocd -f /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/../../openocd/stm32f4x.cfg -c program\ /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/bin/stm32f446re/Debug/test_fsm_button.elf\ verify\ reset\ exit
 
 flash-test_fsm_button: test/unit/CMakeFiles/flash-test_fsm_button
 flash-test_fsm_button: test/unit/CMakeFiles/flash-test_fsm_button.dir/build.make
@@ -79,10 +79,10 @@ test/unit/CMakeFiles/flash-test_fsm_button.dir/build: flash-test_fsm_button
 .PHONY : test/unit/CMakeFiles/flash-test_fsm_button.dir/build
 
 test/unit/CMakeFiles/flash-test_fsm_button.dir/clean:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && $(CMAKE_COMMAND) -P CMakeFiles/flash-test_fsm_button.dir/cmake_clean.cmake
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit && $(CMAKE_COMMAND) -P CMakeFiles/flash-test_fsm_button.dir/cmake_clean.cmake
 .PHONY : test/unit/CMakeFiles/flash-test_fsm_button.dir/clean
 
 test/unit/CMakeFiles/flash-test_fsm_button.dir/depend:
-	cd /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jorgerente/sdg2/MatrixMCU/projects/jukebox /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/test/unit /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit /home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/CMakeFiles/flash-test_fsm_button.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/test/unit /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit /mnt/dataDisk/Documentos/Programacion/sdg2/entornos/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/test/unit/CMakeFiles/flash-test_fsm_button.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : test/unit/CMakeFiles/flash-test_fsm_button.dir/depend
 
