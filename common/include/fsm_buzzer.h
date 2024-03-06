@@ -103,7 +103,7 @@ uint8_t fsm_buzzer_get_action (fsm_t *p_this);
  * 
  * This FSM implements a buzzer melody player. The buzzer is considered indeed as a melody player. The user can set the melody to play, the speed of the player and the action to perform on the player.
  *
- *The FSM stores a pointer to the melody to play in the p_melody variable. The user should set it using the function fsm_buzzer_set_melody().
+ * The FSM stores a pointer to the melody to play in the p_melody variable. The user should set it using the function fsm_buzzer_set_melody().
  * 
  * The FSM stores the current note of the melody in the note_index variable. With this variable, the FSM knows which note to play next.
  * 
