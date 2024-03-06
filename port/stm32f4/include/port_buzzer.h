@@ -26,6 +26,9 @@
 #define BUZZER_0_AF         2       /*!< Alternate function for the buzzer*/
 #define BUZZER_0_NOTE_END   false   /*!< Default value for ending notes*/
 
+#define TIM_AS_PWM1_MASK 0X0060
+#define ARR_MAX 0xFFFF
+
 /* Typedefs --------------------------------------------------------------------*/
 
 typedef struct {
