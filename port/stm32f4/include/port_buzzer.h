@@ -19,10 +19,12 @@
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
-#define BUZZER_0_ID     0       /*!< integer identifyer of the buzzer */
-#define BUZZER_0_GPIO   GPIOA   /*!< GPIO port of the buzzer */
-#define BUZZER_0_PIN    6       /*!< GPIO pin of the buzzer */
-#define BUZZER_PWM_DC   0.5     /*!< Duty cycle of the PWM signal */
+#define BUZZER_0_ID         0       /*!< integer identifyer of the buzzer */
+#define BUZZER_0_GPIO       GPIOA   /*!< GPIO port of the buzzer */
+#define BUZZER_0_PIN        6       /*!< GPIO pin of the buzzer */
+#define BUZZER_0_PWM_DC     0.5     /*!< Duty cycle of the PWM signal */
+#define BUZZER_0_AF         2       /*!< Alternate function for the buzzer*/
+#define BUZZER_0_NOTE_END   false   /*!< Default value for ending notes*/
 
 /* Typedefs --------------------------------------------------------------------*/
 

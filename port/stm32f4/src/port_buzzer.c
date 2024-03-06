@@ -9,7 +9,7 @@
 /* Standard C libraries */
 #include <math.h>
 #include "port_buzzer.h"
-#define ALT_FUNC2_TIM3 2
+
 /* HW dependent libraries */
 #include "port_system.h"
 #include "port_buzzer.h"
@@ -19,8 +19,8 @@ port_buzzer_hw_t buzzers_arr[] = {
   [BUZZER_0_ID] = {
   .p_port = BUZZER_0_GPIO,
   .pin = BUZZER_0_PIN,
-  .alt_func = ALT_FUNC2_TIM3,
-  .note_end = false
+  .alt_func = BUZZER_0_AF,
+  .note_end = BUZZER_0_NOTE_END
   },  
 }; 
 
@@ -30,11 +30,19 @@ static void _timer_duration_setup(uint32_t buzzer_id)
   if (buzzer_id == BUZZER_0_ID)
   {
     // TO-DO alumnos
-    
+    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
 
+    TIM2->CR1 = 0x0000;
+    TIM2->CR1 &= ~TIM_CR1_CEN;
+
+    TIM2->ARR = 39999;
+
+    TIM2->SR = ~TIM_SR_UIF;
+
+    TIM2->DIER |= TIM_DIER_UIE;
 
     /* Configure interruptions */
-    NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 3, 0)); 
+    NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 3GIT, 0)); 
     NVIC_EnableIRQ(TIM2_IRQn);                                                          
   }
 }
