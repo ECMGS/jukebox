@@ -217,12 +217,3 @@ fsm_t *fsm_buzzer_new(uint32_t buzzer_id)
     fsm_buzzer_init(p_fsm, buzzer_id);
     return p_fsm;
 }
-
-void fsm_buzzer_init(fsm_t *p_this, uint32_t buzzer_id)
-{
-    fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
-    fsm_init(p_this, fsm_trans_buzzer);
-
-    /* TO-DO alumnos */
-    
-}
