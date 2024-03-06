@@ -10,6 +10,7 @@
 // Include headers of different port elements:
 #include "port_button.h"
 #include "port_usart.h"
+#include "port_buzzer.h"
 //------------------------------------------------------
 // INTERRUPT SERVICE ROUTINES
 //------------------------------------------------------
@@ -56,4 +57,12 @@ void 	USART3_IRQHandler (void)
     if (USART_SR_TXE & USART3->SR && USART_CR1_TXEIE & USART3->CR1){
         port_usart_write_data(USART_0_ID);
     }
+}
+/**
+ * @brief This function handles TIM2 global interrupt.
+*/
+void 	TIM2_IRQHandler (void) 
+{
+    TIM2->SR &= ~TIM_SR_UIF;
+    buzzers_arr[BUZZER_0_ID].note_end = true;
 }
