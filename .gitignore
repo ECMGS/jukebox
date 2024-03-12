@@ -67,7 +67,6 @@ _deps
 
 bin*/
 build*/
-docs/html/
 
 .DS_Store
 .vscode/settings.json
