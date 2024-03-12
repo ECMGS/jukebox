@@ -3,8 +3,8 @@
 
 ## Authors
 
-* **Alumno 1** - email: [alumno@alumno.es](mailto:alumno@alumno.es)
-* **Alumno 2** - email: [alumno@alumno.es](mailto:alumno@alumno.es)
+* **Jorge Alejandro Estefanía Hidalgo** - email: [jorge.estefania@alumnos.upm.es](mailto:jorge.estefania@alumnos.upm.es)
+* **Eugenio Cano Muñoz** - email: [mailto:eugenio.cano@alumnos.upm.es](mailto:eugenio.cano@alumnos.upm.es)
 
 
 Ponga una breve descripción del proyecto **aquí** en castellano e inglés.
