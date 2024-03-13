@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/unity.dir/home/jorgerente/sdg2/MatrixMCU/lib/unity/src/unity.c.obj"
-  "CMakeFiles/unity.dir/home/jorgerente/sdg2/MatrixMCU/lib/unity/src/unity.c.obj.d"
+  "CMakeFiles/unity.dir/C_/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/lib/unity/src/unity.c.obj"
+  "CMakeFiles/unity.dir/C_/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/lib/unity/src/unity.c.obj.d"
   "libunity.a"
   "libunity.pdb"
 )

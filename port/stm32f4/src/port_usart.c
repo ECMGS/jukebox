@@ -84,7 +84,7 @@ void port_usart_init(uint32_t usart_id)
     p_usart->CR1 &= ~(USART_CR1_TXEIE | USART_CR1_TCIE);
 
     // Enable USART interrupts globally
-    if (p_usart == USART3)
+    if (p_usart == usart_arr[usart_id].p_usart)
     {
         NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 2, 0));
         NVIC_EnableIRQ(USART3_IRQn);
@@ -101,7 +101,7 @@ void port_usart_get_from_input_buffer (uint32_t usart_id, char *p_buffer){
 }
 
 bool port_usart_get_txr_status (uint32_t usart_id){
-    return USART_SR_TXE & USART3->SR;
+    return USART_SR_TXE & usart_arr[usart_id].p_usart->SR;
 }
 
 void port_usart_copy_to_output_buffer (uint32_t usart_id, char *p_data, uint32_t length){
@@ -127,7 +127,7 @@ bool port_usart_tx_done (uint32_t usart_id){
 }
 
 void port_usart_store_data(uint32_t usart_id){
-    if (USART3->DR == END_CHAR_CONSTANT) //TODO: MEJORA V5 PER varias usart
+    if (usart_arr[usart_id].p_usart->DR == END_CHAR_CONSTANT) //TODO: DONE MEJORA V5 PER varias usart
     {
         usart_arr[usart_id].read_complete = true;
         usart_arr[usart_id].i_idx = 0;
@@ -136,38 +136,38 @@ void port_usart_store_data(uint32_t usart_id){
     if (usart_arr[usart_id].i_idx >= USART_INPUT_BUFFER_LENGTH){
         usart_arr[usart_id].i_idx = 0;
     }
-    usart_arr[usart_id].input_buffer[usart_arr[usart_id].i_idx] = USART3->DR;
+    usart_arr[usart_id].input_buffer[usart_arr[usart_id].i_idx] = usart_arr[usart_id].p_usart->DR;
     usart_arr[usart_id].i_idx++;
 }
 
 void port_usart_write_data(uint32_t usart_id){
     if (usart_arr[usart_id].o_idx == USART_OUTPUT_BUFFER_LENGTH - 1 || 
         usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx] == END_CHAR_CONSTANT)
-    {  //TODO: MEJORA V5 PER varias usart
-       USART3->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx]; 
+    {  //TODO: DONE MEJORA V5 PER varias usart
+       usart_arr[usart_id].p_usart->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx]; 
        port_usart_disable_tx_interrupt(usart_id);
        usart_arr[usart_id].o_idx = 0;
        usart_arr[usart_id].write_complete = true;
        return;
     } else if (usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx] != EMPTY_BUFFER_CONSTANT){
-        USART3->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx];
+        usart_arr[usart_id].p_usart->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx];
         usart_arr[usart_id].o_idx++;
     }
     return;
 }
 
 void port_usart_enable_rx_interrupt(uint32_t usart_id){
-    USART3->CR1 |= USART_CR1_RXNEIE; //TODO: MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 |= USART_CR1_RXNEIE; //TODO: DONE MEJORA V5 PER varias usart
 }
 
 void port_usart_enable_tx_interrupt(uint32_t usart_id){
-    USART3->CR1 |= USART_CR1_TXEIE; //TODO: MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 |= USART_CR1_TXEIE; //TODO: DONE MEJORA V5 PER varias usart
 }
 
 void port_usart_disable_rx_interrupt(uint32_t usart_id){
-    USART3->CR1 &= ~USART_CR1_RXNEIE; //TODO: MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 &= ~USART_CR1_RXNEIE; //TODO: DONE MEJORA V5 PER varias usart
 }
 
 void port_usart_disable_tx_interrupt(uint32_t usart_id){
-    USART3->CR1 &= ~USART_CR1_TXEIE; //TODO: MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 &= ~USART_CR1_TXEIE; //TODO: DONE MEJORA V5 PER varias usart
 }

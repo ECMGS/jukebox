@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s" "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/platform.dir/home/jorgerente/sdg2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
+  "C:/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s" "C:/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/projects/jukebox/build/stm32f446re/Debug/CMakeFiles/platform.dir/6e928a3a6648f1da7b04f222890aa0ae/MatrixMCU/drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include"
-  "/home/jorgerente/sdg2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include"
+  "C:/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Include"
+  "C:/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/projects/jukebox/../../drivers/stm32f4xx/CMSIS/Device/ST/STM32F4xx/Include"
   )
 
 # The set of dependency files which are needed:

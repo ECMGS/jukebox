@@ -1,2 +1,2 @@
-/usr/bin/arm-none-eabi-ar qc libfsm.a CMakeFiles/fsm.dir/home/jorgerente/sdg2/MatrixMCU/lib/fsm/src/fsm.c.obj
-/usr/bin/arm-none-eabi-ranlib libfsm.a
+C:\PROGRA~2\ARMGNU~1\13C7F1~1.2RE\bin\ARM-NO~2.EXE qc libfsm.a CMakeFiles/fsm.dir/C_/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/lib/fsm/src/fsm.c.obj
+C:\PROGRA~2\ARMGNU~1\13C7F1~1.2RE\bin\AR17F9~1.EXE libfsm.a
