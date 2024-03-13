@@ -127,7 +127,7 @@ bool port_usart_tx_done (uint32_t usart_id){
 }
 
 void port_usart_store_data(uint32_t usart_id){
-    if (usart_arr[usart_id].p_usart->DR == END_CHAR_CONSTANT) //TODO: DONE MEJORA V5 PER varias usart
+    if (usart_arr[usart_id].p_usart->DR == END_CHAR_CONSTANT) //TODO: DONE MEJORA V5 PER soporte varias usart
     {
         usart_arr[usart_id].read_complete = true;
         usart_arr[usart_id].i_idx = 0;
