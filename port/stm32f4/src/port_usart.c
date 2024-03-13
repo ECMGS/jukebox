@@ -60,9 +60,6 @@ void port_usart_init(uint32_t usart_id)
         //RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
         RCC->APB1ENR |= RCC_APB1ENR_USART3EN;// estaba mal el iniciar el reloj de gpiob. con esto ya funciona
     }
-    
-    
-
 
     p_usart->CR1 &= ~USART_CR1_UE; // Disable USART
 

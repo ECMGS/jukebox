@@ -20,6 +20,7 @@
 #include "melodies.h"
 
 /* HW dependent includes */
+#include "port_buzzer.h"
 
 
 /* Defines and enums ----------------------------------------------------------*/
@@ -46,7 +47,7 @@ enum USER_ACTIONS {
 
 /* Typedefs --------------------------------------------------------------------*/
 typedef struct {
-    fsm_t t;                /*!< Internal fsm*/
+    fsm_t f;                /*!< Internal fsm*/
     melody_t *p_melody;     /*!< Pointer storing the direction of the melody*/
     uint32_t note_index;    /*!< Index of the note being reproduced*/
     uint8_t buzzer_id;      /*!< Id of the buzzer*/

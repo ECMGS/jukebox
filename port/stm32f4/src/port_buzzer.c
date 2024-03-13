@@ -35,6 +35,8 @@ static void _timer_duration_setup(uint32_t buzzer_id)
     TIM2->CR1 = 0x0000;
     TIM2->CR1 &= ~TIM_CR1_CEN;
 
+    TIM2->CR1 |= TIM_CR1_ARPE;
+
     TIM2->SR = ~TIM_SR_UIF;
 
     TIM2->DIER |= TIM_DIER_UIE;
@@ -48,7 +50,7 @@ static void _timer_duration_setup(uint32_t buzzer_id)
 
 static void _timer_pwm_setup(uint32_t buzzer_id) {
     if (buzzer_id == BUZZER_0_ID) {
-      RCC->APB2ENR |= RCC_APB1ENR_TIM3EN;
+      RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
 
       TIM3->CR1 = 0x0000;
       TIM3->CR1 &= ~TIM_CR1_CEN;
@@ -64,8 +66,6 @@ static void _timer_pwm_setup(uint32_t buzzer_id) {
 
       TIM3->CCMR1 |= TIM_CCMR1_OC1PE;
       TIM3->CCMR1 |= TIM_AS_PWM1_MASK;
-
-      TIM3->CCER |= TIM_CCER_CC1E;
     }
 }
 
@@ -91,8 +91,8 @@ void port_buzzer_set_note_duration(uint32_t buzzer_id, uint32_t duration_ms) {
     double sysclk_as_double = (double) SystemCoreClock;
     double ms_as_double = (double) duration_ms;
     
-    double psc_min = (int32_t) ceil((SystemCoreClock*duration_ms)/((ARR_MAX + 1)*1000)-1);
-    double arr_value = ((SystemCoreClock * duration_ms)/((psc_min + 1) * 1000)-1);
+    double psc_min = (int32_t) ceil((sysclk_as_double*ms_as_double)/((ARR_MAX + 1)*1000)-1);
+    double arr_value = ((sysclk_as_double * ms_as_double)/((psc_min + 1) * 1000)-1);
 
     TIM2->ARR = (int32_t) round(arr_value);
     TIM2->PSC = (int32_t) psc_min;
@@ -101,7 +101,7 @@ void port_buzzer_set_note_duration(uint32_t buzzer_id, uint32_t duration_ms) {
 
     buzzers_arr[buzzer_id].note_end = false;
 
-    TIM2->CR2 |= TIM_CR1_CEN;
+    TIM2->CR1 |= TIM_CR1_CEN;
   }
 }
 
@@ -122,17 +122,19 @@ void 	port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz) {
       return;
     }
 
-    TIM2->CNT = 0;
+    TIM3->CNT = 0;
 
-    double sys_clock = (double) SystemCoreClock;
+    TIM3->CCER = TIM_CCER_CC1E;
 
-    double psc_min = ceil((SystemCoreClock/frequency_hz)/(ARR_MAX + 1)-1);
-    double arr_value = (SystemCoreClock/frequency_hz)/(psc_min + 1)-1;
+    double sysclk_as_double = (double) SystemCoreClock;
+
+    double psc_min = ceil((sysclk_as_double/frequency_hz)/(ARR_MAX + 1)-1);
+    double arr_value = (sysclk_as_double/frequency_hz)/(psc_min + 1)-1;
 
     TIM3->ARR = (int32_t) round(arr_value);
     TIM3->PSC = (int32_t) psc_min;
 
-    TIM3->CCR1 = BUZZER_0_PWM_DC;
+    TIM3->CCR1 = (uint32_t) (BUZZER_PWM_DC * (TIM3->ARR+1));
 
     TIM3->EGR |= TIM_EGR_UG;
 
