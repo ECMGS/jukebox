@@ -84,7 +84,7 @@ void port_usart_init(uint32_t usart_id)
     p_usart->CR1 &= ~(USART_CR1_TXEIE | USART_CR1_TCIE);
 
     // Enable USART interrupts globally
-    if (p_usart == usart_arr[usart_id].p_usart)
+    if (p_usart == USART3)
     {
         NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 2, 0));
         NVIC_EnableIRQ(USART3_IRQn);
