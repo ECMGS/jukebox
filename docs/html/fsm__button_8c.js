@@ -7,7 +7,6 @@ var fsm__button_8c =
     [ "do_store_tick_pressed", "fsm__button_8c.html#a408606e4da6d7f5578eaa4c55586bac4", null ],
     [ "fsm_button_get_duration", "fsm__button_8c.html#adf1e6388ab7f1216269fe912a11cf814", null ],
     [ "fsm_button_init", "fsm__button_8c.html#a3478c3cda06d0305998a6042ea652604", null ],
-    [ "fsm_button_new", "fsm__button_8c.html#acf704fc576ceb5a46854212403aae389", null ],
-    [ "fsm_button_reset_duration", "fsm__button_8c.html#ad72c67d37f009c4b627d12be1d00c25f", null ],
-    [ "fsm_trans_button", "fsm__button_8c.html#a2c6b916a1be7cf63eff3f7508e3e09a8", null ]
+    [ "fsm_button_new", "fsm__button_8c.html#a43bd9081f35b23c56d23c0e430d886d0", null ],
+    [ "fsm_button_reset_duration", "fsm__button_8c.html#ad72c67d37f009c4b627d12be1d00c25f", null ]
 ];

@@ -9,6 +9,6 @@ var fsm__button_8h =
     ] ],
     [ "fsm_button_get_duration", "fsm__button_8h.html#a02fa276aa57d4f09ccf953e06c27e43a", null ],
     [ "fsm_button_init", "fsm__button_8h.html#ac6ecf88d37e2c6329bd2e9f28800e89e", null ],
-    [ "fsm_button_new", "fsm__button_8h.html#acf704fc576ceb5a46854212403aae389", null ],
+    [ "fsm_button_new", "fsm__button_8h.html#a43bd9081f35b23c56d23c0e430d886d0", null ],
     [ "fsm_button_reset_duration", "fsm__button_8h.html#ae0eeac9ec2cee699afac744fd4ea9e36", null ]
 ];
