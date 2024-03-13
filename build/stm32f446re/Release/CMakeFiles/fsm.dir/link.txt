@@ -1,2 +1,0 @@
-/usr/bin/arm-none-eabi-ar qc libfsm.a CMakeFiles/fsm.dir/home/jorgerente/sdg2/MatrixMCU/lib/fsm/src/fsm.c.obj
-/usr/bin/arm-none-eabi-ranlib libfsm.a

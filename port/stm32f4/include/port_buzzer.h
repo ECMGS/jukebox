@@ -13,9 +13,12 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdio.h>
+
 #include "port_system.h"
 /* HW dependent includes */
 
+#define valid_buzzer(buzz_id) (buzz_id == BUZZER_0_ID)
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */

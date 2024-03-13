@@ -104,3 +104,47 @@ void port_buzzer_set_note_duration(uint32_t buzzer_id, uint32_t duration_ms) {
     TIM2->CR2 |= TIM_CR1_CEN;
   }
 }
+
+bool port_buzzer_get_note_timeout	(	uint32_t 	buzzer_id	)	{
+  if (!valid_buzzer(buzzer_id)) {
+    printf("El buzzer id proporcionado no es válido");
+    return false;
+  }
+  return buzzers_arr[buzzer_id].note_end;
+}
+
+void 	port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz) {
+  if (buzzer_id == BUZZER_0_ID) {
+
+    TIM3->CR1 &= ~TIM_CR1_CEN;
+
+    if (!frequency_hz) {
+      return;
+    }
+
+    TIM2->CNT = 0;
+
+    double sys_clock = (double) SystemCoreClock;
+
+    double psc_min = ceil((SystemCoreClock/frequency_hz)/(ARR_MAX + 1)-1);
+    double arr_value = (SystemCoreClock/frequency_hz)/(psc_min + 1)-1;
+
+    TIM3->ARR = (int32_t) round(arr_value);
+    TIM3->PSC = (int32_t) psc_min;
+
+    TIM3->CCR1 = BUZZER_0_PWM_DC;
+
+    TIM3->EGR |= TIM_EGR_UG;
+
+    TIM3->CR1 |= TIM_CCER_CC1E;
+    TIM3->CR1 |= TIM_CR1_CEN;
+  }
+}
+
+
+void port_buzzer_stop(uint32_t buzzer_id) {
+  if (buzzer_id == BUZZER_0_ID) {
+    TIM2->CR1 &= ~TIM_CR1_CEN;
+    TIM3->CR1 &= ~TIM_CR1_CEN;
+  }
+}
