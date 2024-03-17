@@ -78,4 +78,12 @@ extern const melody_t happy_birthday_melody;
 // Tetris melody
 extern const melody_t tetris_melody;
 
+extern const melody_t one_up_melody;
+
+extern const melody_t nokia;
+
+extern const melody_t kerosene;
+
+extern const melody_t kerosene_bass;
+
 #endif /* MELODIES_H_ */

@@ -20,11 +20,13 @@
 
 /* Private defines ------------------------------------------------------------*/
 #define TEST_BUTTON_PLAY_TIME 1000
-#define TEST_BUTTON_PAUSE_TIME 300
+#define TEST_BUTTON_PAUSE_TIME 30
 #define TEST_BUTTON_STOP_TIME 3000
 #define LD2_PORT GPIOA
 #define LD2_PIN 5
 #define LD2_DELAY_MS 100
+
+#define TEST_BUTTON_DOUBLE_CLICK 500
 
 /**
  * @brief Main test function. Read the terminal for instructions.
@@ -53,6 +55,11 @@ int main(void)
     printf("5. There are two melodies to play: 'Scale' and 'Tetris'. They will alternate each time the button is pressed.\n");
     printf("6. Press the button to play the first melody.\n");
     printf("7. Ensure that the BUZZER is playing the melody and its name is shown in the terminal. If not, check the connections and the code. Connect the pin to an oscilloscope to check the signal.\n");
+    
+    fsm_buzzer_set_action(p_fsm_buzzer, PLAY);
+    fsm_buzzer_set_melody(p_fsm_buzzer, &one_up_melody);
+    fsm_fire(p_fsm_buzzer);
+
 
     while (1)
     {
@@ -91,11 +98,11 @@ int main(void)
 
                     if (counter % 2 == 0)
                     {
-                        fsm_buzzer_set_melody(p_fsm_buzzer, &scale_melody);
+                        fsm_buzzer_set_melody(p_fsm_buzzer, &kerosene);
                     }
                     else
                     {
-                        fsm_buzzer_set_melody(p_fsm_buzzer, &tetris_melody);
+                        fsm_buzzer_set_melody(p_fsm_buzzer, &nokia);
                     }
                     printf("Playing: %s\n", (((fsm_buzzer_t *)(p_fsm_buzzer))->p_melody)->p_name);
                     counter++;
