@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['título_20del_20proyecto_389',['Título del proyecto',['../index.html',1,'']]]
+  ['jukebox_20sdgii_20_2d_20je_389',['Jukebox SDGII - JE',['../index.html',1,'']]]
 ];

@@ -25,15 +25,10 @@
 var NAVTREE =
 [
   [ "Jukebox Project", "index.html", [
-    [ "Título del proyecto", "index.html", [
+    [ "Jukebox SDGII - JE", "index.html", [
       [ "Authors", "index.html#autotoc_md1", null ],
-      [ "Version 1", "index.html#autotoc_md2", [
-        [ "Subsección 1", "index.html#autotoc_md3", null ]
-      ] ],
-      [ "Version 2", "index.html#autotoc_md4", null ],
-      [ "Version 3", "index.html#autotoc_md5", null ],
-      [ "Version 4", "index.html#autotoc_md6", null ],
-      [ "Version 5", "index.html#autotoc_md7", null ]
+      [ "Version 1", "index.html#autotoc_md2", null ],
+      [ "Version 2", "index.html#autotoc_md3", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
@@ -60,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "CMakeCCompilerId_8c_source.html",
-"port__system_8h.html#ab1f803abb36eac6342cad8854fbc1e10"
+"port__system_8h.html#aba9b17980f912ee6faefbf82071fdeae"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,9 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"port__system_8h.html#ab1f803abb36eac6342cad8854fbc1e10":[2,0,2,0,0,1,21],
-"port__system_8h.html#ab415270cfcefc90ed8b8842da4e3d4c6":[2,0,2,0,0,1,24],
-"port__system_8h.html#ab45de352a652bb6560df599b97fc5fc7":[2,0,2,0,0,1,3],
-"port__system_8h.html#ab811d8c6ff3a505312d3276590444289":[2,0,2,0,0,1,11],
 "port__system_8h.html#aba9b17980f912ee6faefbf82071fdeae":[2,0,2,0,0,1,14],
 "port__system_8h.html#abb94f01f1901334f3df650392be23009":[2,0,2,0,0,1,34],
 "port__system_8h.html#abf55427b22854ab80d5f98da0a3eeb34":[2,0,2,0,0,1,9],
