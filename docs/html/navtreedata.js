@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Jukebox Project", "index.html", [
-    [ "Título del proyecto", "index.html", "index" ],
+    [ "Jukebox SDGII - JE", "index.html", "index" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

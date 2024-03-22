@@ -14,4 +14,4 @@ Breve descripción de la versión 1.
 
 En la versión 1 partimos del proyecto plantilla que implementa un sistema para controlar la gpio llamado *port_system*, mediante el uso de este añadimos funcionalidad para poder utilizar un botón. En nuestra implementación estamos utilizando el botón de usuario del microcontrolador, aunque la funcionalidad se puede cambiar sencillamente.
 
-Además el sistema utilizado para manejar los botones permite utilizar varios botones en un mismo sistema, lo que podrá permitir añadir funcionalidad al sistema sin provocar muchos dolores de cabeza
+Además el sistema utilizado para manejar los botones permite utilizar varios botones en un mismo sistema, lo que podrá permitir añadir funcionalidad al sistema sin provocar muchos dolores de cabeza.

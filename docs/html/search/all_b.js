@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['high_0',['HIGH',['../port__system_8h.html#a5bb885982ff66a2e0a0a45a8ee9c35e2',1,'port_system.h']]],
-  ['hsi_5fvalue_1',['HSI_VALUE',['../port__system_8c.html#aaa8c76e274d0f6dd2cefb5d0b17fbc37',1,'port_system.c']]]
+  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
+  ['msticks_2',['msTicks',['../port__system_8c.html#a0a6e5e17fcb15f3922e278025acabfa2',1,'port_system.c']]]
 ];
