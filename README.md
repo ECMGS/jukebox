@@ -17,4 +17,4 @@ Además el sistema utilizado para manejar los botones permite utilizar varios bo
 
 ## Version 2
 
-En la versión añadimos la funcionalidad necesaria para que la caja de música se comunique correctamente con el ordenador, pudiendo enviar y recibir mensajes desde la placa, esto nos puede permitir en un futuro añadir funciones como enviar comandos para reproducir y parar la reproducción o incluso poder subir canciones a la caja de música para reproducir nueva música.
+En la versión 2 añadimos la funcionalidad necesaria para que la caja de música se comunique correctamente con el ordenador, pudiendo enviar y recibir mensajes desde la placa, esto nos puede permitir en un futuro añadir funciones como enviar comandos para reproducir y parar la reproducción o incluso poder subir canciones a la caja de música para reproducir nueva música.

@@ -13,7 +13,7 @@ var fsm__usart_8c =
     [ "fsm_usart_enable_tx_interrupt", "fsm__usart_8c.html#a2991e3d583473c98e4d990f1c809c9bf", null ],
     [ "fsm_usart_get_in_data", "fsm__usart_8c.html#a598ef9863ebd0829e65ddaa94f9264ad", null ],
     [ "fsm_usart_init", "fsm__usart_8c.html#aa26c9310b406a5fb08d84bd326123bb0", null ],
-    [ "fsm_usart_new", "fsm__usart_8c.html#ae33278a53ca0b6fb1f4ac54576643546", null ],
+    [ "fsm_usart_new", "fsm__usart_8c.html#a88661cb2a9e5656f9c8d62e29a2fdeb5", null ],
     [ "fsm_usart_reset_input_data", "fsm__usart_8c.html#afa48c9865ec6f4f4e4cc9c6449e2a6a3", null ],
     [ "fsm_usart_set_out_data", "fsm__usart_8c.html#a714f188b6254d7f8ba8a1937d8d918b2", null ],
     [ "fsm_trans_usart", "fsm__usart_8c.html#a7a8c74accbddedd61770fb4c0240f99b", null ]

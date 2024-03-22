@@ -1,18 +1,8 @@
 var port__usart_8h =
 [
     [ "port_usart_hw_t", "structport__usart__hw__t.html", "structport__usart__hw__t" ],
-    [ "END_CHAR_CONSTANT", "port__usart_8h.html#a88e998d566fac2128bb426edb62f1ea8", null ],
-    [ "USART_0", "port__usart_8h.html#aaf272480de71cfefecd54524624d388d", null ],
-    [ "USART_0_AF_RX", "port__usart_8h.html#a1f2356fde4fe68931a6b86bd5295ea3d", null ],
-    [ "USART_0_AF_TX", "port__usart_8h.html#a5c33eea64e69b5337321fc09dd8c72de", null ],
-    [ "USART_0_GPIO_RX", "port__usart_8h.html#a81b81e664138283d369562cca365a3c7", null ],
-    [ "USART_0_GPIO_TX", "port__usart_8h.html#aee824dfe0c463856406aa285b8e47278", null ],
     [ "USART_0_ID", "port__usart_8h.html#a9b53753de24a64d69064c7e8dd4f57a5", null ],
-    [ "USART_0_PIN_RX", "port__usart_8h.html#a12d7f307fd8068ca3cfd014a59ebdeb0", null ],
-    [ "USART_0_PIN_TX", "port__usart_8h.html#aa4c3a8d291647a2d8832055b53d2b826", null ],
-    [ "USART_BUFFER_CONSTANT", "port__usart_8h.html#abd870e5d4777a69c87f3db1151f1a8bf", null ],
     [ "USART_INPUT_BUFFER_LENGTH", "port__usart_8h.html#a34a92a8b7fe81d4abad3993a3b447ad1", null ],
-    [ "USART_OUTPUT_BUFFER_LENGTH", "port__usart_8h.html#af7effa8ac92764adcd4c9227a8a3c160", null ],
     [ "port_usart_copy_to_output_buffer", "port__usart_8h.html#a8c1cbe02240b61695846e3fcc37c9e96", null ],
     [ "port_usart_disable_rx_interrupt", "port__usart_8h.html#aab957e700177e0f22e5597fd3360e365", null ],
     [ "port_usart_disable_tx_interrupt", "port__usart_8h.html#a2c921c2bd6eb9df467520b2b0c9e5499", null ],
@@ -26,6 +16,5 @@ var port__usart_8h =
     [ "port_usart_rx_done", "port__usart_8h.html#a480c4193b02d347b4645275a979f43ac", null ],
     [ "port_usart_store_data", "port__usart_8h.html#a886ec2f39f0f9e18dd62cfc8d2b563a7", null ],
     [ "port_usart_tx_done", "port__usart_8h.html#a88eb25f7c12ae3be9f49df50e7830f3f", null ],
-    [ "port_usart_write_data", "port__usart_8h.html#a726f80521212a7e8f3505f00e0ddf49f", null ],
-    [ "usart_arr", "port__usart_8h.html#a069344e9dac66ca26bbe4756ac249f42", null ]
+    [ "port_usart_write_data", "port__usart_8h.html#a726f80521212a7e8f3505f00e0ddf49f", null ]
 ];

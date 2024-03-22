@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['jukebox_20sdgii_20_2d_20je_389',['Jukebox SDGII - JE',['../index.html',1,'']]]
+  ['je_0',['Jukebox SDGII - JE',['../index.html',1,'']]],
+  ['jukebox_20sdgii_20je_1',['Jukebox SDGII - JE',['../index.html',1,'']]]
 ];
