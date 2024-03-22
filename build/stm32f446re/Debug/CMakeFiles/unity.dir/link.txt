@@ -1,2 +1,0 @@
-C:\PROGRA~2\ARMGNU~1\13C7F1~1.2RE\bin\ARM-NO~2.EXE qc libunity.a CMakeFiles/unity.dir/C_/Users/jaest/OneDrive/Documentos/SDG2/MatrixMCU/lib/unity/src/unity.c.obj
-C:\PROGRA~2\ARMGNU~1\13C7F1~1.2RE\bin\AR17F9~1.EXE libunity.a
