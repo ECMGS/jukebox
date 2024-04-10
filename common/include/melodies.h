@@ -66,6 +66,7 @@ typedef struct
     double *p_notes;        /*!< Pointer to the notes of the melody */
     uint16_t *p_durations;  /*!< Pointer to the duration of each note of the melody in milliseconds */
     uint16_t melody_length; /*!< Length of the melody to play */
+    // Mejorar V5, puntero a otra melodia asociada
 } melody_t;
 
 // Melodies must be defined in melodies.c, and declared here as extern

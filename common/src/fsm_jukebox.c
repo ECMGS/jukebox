@@ -75,11 +75,114 @@ bool _parse_message(char *p_message, char *p_command, char *p_param)
 }
 
 
+void _set_next_song (fsm_jukebox_t *p_fsm_jukebox) {
+    fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+    p_fsm_jukebox->melody_idx = (p_fsm_jukebox->melody_idx + 1) % MELODIES_MEMORY_SIZE;
+    if (!p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].melody_length > 0)
+        p_fsm_jukebox->melody_idx = 0;
+    p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
+    printf("Playing: %s\n", p_fsm_jukebox->p_melody);
+    fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+    fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+}
+
 /* State machine input or transition functions */
 
+static bool check_on(fsm_t * p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->on_off_press_time_ms;
+}	
 
+
+static bool check_off(fsm_t * p_this){
+    return check_on(p_this);
+}
+
+static bool check_melody_finished (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    return fsm_buzzer_get_action(p_fsm->p_fsm_buzzer) == STOP;
+}
+
+static bool check_command_received (fsm_t *p_this){
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    return fsm_usart_check_data_received(p_fsm->p_fsm_usart);
+}
+
+static bool check_next_song_button (fsm_t *p_this){
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->next_song_press_time_ms;
+}
+
+static bool check_activity (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    return fsm_button_check_activity(p_fsm->p_fsm_button) ||
+           fsm_usart_check_activity(p_fsm->p_fsm_usart) ||
+           fsm_buzzer_check_activity(p_fsm->p_fsm_buzzer);
+}
+
+static bool check_no_activity (fsm_t *p_this) {
+    !check_activity(p_this);
+}
 
 /* State machine output or action functions */
+
+static void do_start_up (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    fsm_button_reset_duration(p_fsm->p_fsm_button);
+    fsm_usart_enable_rx_interrupt(p_fsm->p_fsm_usart);
+    printf("Jukebox ON\n");
+    fsm_buzzer_set_speed(p_fsm->p_fsm_buzzer, 1.0);
+    fsm_buzzer_set_melody(p_fsm->p_fsm_buzzer, &(p_fsm->melodies[0]));
+    fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
+}
+
+static void do_start_jukebox (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    p_fsm->melody_idx = 1;
+    p_fsm->p_melody = p_fsm->melodies[p_fsm->melody_idx].p_name;
+}
+
+static void do_stop_jukebox (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    fsm_button_reset_duration(p_fsm->p_fsm_button);
+    fsm_usart_disable_tx_interrupt(p_fsm->p_fsm_usart);
+    fsm_usart_disable_rx_interrupt(p_fsm->p_fsm_usart);
+    printf("Jukebox OFF\n");
+    fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, STOP);
+}
+
+static void do_load_next_song (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    _set_next_song(p_fsm);
+}
+
+static void do_read_command (fsm_t *p_this) {
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    char p_message[USART_INPUT_BUFFER_LENGTH];
+    char p_command[USART_INPUT_BUFFER_LENGTH];
+    char p_param[USART_INPUT_BUFFER_LENGTH];
+    fsm_usart_get_in_data(p_fsm->p_fsm_usart, p_message);
+    if(_parse_message(p_message, p_command, p_param)) _execute_command(p_fsm, p_command, p_param);
+    fsm_usart_reset_input_data(p_fsm->p_fsm_usart);
+    p_message[0] = '\0';
+}
+
+static void do_sleep_off (fsm_t *p_this) {
+    port_system_sleep();
+}
+
+static void do_sleep_wait_command(fsm_t * p_this) {
+    port_system_sleep();
+}	
+
+
+static void do_sleep_while_off(fsm_t * p_this) {
+    port_system_sleep();
+}	
+
+static void do_sleep_while_on(fsm_t * p_this) {
+    port_system_sleep();
+}	
 
 
 
@@ -91,4 +194,24 @@ fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, uint32_t on_off_press_time_ms, fsm_t
     fsm_jukebox_init(p_fsm, p_fsm_button, on_off_press_time_ms, p_fsm_usart, p_fsm_buzzer, next_song_press_time_ms);
     
     return p_fsm;
+}
+
+void fsm_jukebox_init (fsm_t *p_this, fsm_t *p_fsm_button, uint32_t on_off_press_time_ms, fsm_t *p_fsm_usart, fsm_t *p_fsm_buzzer, uint32_t next_song_press_time_ms){
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    fsm_init(p_this, p_this->p_tt);
+    p_fsm->p_fsm_button = p_fsm_button;
+    p_fsm->on_off_press_time_ms = on_off_press_time_ms;
+    p_fsm->p_fsm_usart = p_fsm_usart;
+    p_fsm->p_fsm_buzzer = p_fsm_buzzer;
+    p_fsm->next_song_press_time_ms = next_song_press_time_ms;
+    p_fsm->melody_idx = 0;
+    memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
+
+    p_fsm->melodies[0] = one_up_melody;
+    p_fsm->melodies[1] = nokia;
+    p_fsm->melodies[2] = happy_birthday_melody;
+    p_fsm->melodies[3] = tetris_melody;
+    p_fsm->melodies[4] = scale_melody;
+    p_fsm->melodies[5] = kerosene;
+    p_fsm->melodies[6] = kerosene_bass;
 }
