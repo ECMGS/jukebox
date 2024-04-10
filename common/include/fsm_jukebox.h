@@ -19,7 +19,7 @@
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
-#define MELODIES_MEMORY_SIZE
+#define MELODIES_MEMORY_SIZE 7 // Number of melodies in the melodies array
 
 /* Enums */
 enum FSM_JUKEBOX
@@ -32,11 +32,43 @@ enum FSM_JUKEBOX
 };
 
 /* Typedefs ------------------------------------------------------------------*/
+typedef struct {
+    fsm_t f;
+    melody_t melodies[MELODIES_MEMORY_SIZE];
+    uint8_t melody_idx;
+    char *p_melody;
+    fsm_t *p_fsm_button;
+    uint32_t on_off_press_time_ms;
+    fsm_t *p_fsm_usart;
+    fsm_t *p_fsm_buzzer;
+    uint32_t next_song_press_time_ms;
+    double speed;
+} fsm_jukebox_t;
 
 /* Function prototypes and explanation ---------------------------------------*/
+
+/**
+ * @brief Create a new jukebox FSM.
+ * @param p_fsm_button	Pointer to the button FSM
+ * @param on_off_press_time_ms	Button press time in milliseconds to turn the system ON or OFF
+ * @param p_fsm_usart	Pointer to the USART FSM
+ * @param p_fsm_buzzer	Pointer to the buzzer FSM.
+ * @param next_song_press_time_ms	Button press time in milliseconds to change to the next song.
+ * 
+ * @returns A pointer to the button FSM
+*/
 fsm_t * fsm_jukebox_new(fsm_t *p_fsm_button, uint32_t on_off_press_time_ms, 
                         fsm_t *p_fsm_usart, fsm_t *p_fsm_buzzer, uint32_t next_song_press_time_ms);
 
+/**
+ * @brief Initialize a jukebox FSM.
+ * @param p_this	Pointer to the jukebox FSM
+ * @param p_fsm_button	Pointer to the button FSM
+ * @param on_off_press_time_ms	Button press time in milliseconds to turn the system ON or OFF
+ * @param p_fsm_usart	Pointer to the USART FSM
+ * @param p_fsm_buzzer	Pointer to the buzzer FSM.
+ * @param next_song_press_time_ms	Button press time in milliseconds to change to the next song.
+*/
 void fsm_jukebox_init(  fsm_t *p_this, fsm_t *p_fsm_button, uint32_t on_off_press_time_ms, 
                         fsm_t *p_fsm_usart, fsm_t *p_fsm_buzzer, uint32_t next_song_press_time_ms);
 #endif /* FSM_JUKEBOX_H_ */

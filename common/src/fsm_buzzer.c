@@ -16,6 +16,14 @@
 #include "melodies.h"
 
 /* State machine input or transition functions */
+
+bool fsm_buzzer_check_activity (fsm_t *p_this)  {
+    fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
+
+    return p_fsm->user_action == PLAY;
+}
+
+
 static void _start_note(fsm_t *p_this, double freq, uint32_t duration) {
     fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
 

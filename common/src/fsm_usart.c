@@ -16,6 +16,12 @@
 
 /* State machine input or transition functions */
 
+bool fsm_usart_check_activity (fsm_t *p_this){
+    fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
+
+    return p_fsm->f.current_state == SEND_DATA ||  p_fsm->data_received;
+}
+
 /**
  * @brief Check if data have been received.
  * 

@@ -10,9 +10,19 @@
 // Standard C includes
 #include <string.h> // strcmp
 #include <stdio.h>  // sprintf
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 // Other includes
+#include <fsm.h>
 #include "fsm.h"
+#include "fsm_jukebox.h"
+#include "fsm_button.h"
+#include "fsm_usart.h"
+#include "fsm_buzzer.h"
+#include "port_system.h"
+#include "port_usart.h"
 
 /* Defines ------------------------------------------------------------------*/
 #define MAX(a, b) ((a) > (b) ? (a) : (b)) /*!< Macro to get the maximum of two values. */
