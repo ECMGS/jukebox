@@ -86,6 +86,10 @@ void _set_next_song (fsm_jukebox_t *p_fsm_jukebox) {
     fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
 }
 
+void _execute_command (fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_param) {
+    
+}
+
 /* State machine input or transition functions */
 
 static bool check_on(fsm_t * p_this) {
