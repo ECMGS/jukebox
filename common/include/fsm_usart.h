@@ -133,4 +133,12 @@ void fsm_usart_reset_input_data(fsm_t * p_this);
  */
 void fsm_usart_set_out_data(fsm_t * p_this, char * p_data);
 
+/**
+ * @brief Check if the USART FSM is active, or not.
+ * The USART is active either when it is in the state SEND_DATA or there is data to be read (indicated as true in the field data_received).
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t struct
+
+*/
+bool fsm_usart_check_activity(fsm_t *p_this);
+
 #endif /* FSM_USART_H_ */
