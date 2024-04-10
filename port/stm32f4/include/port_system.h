@@ -272,4 +272,10 @@ void port_system_gpio_write(GPIO_TypeDef *p_port, uint8_t pin, bool value);
 */
 void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin);
 
+void port_system_power_stop();
+void port_system_power_sleep();
+void port_system_sleep();
+void port_system_systick_resume();
+void port_system_systick_suspend();
+
 #endif /* PORT_SYSTEM_H_ */

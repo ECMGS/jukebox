@@ -56,9 +56,8 @@ void port_usart_init(uint32_t usart_id)
     port_system_gpio_config_alternate(p_port_tx, pin_tx, alt_func_tx);
     port_system_gpio_config_alternate(p_port_rx, pin_rx, alt_func_rx);
     
-    if (p_port_tx == GPIOB) {
-        //RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
-        RCC->APB1ENR |= RCC_APB1ENR_USART3EN;// estaba mal el iniciar el reloj de gpiob. con esto ya funciona
+    if (p_usart == USART3) {
+        RCC->APB1ENR |= RCC_APB1ENR_USART3EN;
     }
 
     p_usart->CR1 &= ~USART_CR1_UE; // Disable USART
