@@ -87,7 +87,59 @@ void _set_next_song (fsm_jukebox_t *p_fsm_jukebox) {
 }
 
 void _execute_command (fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_param) {
+    if (!strcmp(p_command, "play")) {
+        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+        return ;
+    }
+
+    if (!strcmp(p_command, "stop")) {
+        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+        return ;
+    }
+
+    if (!strcmp(p_command, "pause")) {
+        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PAUSE);
+        return ;
+    }
+
+    if (!strcmp(p_command, "speed")) {
+        double param = atoi(p_param);
+        fsm_buzzer_set_speed(p_fsm_jukebox->p_fsm_buzzer, param);
+        return ;
+    }
+
+    if (!strcmp(p_command, "next")) {
+        _set_next_song(p_fsm_jukebox);
+        return ;
+    }
     
+    if (!strcmp(p_command, "select")) {
+        uint32_t melody_selected = atoi(p_param);
+
+        if (p_fsm_jukebox->melodies[melody_selected].melody_length == 0) {
+            printf("Melody not found\n");
+            return ;
+        }
+
+        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+
+        p_fsm_jukebox->melody_idx = melody_selected;
+
+        fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+        p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
+
+        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+        return ;
+    }
+
+    if(!strcmp(p_command, "info")) {
+        char msg[USART_OUTPUT_BUFFER_LENGTH];
+        sprintf(msg, "Melody: %s\n", p_fsm_jukebox->p_melody);
+        fsm_usart_set_message(p_fsm_jukebox->p_fsm_usart, msg);
+        return ;
+    }
+
+    fsm_usart_set_message(p_fsm_jukebox->p_fsm_usart, "Command not found\n");
 }
 
 /* State machine input or transition functions */
