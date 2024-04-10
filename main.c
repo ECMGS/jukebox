@@ -46,7 +46,7 @@ int main(void)
     fsm_usart_t *usart = (fsm_usart_t *)fsm_usart_new(USART);
     fsm_buzzer_t *buzzer = (fsm_buzzer_t *)fsm_buzzer_new(BUZZER);
     
-    fsm_t *jukebox = fsm_jukebox_new((fsm_t *) function_button, ON_OFF_PRESS_TIME_MS, (fsm_t *) usart, (fsm_t *) buzzer, NEXT_SONG_BUTTON_TIME_MS;
+    fsm_t *jukebox = fsm_jukebox_new((fsm_t *) function_button, ON_OFF_PRESS_TIME_MS, (fsm_t *) usart, (fsm_t *) buzzer, NEXT_SONG_BUTTON_TIME_MS);
 
     /* Infinite loop */
     while (1)
