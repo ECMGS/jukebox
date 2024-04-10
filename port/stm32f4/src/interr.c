@@ -35,6 +35,7 @@ void EXTI15_10_IRQHandler ()
     /* ISR user button */
     if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin))
     {
+        port_system_systick_resume();
         buttons_arr[BUTTON_0_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_0_ID].p_port,buttons_arr[BUTTON_0_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin);
     }
@@ -51,6 +52,7 @@ void EXTI15_10_IRQHandler ()
 */
 void 	USART3_IRQHandler (void)
 {
+    port_system_systick_resume();
     if (USART_SR_RXNE & USART3->SR && USART_CR1_RXNEIE & USART3->CR1){
         port_usart_store_data(USART_0_ID);
     }
