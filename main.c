@@ -42,23 +42,27 @@ int main(void)
     /* Init board */
     port_system_init();
 
-    fsm_button_t *function_button = (fsm_button_t *)fsm_button_new(ON_OFF_PRESS_TIME_MS, FUNC_BUTTON_ID);
-    fsm_usart_t *usart = (fsm_usart_t *)fsm_usart_new(USART);
-    fsm_buzzer_t *buzzer = (fsm_buzzer_t *)fsm_buzzer_new(BUZZER);
+    fsm_t *p_fsm_button_t = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, FUNC_BUTTON_ID);
+    fsm_t *p_fsm_usart_t = fsm_usart_new(USART);
+    fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER);
     
-    fsm_t *jukebox = fsm_jukebox_new((fsm_t *) function_button, ON_OFF_PRESS_TIME_MS, (fsm_t *) usart, (fsm_t *) buzzer, NEXT_SONG_BUTTON_TIME_MS);
+    fsm_t *jukebox = fsm_jukebox_new(p_fsm_button_t, ON_OFF_PRESS_TIME_MS,p_fsm_usart_t, 
+    p_fsm_buzzer_t, NEXT_SONG_BUTTON_TIME_MS);
 
     /* Infinite loop */
     while (1)
     {
+        fsm_fire(p_fsm_button_t);
+        fsm_fire(p_fsm_usart_t);
+        fsm_fire(p_fsm_buzzer_t);
         fsm_fire(jukebox);
     } // End of while(1)
 
     fsm_destroy(jukebox);
 
-    fsm_destroy((fsm_t *) function_button);
-    fsm_destroy((fsm_t *) usart);
-    fsm_destroy((fsm_t *) buzzer);
+    fsm_destroy((fsm_t *) p_fsm_button_t);
+    fsm_destroy((fsm_t *) p_fsm_usart_t);
+    fsm_destroy((fsm_t *) p_fsm_buzzer_t);
     
     return 0;
 }

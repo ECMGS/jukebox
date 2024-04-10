@@ -86,7 +86,7 @@ void fsm_buzzer_set_speed (fsm_t *p_this, double speed);
  * @param p_this	Pointer to an fsm_t struct than contains an fsm_buzzer_t struct
  * @param action	Action to perform on the player
 */
-void 	fsm_buzzer_set_action (fsm_t *p_this, uint8_t action);
+void fsm_buzzer_set_action (fsm_t *p_this, uint8_t action);
 
 /**
  * @brief Get the action of the user.
