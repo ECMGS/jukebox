@@ -80,7 +80,7 @@ void _set_next_song (fsm_jukebox_t *p_fsm_jukebox) {
     p_fsm_jukebox->melody_idx = (p_fsm_jukebox->melody_idx + 1) % MELODIES_MEMORY_SIZE;
     if (!(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].melody_length > 0)) p_fsm_jukebox->melody_idx = 0;
     p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
-    printf("Playing: %s\n", p_fsm_jukebox->p_melody);
+    printf(": %s\n", p_fsm_jukebox->p_melody);
     fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
     fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
 }
@@ -210,6 +210,7 @@ static void do_stop_jukebox (fsm_t *p_this) {
 
 static void do_load_next_song (fsm_t *p_this) {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    fsm_button_reset_duration(p_fsm->p_fsm_button);
     _set_next_song(p_fsm);
 }
 

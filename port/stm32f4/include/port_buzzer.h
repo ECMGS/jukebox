@@ -28,7 +28,7 @@
 #define BUZZER_0_AF         2       /*!< Alternate function for the buzzer*/
 #define BUZZER_0_NOTE_END   false   /*!< Default value for ending notes*/
 
-#define BUZZER_PWM_DC     0.5     /*!< Duty cycle of the PWM signal */
+#define BUZZER_PWM_DC     0.9     /*!< Duty cycle of the PWM signal */
 
 #define TIM_AS_PWM1_MASK 0X0060
 #define ARR_MAX 0xFFFF
