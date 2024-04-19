@@ -56,6 +56,7 @@
 #define LAs5 932.328  /*!< LA#5 note frequency */
 #define SI5 987.767   /*!< SI5 note frequency */
 
+
 /* Typedefs --------------------------------------------------------------------*/
 /**
  * @brief Structure to define the Buzzer melody player FSM.
@@ -87,4 +88,5 @@ extern const melody_t kerosene;
 
 extern const melody_t kerosene_bass;
 
+extern const melody_t mario_death;
 #endif /* MELODIES_H_ */

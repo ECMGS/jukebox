@@ -66,7 +66,7 @@ void port_buzzer_set_note_duration (uint32_t buzzer_id, uint32_t duration_ms);
  * @param buzzer_id	Buzzer melody player ID. This index is used to select the element of the buzzers_arr[] array
  * @param frequency_hz	Frequency of the note in Hz
 */
-void port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz);
+void port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz, double volume);
 
 /**
  * @brief Retrieve the status of the note end flag.
@@ -82,5 +82,5 @@ bool port_buzzer_get_note_timeout (uint32_t buzzer_id);
 */
 void port_buzzer_stop (uint32_t buzzer_id);
 
-
+void port_buzzer_set_volume (uint32_t buzzer_id, double volume);
 #endif

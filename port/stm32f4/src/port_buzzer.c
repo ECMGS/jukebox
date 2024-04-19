@@ -22,7 +22,7 @@ port_buzzer_hw_t buzzers_arr[] = {
   .alt_func = BUZZER_0_AF,
   .note_end = BUZZER_0_NOTE_END
   },  
-}; 
+};
 
 /* Private functions */
 static void _timer_duration_setup(uint32_t buzzer_id)
@@ -113,7 +113,7 @@ bool port_buzzer_get_note_timeout	(	uint32_t 	buzzer_id	)	{
   return buzzers_arr[buzzer_id].note_end;
 }
 
-void 	port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz) {
+void 	port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz, double volume) {
   if (buzzer_id == BUZZER_0_ID) {
 
     TIM3->CR1 &= ~TIM_CR1_CEN;
@@ -134,7 +134,7 @@ void 	port_buzzer_set_note_frequency (uint32_t buzzer_id, double frequency_hz) {
     TIM3->ARR = (int32_t) round(arr_value);
     TIM3->PSC = (int32_t) psc_min;
 
-    TIM3->CCR1 = (uint32_t) (BUZZER_PWM_DC * (TIM3->ARR+1));
+    TIM3->CCR1 = (uint32_t) (volume * (TIM3->ARR+1));
 
     TIM3->EGR |= TIM_EGR_UG;
 

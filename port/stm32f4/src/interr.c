@@ -41,6 +41,17 @@ void EXTI15_10_IRQHandler ()
     }
 }
 
+void EXTI4_IRQHandler ()
+{
+    /* ISR user button */
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_1_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_1_ID].p_port,buttons_arr[BUTTON_1_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin);
+    }
+}
+
 /**
  * @brief This function handles USART3 global interrupt.
  * First, this function identifies the line/ pin which has raised the interruption. Then, perform the desired action. Before leaving it cleans the interrupt pending register.

@@ -15,6 +15,7 @@
 /* Global variables ------------------------------------------------------------*/
 port_button_hw_t buttons_arr[] = {
     [BUTTON_0_ID] = {.p_port = BUTTON_0_GPIO, .pin = BUTTON_0_PIN, .flag_pressed = false},
+    [BUTTON_1_ID] = {.p_port = BUTTON_1_GPIO, .pin = BUTTON_1_PIN, .flag_pressed = false}
 };
 
 /**

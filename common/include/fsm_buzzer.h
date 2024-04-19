@@ -22,7 +22,6 @@
 /* HW dependent includes */
 #include "port_buzzer.h"
 
-
 /* Defines and enums ----------------------------------------------------------*/
 /* Enums */
 
@@ -53,6 +52,7 @@ typedef struct {
     uint8_t buzzer_id;      /*!< Id of the buzzer*/
     uint8_t user_action;    /*!< State of the reproducer*/
     double player_speed;    /*!< Speed of the melody*/
+    double volume;          /*!< Volume of the melody*/
 } fsm_buzzer_t;
 
 
@@ -149,4 +149,8 @@ void fsm_buzzer_init (fsm_t *p_this, uint32_t buzzer_id);
 */
 bool fsm_buzzer_check_activity (fsm_t *p_this);
 
+
+void fsm_buzzer_set_volume(fsm_t *p_this, double volume);
+
+double fsm_buzzer_get_volume(fsm_t *p_this);
 #endif /* FSM_BUZZER_H_ */

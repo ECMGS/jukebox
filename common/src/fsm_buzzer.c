@@ -20,15 +20,15 @@
 bool fsm_buzzer_check_activity (fsm_t *p_this)  {
     fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
 
-    return p_fsm->user_action == PLAY;
+    return p_fsm->user_action == PLAY || PAUSE;
 }
 
 
-static void _start_note(fsm_t *p_this, double freq, uint32_t duration) {
+static void _start_note(fsm_t *p_this, double freq, uint32_t duration, double volume) {
     fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
 
-    port_buzzer_set_note_duration(p_fsm->buzzer_id, duration * p_fsm->player_speed);
-    port_buzzer_set_note_frequency(p_fsm->buzzer_id, freq);
+    port_buzzer_set_note_duration(p_fsm->buzzer_id, duration / p_fsm->player_speed);
+    port_buzzer_set_note_frequency(p_fsm->buzzer_id, freq, volume);
 }
 
 /**
@@ -118,7 +118,7 @@ static bool check_player_start(fsm_t *p_this)	{
  */
 static void do_melody_start	(fsm_t * p_this)    {
     fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
-    _start_note(p_this, p_fsm->p_melody->p_notes[0], p_fsm->p_melody->p_durations[0]);
+    _start_note(p_this, p_fsm->p_melody->p_notes[0], p_fsm->p_melody->p_durations[0], p_fsm->volume);
     p_fsm->note_index = 1;          // estamos seguros de que es 1 y no 0?
 }
 /**
@@ -166,7 +166,7 @@ static void do_player_stop (fsm_t *p_this)  {
  */
 static void do_play_note (fsm_t *p_this)    {
     fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
-    _start_note(p_this, p_fsm->p_melody->p_notes[p_fsm->note_index], p_fsm->p_melody->p_durations[p_fsm->note_index]);
+    _start_note(p_this, p_fsm->p_melody->p_notes[p_fsm->note_index], p_fsm->p_melody->p_durations[p_fsm->note_index], p_fsm->volume);
     p_fsm->note_index++;
 }
 /**
@@ -210,6 +210,15 @@ void fsm_buzzer_set_action( fsm_t *p_this, uint8_t action) {
     if (action == STOP) p_fsm->note_index = 0;
 }
 
+void fsm_buzzer_set_volume(fsm_t *p_this, double volume) {
+    fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
+    p_fsm->volume = volume;
+}
+
+double fsm_buzzer_get_volume(fsm_t *p_this) {
+    fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
+    return p_fsm->volume;
+}
 uint8_t fsm_buzzer_get_action ( fsm_t *p_this) {
     fsm_buzzer_t *p_fsm = (fsm_buzzer_t *)(p_this);
     return p_fsm->user_action;
@@ -222,6 +231,7 @@ void fsm_buzzer_init (fsm_t *p_this, uint32_t buzzer_id) {
     p_fsm->note_index = 0;
     p_fsm->user_action = STOP;
     p_fsm->player_speed = 1.0;
+    p_fsm->volume = 0.5;
     port_buzzer_init(p_fsm->buzzer_id);
 }
 

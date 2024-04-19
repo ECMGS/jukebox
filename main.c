@@ -26,10 +26,13 @@
 #include "fsm_jukebox.h"
 
 /* Defines ------------------------------------------------------------------*/
-#define ON_OFF_PRESS_TIME_MS 1000 // 1 [s]
-#define NEXT_SONG_BUTTON_TIME_MS 500 // 0.5 [s]
+#define ON_OFF_PRESS_TIME_MS 500 // 1 [s]
+#define NEXT_SONG_BUTTON_TIME_MS 50
 
-#define FUNC_BUTTON_ID BUTTON_0_ID
+#define PLAY_PAUSE_BUTTON_TIME_MS 50
+#define CHANGE_VOLUME_BUTTON_TIME_MS 500
+// #define FUNC_BUTTON_0_ID BUTTON_0_ID
+// #define FUNC_BUTTON_1_ID BUTTON_1_ID
 #define USART USART_0_ID
 #define BUZZER BUZZER_0_ID
 
@@ -42,17 +45,19 @@ int main(void)
     /* Init board */
     port_system_init();
 
-    fsm_t *p_fsm_button_t = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, FUNC_BUTTON_ID);
+    fsm_t *p_fsm_button_t = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, BUTTON_0_ID);
+    fsm_t *p_fsm_button_play_pause_t = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
     fsm_t *p_fsm_usart_t = fsm_usart_new(USART);
     fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER);
     
-    fsm_t *jukebox = fsm_jukebox_new(p_fsm_button_t, ON_OFF_PRESS_TIME_MS,p_fsm_usart_t, 
-    p_fsm_buzzer_t, NEXT_SONG_BUTTON_TIME_MS);
+    fsm_t *jukebox = fsm_jukebox_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS,
+    CHANGE_VOLUME_BUTTON_TIME_MS,p_fsm_usart_t, p_fsm_buzzer_t, NEXT_SONG_BUTTON_TIME_MS);
 
     /* Infinite loop */
     while (1)
     {
         fsm_fire(p_fsm_button_t);
+        fsm_fire(p_fsm_button_play_pause_t);
         fsm_fire(p_fsm_usart_t);
         fsm_fire(p_fsm_buzzer_t);
         fsm_fire(jukebox);
@@ -61,6 +66,7 @@ int main(void)
     fsm_destroy(jukebox);
 
     fsm_destroy((fsm_t *) p_fsm_button_t);
+    fsm_destroy((fsm_t *) p_fsm_button_play_pause_t);
     fsm_destroy((fsm_t *) p_fsm_usart_t);
     fsm_destroy((fsm_t *) p_fsm_buzzer_t);
     

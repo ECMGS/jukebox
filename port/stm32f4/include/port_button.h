@@ -1,8 +1,8 @@
 /**
  * @file port_button.h
  * @brief Header for port_button.c file.
- * @author alumno1
- * @author alumno2
+ * @author Jorge Alejandro Estefania Hidalgo
+ * @author Eugenio Cano Muñoz
  * @date fecha
  */
 
@@ -23,7 +23,14 @@
 #define BUTTON_0_ID 0
 #define BUTTON_0_GPIO GPIOC
 #define BUTTON_0_PIN 13
-#define BUTTON_0_DEBOUNCE_TIME_MS 32            /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
+#define BUTTON_0_DEBOUNCE_TIME_MS 50            /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
+
+#define BUTTON_1_ID 1
+#define BUTTON_1_GPIO GPIOB
+#define BUTTON_1_PIN 4
+#define BUTTON_1_DEBOUNCE_TIME_MS 50            /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
+
+
 
 /* Typedefs --------------------------------------------------------------------*/
 typedef struct

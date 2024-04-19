@@ -163,14 +163,25 @@ const melody_t kerosene = {  .p_name = "kerosene",
                                     .p_notes = (double *)kerosene_notes,
                                     .p_durations = (uint16_t *)kerosene_durations,
                                     .melody_length = KEROSENE_LENGTH};
+
+#define MARIO_DEATH_LENGTH 25
+
+static const double mario_death_notes[MARIO_DEATH_LENGTH] = {
+392, 494, 196, 587, 698, 587, 698, 196, 587, 698, 196, 523, 659, 220, 494, 587, 247, 392, 523, 262, 330, 196, 330, 262, 131};
+
+
+static const uint16_t mario_death_durations[MARIO_DEATH_LENGTH] = {
+159, 168, 134, 111, 111, 151, 151, 151, 188, 199, 188, 180, 192, 180, 190, 202, 190, 145, 154, 118, 110, 115, 141, 115, 115};
+
+
+const melody_t mario_death = {
+    .p_name = "mario_death",
+    .p_notes = (double *)mario_death_notes,
+    .p_durations = (uint16_t *)mario_death_durations,
+    .melody_length = MARIO_DEATH_LENGTH
+};
+
+
 /*
 
-
-
-  
-
-
-
-*/
-
-                                
+*/  
