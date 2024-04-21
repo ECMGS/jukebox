@@ -79,3 +79,9 @@ void 	TIM2_IRQHandler (void)
     TIM2->SR &= ~TIM_SR_UIF;
     buzzers_arr[BUZZER_0_ID].note_end = true;
 }
+
+void TIM5_IRQHandler (void)
+{
+    TIM5->SR &= ~TIM_SR_UIF;
+    buzzers_arr[BUZZER_1_ID].note_end = true;
+}

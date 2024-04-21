@@ -18,7 +18,7 @@
 #include "port_system.h"
 /* HW dependent includes */
 
-#define valid_buzzer(buzz_id) (buzz_id == BUZZER_0_ID)
+#define valid_buzzer(buzz_id) (buzz_id == BUZZER_0_ID || BUZZER_1_ID)
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
@@ -28,7 +28,13 @@
 #define BUZZER_0_AF         2       /*!< Alternate function for the buzzer*/
 #define BUZZER_0_NOTE_END   false   /*!< Default value for ending notes*/
 
-#define BUZZER_PWM_DC     0.9     /*!< Duty cycle of the PWM signal */
+#define BUZZER_1_ID         1       /*!< integer identifyer of the buzzer */
+#define BUZZER_1_GPIO       GPIOB   /*!< GPIO port of the buzzer */
+#define BUZZER_1_PIN        6       /*!< GPIO pin of the buzzer */
+#define BUZZER_1_AF         2       /*!< Alternate function for the buzzer*/
+#define BUZZER_1_NOTE_END   false   /*!< Default value for ending notes*/
+
+//#define BUZZER_PWM_DC     0.5     /*!< Duty cycle of the PWM signal */
 
 #define TIM_AS_PWM1_MASK 0X0060
 #define ARR_MAX 0xFFFF
@@ -38,7 +44,7 @@
 typedef struct {
     GPIO_TypeDef    *p_port;
     uint8_t         pin;
-    uint8_t         alt_func; //AF2
+    uint8_t         alt_func; //AF2 or AF3
     bool            note_end;
 } port_buzzer_hw_t;
 
