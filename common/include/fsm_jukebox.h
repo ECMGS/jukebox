@@ -45,8 +45,6 @@ typedef struct {
     uint32_t next_song_press_time_ms;
     uint32_t play_pause_press_time_ms;
     uint32_t change_volume_press_time_ms;
-    double volumes[4];
-    int volume_index;
     double speed;
 } fsm_jukebox_t;
 
