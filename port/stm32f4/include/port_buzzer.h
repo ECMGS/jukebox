@@ -19,8 +19,11 @@
 /* HW dependent includes */
 
 #define valid_buzzer(buzz_id) ((buzz_id) == BUZZER_0_ID || BUZZER_1_ID)
-#define get_timer_IRQn(buzz_id) ((buzz_id) == BUZZER_0_ID) ? TIM2_IRQn : (((buzz_id) == BUZZER_1_ID) ? TIM5_IRQn : TIM2_IRQn)
-#define get_timer_RCC(buzz_id) ((buzz_id) == BUZZER_0_ID) ? RCC_APB1ENR_TIM2EN : (((buzz_id) == BUZZER_1_ID) ? RCC_APB1ENR_TIM5EN : RCC_APB1ENR_TIM2EN)
+
+#define get_timer_duration_IRQn(buzz_id) ((buzz_id) == BUZZER_0_ID) ? TIM2_IRQn : (((buzz_id) == BUZZER_1_ID) ? TIM5_IRQn : TIM2_IRQn)
+#define get_timer_duration_RCC(buzz_id) ((buzz_id) == BUZZER_0_ID) ? RCC_APB1ENR_TIM2EN : (((buzz_id) == BUZZER_1_ID) ? RCC_APB1ENR_TIM5EN : RCC_APB1ENR_TIM2EN)
+
+#define get_timer_frequency_RCC(buzz_id) ((buzz_id) == BUZZER_0_ID) ? RCC_APB1ENR_TIM3EN : (((buzz_id) == BUZZER_1_ID) ? RCC_APB1ENR_TIM4EN : RCC_APB1ENR_TIM3EN)
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
