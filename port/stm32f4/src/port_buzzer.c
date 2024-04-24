@@ -20,51 +20,41 @@ port_buzzer_hw_t buzzers_arr[] = {
   .p_port = BUZZER_0_GPIO,
   .pin = BUZZER_0_PIN,
   .alt_func = BUZZER_0_AF,
-  .note_end = BUZZER_0_NOTE_END
+  .note_end = BUZZER_0_NOTE_END,
+  .p_duration_timer = BUZZER_0_DURATION_TIMER,
+  .p_frequency_timer = BUZZER_0_FREQUENCY_TIMER
   }, 
   [BUZZER_1_ID] = {
   .p_port = BUZZER_1_GPIO,
   .pin = BUZZER_1_PIN,
   .alt_func = BUZZER_1_AF,
-  .note_end = BUZZER_1_NOTE_END
+  .note_end = BUZZER_1_NOTE_END,
+  .p_duration_timer = BUZZER_1_DURATION_TIMER,
+  .p_frequency_timer = BUZZER_1_FREQUENCY_TIMER
   } 
 };
 
 /* Private functions */
 static void _timer_duration_setup(uint32_t buzzer_id)
 {
-  if (buzzer_id == BUZZER_0_ID)
+  if (valid_buzzer(buzzer_id))
   {
+    printf("Valid buffer\n");
     // TO-DO alumnos
-    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+    RCC->APB1ENR |= get_timer_RCC(buzzer_id);
 
-    TIM2->CR1 = 0x0000;
-    TIM2->CR1 &= ~TIM_CR1_CEN;
+    buzzers_arr[buzzer_id].p_duration_timer->CR1 = 0x0000;
+    buzzers_arr[buzzer_id].p_duration_timer->CR1 &= ~TIM_CR1_CEN;
 
-    TIM2->CR1 |= TIM_CR1_ARPE;
+    buzzers_arr[buzzer_id].p_duration_timer->CR1 |= TIM_CR1_ARPE;
 
-    TIM2->SR = ~TIM_SR_UIF;
+    buzzers_arr[buzzer_id].p_duration_timer->SR = ~TIM_SR_UIF;
 
-    TIM2->DIER |= TIM_DIER_UIE;
-
-    /* Configure interruptions */
-    NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 3, 0)); 
-    NVIC_EnableIRQ(TIM2_IRQn);                                                          
-  }
-  if (buzzer_id == BUZZER_1_ID)
-  {
-    // TODO PORT SEGUNDO USART
-    RCC->APB1ENR |= RCC_APB1ENR_TIM5EN;
-
-    TIM5->CR1 = 0x0000;
-    TIM5->CR1 &= ~TIM_CR1_CEN;
-    TIM5->CR1 |= TIM_CR1_ARPE;
-    TIM5->SR = ~TIM_SR_UIF;
-    TIM5->DIER |= TIM_DIER_UIE;
+    buzzers_arr[buzzer_id].p_duration_timer->DIER |= TIM_DIER_UIE;
 
     /* Configure interruptions */
-    NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 3, 0)); 
-    NVIC_EnableIRQ(TIM2_IRQn);                                                          
+    NVIC_SetPriority(get_timer_IRQn(buzzer_id), NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 3, 0)); 
+    NVIC_EnableIRQ(get_timer_IRQn(buzzer_id));                                                          
   }
 
 }

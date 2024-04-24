@@ -18,7 +18,9 @@
 #include "port_system.h"
 /* HW dependent includes */
 
-#define valid_buzzer(buzz_id) (buzz_id == BUZZER_0_ID || BUZZER_1_ID)
+#define valid_buzzer(buzz_id) ((buzz_id) == BUZZER_0_ID || BUZZER_1_ID)
+#define get_timer_IRQn(buzz_id) ((buzz_id) == BUZZER_0_ID) ? TIM2_IRQn : (((buzz_id) == BUZZER_1_ID) ? TIM5_IRQn : TIM2_IRQn)
+#define get_timer_RCC(buzz_id) ((buzz_id) == BUZZER_0_ID) ? RCC_APB1ENR_TIM2EN : (((buzz_id) == BUZZER_1_ID) ? RCC_APB1ENR_TIM5EN : RCC_APB1ENR_TIM2EN)
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
@@ -27,12 +29,18 @@
 #define BUZZER_0_PIN        6       /*!< GPIO pin of the buzzer */
 #define BUZZER_0_AF         2       /*!< Alternate function for the buzzer*/
 #define BUZZER_0_NOTE_END   false   /*!< Default value for ending notes*/
+#define BUZZER_0_DURATION_TIMER TIM2 /*!< Timer for the duration of the note */
+#define BUZZER_0_DURATION_TIMER_IRQ TIM2_IRQn /*!< Timer for the duration of the note */
+#define BUZZER_0_FREQUENCY_TIMER TIM3 /*!< Timer for the frequency of the note */
 
 #define BUZZER_1_ID         1       /*!< integer identifyer of the buzzer */
 #define BUZZER_1_GPIO       GPIOB   /*!< GPIO port of the buzzer */
 #define BUZZER_1_PIN        6       /*!< GPIO pin of the buzzer */
 #define BUZZER_1_AF         2       /*!< Alternate function for the buzzer*/
 #define BUZZER_1_NOTE_END   false   /*!< Default value for ending notes*/
+#define BUZZER_1_DURATION_TIMER TIM5 /*!< Timer for the duration of the note */
+#define BUZZER_1_DURATION_TIMER_IRQ TIM5_IRQn /*!< Timer for the duration of the note */    
+#define BUZZER_1_FREQUENCY_TIMER TIM4 /*!< Timer for the frequency of the note */
 
 //#define BUZZER_PWM_DC     0.5     /*!< Duty cycle of the PWM signal */
 
@@ -46,6 +54,8 @@ typedef struct {
     uint8_t         pin;
     uint8_t         alt_func; //AF2 or AF3
     bool            note_end;
+    TIM_TypeDef    *p_duration_timer;
+    TIM_TypeDef    *p_frequency_timer;
 } port_buzzer_hw_t;
 
 /* Global variables */
