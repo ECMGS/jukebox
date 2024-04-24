@@ -56,20 +56,21 @@
 #define LAs5 932.328  /*!< LA#5 note frequency */
 #define SI5 987.767   /*!< SI5 note frequency */
 
-
 /* Typedefs --------------------------------------------------------------------*/
 /**
  * @brief Structure to define the Buzzer melody player FSM.
  */
-typedef struct
+struct melody_t
 {
     char *p_name;           /*!< Pointer to the name of the melody to play */
     double *p_notes;        /*!< Pointer to the notes of the melody */
     uint16_t *p_durations;  /*!< Pointer to the duration of each note of the melody in milliseconds */
     uint16_t melody_length; /*!< Length of the melody to play */
     // Mejorar V5, puntero a otra melodia asociada
-    melody_t *next_melody;
-} melody_t;
+    const struct melody_t* next_melody;
+};
+
+typedef struct melody_t melody_t;
 
 // Melodies must be defined in melodies.c, and declared here as extern
 // Scale melody

@@ -49,7 +49,7 @@ int main(void)
     fsm_t *p_fsm_button_t = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, BUTTON_0_ID);
     fsm_t *p_fsm_button_play_pause_t = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
     fsm_t *p_fsm_usart_t = fsm_usart_new(USART);
-    fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER_1_ID);
+    fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER_0_ID);
     // fsm_t *p_fsm_buzzer_2_t = fsm_buzzer_new(BUZZER_2);
     
     fsm_t *jukebox = fsm_jukebox_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS,

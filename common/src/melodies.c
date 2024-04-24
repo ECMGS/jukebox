@@ -167,7 +167,7 @@ const melody_t kerosene = {.p_name = "kerosene",
                            .p_notes = (double *)kerosene_notes,
                            .p_durations = (uint16_t *)kerosene_durations,
                            .melody_length = KEROSENE_LENGTH,
-                           .next_melody = &kerosene_bass};
+                           .next_melody = (const melody_t*) &kerosene_bass};
 
 #define MARIO_DEATH_LENGTH 25
 
