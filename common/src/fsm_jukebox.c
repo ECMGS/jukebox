@@ -322,7 +322,6 @@ void fsm_jukebox_init (fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_p
     p_fsm->melodies[3] = tetris_melody;
     p_fsm->melodies[4] = scale_melody;
     p_fsm->melodies[5] = kerosene;
-    p_fsm->melodies[6] = kerosene_bass;
-    p_fsm->melodies[7] = mario_death;
+    p_fsm->melodies[6] = mario_death;
 }
 

@@ -19,7 +19,7 @@
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
-#define MELODIES_MEMORY_SIZE 8 // Number of melodies in the melodies array
+#define MELODIES_MEMORY_SIZE 7 // Number of melodies in the melodies array
 
 /* Enums */
 enum FSM_JUKEBOX
