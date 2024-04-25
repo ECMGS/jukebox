@@ -7,7 +7,9 @@
 
 void buzzer_director_set_action(uint8_t action);
 
-void buzzer_director_set_melody(const melody_t* p_melody);
+uint8_t buzzer_director_get_action(void);
+
+void buzzer_director_set_melody(const melody_t *p_melody);
 
 void buzzer_director_set_speed(double speed);
 
