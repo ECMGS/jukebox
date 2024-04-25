@@ -15,14 +15,16 @@
 #include <stdio.h>
 
 // Other includes
-#include <fsm.h>
 #include "fsm.h"
 #include "fsm_jukebox.h"
 #include "fsm_button.h"
 #include "fsm_usart.h"
 #include "fsm_buzzer.h"
+
 #include "port_system.h"
 #include "port_usart.h"
+
+#include "buzzer_director.h"
 
 /* Defines ------------------------------------------------------------------*/
 #define MAX(a, b) ((a) > (b) ? (a) : (b)) /*!< Macro to get the maximum of two values. */
@@ -76,34 +78,41 @@ bool _parse_message(char *p_message, char *p_command, char *p_param)
 
 
 void _set_next_song (fsm_jukebox_t *p_fsm_jukebox) {
-    fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+    //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+    buzzer_director_set_action(STOP);
     p_fsm_jukebox->melody_idx = (p_fsm_jukebox->melody_idx + 1) % MELODIES_MEMORY_SIZE;
     if (!(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].melody_length > 0)) p_fsm_jukebox->melody_idx = 0;
     p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
     printf(": %s\n", p_fsm_jukebox->p_melody);
-    fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
-    fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+    //fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+    //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+    buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+    buzzer_director_set_action(PLAY);
 }
 
 void _execute_command (fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_param) {
     if (!strcmp(p_command, "play")) {
-        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+        //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+        buzzer_director_set_action(PLAY);
         return ;
     }
 
     if (!strcmp(p_command, "stop")) {
-        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+        //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+        buzzer_director_set_action(STOP);
         return ;
     }
 
     if (!strcmp(p_command, "pause")) {
-        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PAUSE);
+        //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PAUSE);
+        buzzer_director_set_action(PAUSE);
         return ;
     }
 
     if (!strcmp(p_command, "speed")) {
         double param = atoi(p_param);
-        fsm_buzzer_set_speed(p_fsm_jukebox->p_fsm_buzzer, param);
+        //fsm_buzzer_set_speed(p_fsm_jukebox->p_fsm_buzzer, param);
+        buzzer_director_set_speed(param);
         return ;
     }
 
@@ -120,14 +129,17 @@ void _execute_command (fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_pa
             return ;
         }
 
-        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+        //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
+        buzzer_director_set_action(STOP);
 
         p_fsm_jukebox->melody_idx = melody_selected;
 
-        fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+        //fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+        buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
         p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
 
-        fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+        //fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+        buzzer_director_set_action(PLAY);
         return ;
     }
 
@@ -155,9 +167,11 @@ static bool check_off(fsm_t * p_this){
     return check_on(p_this);
 }
 
+
 static bool check_melody_finished (fsm_t *p_this) {
-    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    return fsm_buzzer_get_action(p_fsm->p_fsm_buzzer) == STOP;
+    //fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    //return fsm_buzzer_get_action(p_fsm->p_fsm_buzzer) == STOP;
+    return buzzer_director_check_melody_finished();
 }
 
 static bool check_command_received (fsm_t *p_this){
@@ -175,7 +189,8 @@ static bool check_activity (fsm_t *p_this) {
     return fsm_button_check_activity(p_fsm->p_fsm_button) ||
            fsm_button_check_activity(p_fsm->p_fsm_button_play_pause) ||
            fsm_usart_check_activity(p_fsm->p_fsm_usart) ||
-           fsm_buzzer_check_activity(p_fsm->p_fsm_buzzer);
+           buzzer_director_check_activity()
+           /*||fsm_buzzer_check_activity(p_fsm->p_fsm_buzzer)*/;
 }
 
 static bool check_no_activity (fsm_t *p_this) {
@@ -199,9 +214,12 @@ static void do_start_up (fsm_t *p_this) {
     fsm_button_reset_duration(p_fsm->p_fsm_button);
     fsm_usart_enable_rx_interrupt(p_fsm->p_fsm_usart);
     printf("Jukebox ON\n");
-    fsm_buzzer_set_speed(p_fsm->p_fsm_buzzer, 1);
-    fsm_buzzer_set_melody(p_fsm->p_fsm_buzzer, &(p_fsm->melodies[0]));
-    fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
+    //fsm_buzzer_set_speed(p_fsm->p_fsm_buzzer, 1);
+    //fsm_buzzer_set_melody(p_fsm->p_fsm_buzzer, &(p_fsm->melodies[0]));
+    //fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
+    buzzer_director_set_speed(1);
+    buzzer_director_set_melody(&(p_fsm->melodies[0]));
+    buzzer_director_set_action(PLAY);
 }
 
 static void do_start_jukebox (fsm_t *p_this) {
@@ -216,7 +234,8 @@ static void do_stop_jukebox (fsm_t *p_this) {
     fsm_usart_disable_tx_interrupt(p_fsm->p_fsm_usart);
     fsm_usart_disable_rx_interrupt(p_fsm->p_fsm_usart);
     printf("Jukebox OFF\n");
-    fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, STOP);
+    //fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, STOP);
+    buzzer_director_set_action(STOP);
 }
 
 static void do_load_next_song (fsm_t *p_this) {
@@ -258,20 +277,25 @@ static void do_play_pause(fsm_t * p_this) {
     fsm_button_reset_duration(p_fsm->p_fsm_button_play_pause);
     if (fsm_buzzer_get_action(p_fsm->p_fsm_buzzer) == PLAY) {
         printf("PAUSE");
-        fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PAUSE);
+        //fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PAUSE);
+        buzzer_director_set_action(PAUSE);
     }
     else {
         printf("PLAY");
-        fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
+        //fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
+        buzzer_director_set_action(PLAY);
     }
 }
 
 static void do_change_volume(fsm_t * p_this) {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button_play_pause);
-    double volume = fsm_buzzer_get_volume(p_fsm->p_fsm_buzzer);
-    if (volume == 0.5) {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.995);}
-    else {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.5);}
+    //double volume = fsm_buzzer_get_volume(p_fsm->p_fsm_buzzer);
+    double volume = buzzer_director_get_volume();
+    //if (volume == 0.5) {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.995);}
+    //else {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.5);}
+    if (volume == 0.5) {buzzer_director_set_volume(0.995);}
+    else {buzzer_director_set_volume(0.5);}
 }
 
 
@@ -293,28 +317,30 @@ static fsm_trans_t fsm_trans_jukebox[] = {
 };
 
 /* Public functions */
-fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_time_ms, uint32_t change_volume_press_time_ms,fsm_t *p_fsm_usart, fsm_t *p_fsm_buzzer, uint32_t next_song_press_time_ms)
+fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_time_ms, uint32_t change_volume_press_time_ms,fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms)
 {
     fsm_t *p_fsm = malloc(sizeof(fsm_jukebox_t));
     fsm_init(p_fsm, fsm_trans_jukebox);
-    fsm_jukebox_init(p_fsm, p_fsm_button, p_fsm_button_play_pause,on_off_press_time_ms, play_pause_time_ms, change_volume_press_time_ms,p_fsm_usart, p_fsm_buzzer, next_song_press_time_ms);
+    fsm_jukebox_init(p_fsm, p_fsm_button, p_fsm_button_play_pause,on_off_press_time_ms, play_pause_time_ms, change_volume_press_time_ms,p_fsm_usart, /*p_fsm_buzzer,*/ next_song_press_time_ms);
     
     return p_fsm;
 }
 
-void fsm_jukebox_init (fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_time_ms, uint32_t change_volume_press_time_ms,fsm_t *p_fsm_usart, fsm_t *p_fsm_buzzer, uint32_t next_song_press_time_ms){
+void fsm_jukebox_init (fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_time_ms, uint32_t change_volume_press_time_ms,fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms){
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_init(p_this, p_this->p_tt);
     p_fsm->p_fsm_button = p_fsm_button;
     p_fsm->p_fsm_button_play_pause = p_fsm_button_play_pause;
     p_fsm->on_off_press_time_ms = on_off_press_time_ms;
     p_fsm->p_fsm_usart = p_fsm_usart;
-    p_fsm->p_fsm_buzzer = p_fsm_buzzer;
+    //p_fsm->p_fsm_buzzer = p_fsm_buzzer;
     p_fsm->next_song_press_time_ms = next_song_press_time_ms;
     p_fsm->play_pause_press_time_ms = play_pause_time_ms;
     p_fsm->change_volume_press_time_ms = change_volume_press_time_ms;
     p_fsm->melody_idx = 0;
     memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
+
+    buzzer_director_init();
 
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
