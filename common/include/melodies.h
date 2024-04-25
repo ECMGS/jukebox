@@ -67,14 +67,14 @@ struct melody_t
     uint16_t *p_durations;  /*!< Pointer to the duration of each note of the melody in milliseconds */
     uint16_t melody_length; /*!< Length of the melody to play */
     // Mejorar V5, puntero a otra melodia asociada
-    const struct melody_t* next_melody;
+    const struct melody_t *next_melody;
 };
 
 typedef struct melody_t melody_t;
 
 // Melodies must be defined in melodies.c, and declared here as extern
 // Scale melody
-extern const melody_t scale_melody; 
+extern const melody_t scale_melody;
 
 // Melody Happy Birthday
 extern const melody_t happy_birthday_melody;
@@ -91,4 +91,25 @@ extern const melody_t kerosene;
 extern const melody_t kerosene_bass;
 
 extern const melody_t mario_death;
+
+extern const melody_t jingle_bells;
+
+extern const melody_t star_wars_cello;
+
+extern const melody_t star_wars_trumpet;
+
+extern const melody_t star_wars_trombone;
+
+extern const melody_t star_wars_drums;
+
+extern const melody_t star_wars_glockenspiel;
+
+/*
+star_wars_cello
+star_wars_trumpet
+star_wars_trombone
+star_wars_drums
+star_wars_glockenspiel
+
+*/
 #endif /* MELODIES_H_ */
