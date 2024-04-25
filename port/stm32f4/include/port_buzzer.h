@@ -45,6 +45,8 @@
 #define BUZZER_1_DURATION_TIMER_IRQ TIM5_IRQn /*!< Timer for the duration of the note */    
 #define BUZZER_1_FREQUENCY_TIMER TIM4 /*!< Timer for the frequency of the note */
 
+#define NUM_BUZZERS 2
+
 //#define BUZZER_PWM_DC     0.5     /*!< Duty cycle of the PWM signal */
 
 #define TIM_AS_PWM1_MASK 0X0060
