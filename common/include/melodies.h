@@ -94,8 +94,6 @@ extern const melody_t mario_death;
 
 extern const melody_t jingle_bells;
 
-extern const melody_t star_wars_cello;
-
 extern const melody_t star_wars_trumpet;
 
 extern const melody_t star_wars_trombone;

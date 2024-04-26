@@ -378,11 +378,13 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
 
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
-    p_fsm->melodies[2] = star_wars_cello;
-    p_fsm->melodies[3] = tetris_melody;
-    p_fsm->melodies[4] = scale_melody;
-    p_fsm->melodies[5] = kerosene;
-    p_fsm->melodies[6] = mario_death;
-    p_fsm->melodies[7] = jingle_bells;
-    p_fsm->melodies[8] = happy_birthday_melody;
+    p_fsm->melodies[2] = star_wars_trumpet;
+    p_fsm->melodies[3] = star_wars_trombone;
+    p_fsm->melodies[4] = star_wars_glockenspiel;
+    p_fsm->melodies[5] = star_wars_drums;
+    p_fsm->melodies[6] = tetris_melody;
+    p_fsm->melodies[7] = scale_melody;
+    p_fsm->melodies[8] = kerosene;
+    p_fsm->melodies[9] = mario_death;
+    p_fsm->melodies[10] = happy_birthday_melody;
 }
