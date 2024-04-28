@@ -34,14 +34,18 @@ void buzzer_director_set_melody(const melody_t *p_melody)
     const melody_t *p_next_melody = p_melody->next_melody;
     used_buzzers = 0;
     int i = 0;
-    for (i = 0; (i < NUM_BUZZERS && p_melody != NULL); i++)
+    for (i = 0; (i < NUM_BUZZERS); i++)
     {
+        if (p_melody == NULL)
+        {
+            break;
+        }
         fsm_buzzer_set_melody((fsm_t *)fsm_buzzer[i], p_melody);
         used_buzzers++;
         p_melody = p_next_melody;
     }
 
-    for (; i < NUM_BUZZERS; i++)
+    for (i = 0; i < NUM_BUZZERS; i++)
     {
         fsm_buzzer_set_action((fsm_t *)fsm_buzzer[i], STOP);
     }

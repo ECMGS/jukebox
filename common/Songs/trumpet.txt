@@ -1,0 +1,224 @@
+
+// Credit:
+// Midi to Arduino Converter
+//     - Andy Tran (extramaster), 2015
+// https://www.extramaster.net/tools/midiToArduino/
+//
+// Process:
+// Midi -> Midi tracks -> Note mappings -> Frequency
+//
+// CC0
+
+// Set this to be the pin that your buzzer resides in. (Note that you can only have one buzzer actively using the PWM signal at a time).
+int tonePin = 11;
+void setup() {
+
+}
+
+void midi() {
+
+    tone(tonePin, 391, 308.88);
+    delay(312.0);
+    delay(188.0);
+    tone(tonePin, 391, 320.76);
+    delay(324.0);
+    delay(168.0);
+    tone(tonePin, 391, 285.12);
+    delay(288.0);
+    delay(160.0);
+    tone(tonePin, 311, 241.56);
+    delay(244.0);
+    delay(100.0);
+    tone(tonePin, 466, 71.28);
+    delay(72.0);
+    delay(60.0);
+    tone(tonePin, 391, 376.2);
+    delay(380.0);
+    delay(108.0);
+    tone(tonePin, 311, 205.92);
+    delay(208.0);
+    delay(160.0);
+    tone(tonePin, 466, 71.28);
+    delay(72.0);
+    delay(52.0);
+    tone(tonePin, 391, 625.68);
+    delay(632.0);
+    delay(324.0);
+    tone(tonePin, 587, 320.76);
+    delay(324.0);
+    delay(148.0);
+    tone(tonePin, 587, 316.8);
+    delay(320.0);
+    delay(172.0);
+    tone(tonePin, 587, 312.84);
+    delay(316.0);
+    delay(164.0);
+    tone(tonePin, 622, 209.88);
+    delay(212.0);
+    delay(136.0);
+    tone(tonePin, 466, 63.36);
+    delay(64.0);
+    delay(60.0);
+    tone(tonePin, 369, 300.96);
+    delay(304.0);
+    delay(168.0);
+    tone(tonePin, 311, 253.44);
+    delay(256.0);
+    delay(104.0);
+    tone(tonePin, 466, 79.2);
+    delay(80.0);
+    delay(52.0);
+    tone(tonePin, 391, 578.16);
+    delay(584.0);
+    delay(388.0);
+    tone(tonePin, 783, 289.08);
+    delay(292.0);
+    delay(160.0);
+    tone(tonePin, 391, 174.24);
+    delay(176.0);
+    delay(216.0);
+    tone(tonePin, 391, 75.24);
+    delay(76.0);
+    delay(36.0);
+    tone(tonePin, 783, 320.76);
+    delay(324.0);
+    delay(156.0);
+    tone(tonePin, 739, 245.52);
+    delay(248.0);
+    delay(124.0);
+    tone(tonePin, 698, 79.2);
+    delay(80.0);
+    delay(24.0);
+    tone(tonePin, 659, 83.16);
+    delay(84.0);
+    delay(28.0);
+    tone(tonePin, 622, 71.28);
+    delay(72.0);
+    delay(24.0);
+    tone(tonePin, 659, 154.44);
+    delay(156.0);
+    delay(344.0);
+    tone(tonePin, 415, 83.16);
+    delay(84.0);
+    delay(168.0);
+    tone(tonePin, 554, 356.4);
+    delay(360.0);
+    delay(116.0);
+    tone(tonePin, 523, 293.04);
+    delay(296.0);
+    delay(64.0);
+    tone(tonePin, 493, 83.16);
+    delay(84.0);
+    delay(44.0);
+    tone(tonePin, 466, 83.16);
+    delay(84.0);
+    delay(32.0);
+    tone(tonePin, 440, 79.2);
+    delay(80.0);
+    delay(44.0);
+    tone(tonePin, 466, 67.32);
+    delay(68.0);
+    delay(412.0);
+    tone(tonePin, 311, 87.12);
+    delay(88.0);
+    delay(144.0);
+    tone(tonePin, 369, 336.6);
+    delay(340.0);
+    delay(132.0);
+    tone(tonePin, 311, 297.0);
+    delay(300.0);
+    delay(72.0);
+    tone(tonePin, 369, 67.32);
+    delay(68.0);
+    delay(56.0);
+    tone(tonePin, 466, 328.68);
+    delay(332.0);
+    delay(152.0);
+    tone(tonePin, 391, 237.6);
+    delay(240.0);
+    delay(112.0);
+    tone(tonePin, 466, 63.36);
+    delay(64.0);
+    delay(60.0);
+    tone(tonePin, 587, 665.28);
+    delay(672.0);
+    delay(292.0);
+    tone(tonePin, 783, 289.08);
+    delay(292.0);
+    delay(160.0);
+    tone(tonePin, 391, 174.24);
+    delay(176.0);
+    delay(216.0);
+    tone(tonePin, 391, 75.24);
+    delay(76.0);
+    delay(36.0);
+    tone(tonePin, 783, 320.76);
+    delay(324.0);
+    delay(156.0);
+    tone(tonePin, 739, 245.52);
+    delay(248.0);
+    delay(124.0);
+    tone(tonePin, 698, 79.2);
+    delay(80.0);
+    delay(24.0);
+    tone(tonePin, 659, 83.16);
+    delay(84.0);
+    delay(28.0);
+    tone(tonePin, 622, 71.28);
+    delay(72.0);
+    delay(24.0);
+    tone(tonePin, 659, 154.44);
+    delay(156.0);
+    delay(344.0);
+    tone(tonePin, 415, 83.16);
+    delay(84.0);
+    delay(168.0);
+    tone(tonePin, 554, 356.4);
+    delay(360.0);
+    delay(116.0);
+    tone(tonePin, 523, 293.04);
+    delay(296.0);
+    delay(64.0);
+    tone(tonePin, 493, 83.16);
+    delay(84.0);
+    delay(44.0);
+    tone(tonePin, 466, 83.16);
+    delay(84.0);
+    delay(32.0);
+    tone(tonePin, 440, 79.2);
+    delay(80.0);
+    delay(44.0);
+    tone(tonePin, 466, 67.32);
+    delay(68.0);
+    delay(412.0);
+    tone(tonePin, 311, 87.12);
+    delay(88.0);
+    delay(144.0);
+    tone(tonePin, 369, 336.6);
+    delay(340.0);
+    delay(132.0);
+    tone(tonePin, 311, 297.0);
+    delay(300.0);
+    delay(72.0);
+    tone(tonePin, 466, 67.32);
+    delay(68.0);
+    delay(56.0);
+    tone(tonePin, 391, 328.68);
+    delay(332.0);
+    delay(152.0);
+    tone(tonePin, 311, 237.6);
+    delay(240.0);
+    delay(112.0);
+    tone(tonePin, 466, 63.36);
+    delay(64.0);
+    delay(60.0);
+    tone(tonePin, 391, 665.28);
+    delay(672.0);
+
+}
+
+void loop() {
+    // Play midi
+    midi();
+}
+

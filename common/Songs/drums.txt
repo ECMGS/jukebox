@@ -1,247 +1,22 @@
-import pyperclip
-def transform_code(code, song_name):
-    notes = []
-    durations = []
-    lines = code.split("\n")
-    for line in lines:
-        if "tone(" in line:
-            _, freq, duration = line.split(",")
-            note = freq.strip()
-            notes.append(note)
-            duration = float(duration.split(")")[0].strip())
-            # Redondear la duración al número entero más cercano
-            rounded_duration = int(round(duration))
-            durations.append(rounded_duration)
-        elif "delay(" in line:
-            # Agregar una frecuencia de 0 para representar el silencio
-            notes.append("0")
-            duration = float(line.split("(")[1].split(")")[0].strip())
-            # Redondear la duración al número entero más cercano
-            rounded_duration = int(round(duration))
-            durations.append(rounded_duration)
-    num_notes = len(notes)
-    notes_str = ', '.join(notes)
-    durations_str = ', '.join(map(str, durations))
 
-    print(f"Notas para {song_name}: {notes_str}")
-    print(f"Duraciones para {song_name}: {durations_str}")
+// Credit:
+// Midi to Arduino Converter
+//     - Andy Tran (extramaster), 2015
+// https://www.extramaster.net/tools/midiToArduino/
+//
+// Process:
+// Midi -> Midi tracks -> Note mappings -> Frequency
+//
+// CC0
 
-    output = f"""
-#define {song_name.upper()}_LENGTH {num_notes}
+// Set this to be the pin that your buzzer resides in. (Note that you can only have one buzzer actively using the PWM signal at a time).
+int tonePin = 11;
+void setup() {
 
-static const double {song_name}_notes[{song_name.upper()}_LENGTH] = {{{notes_str}}};
-static const uint16_t {song_name}_durations[{song_name.upper()}_LENGTH] = {{{durations_str}}};
-const melody_t {song_name} = {{
-    .p_name = "{song_name}",
-    .p_notes = (double *){song_name}_notes,
-    .p_durations = (uint16_t *){song_name}_durations,
-    .melody_length = {song_name.upper()}_LENGTH,
-    .next_melody = NULL}};
-    """
-    return output
+}
 
-# Aquí debes reemplazar el contenido de 'code' con tu código Arduino
-code = """
+void midi() {
 
-
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(444.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(200.0);
-    tone(tonePin, 73, 31.68);
-    delay(32.0);
-    delay(48.0);
-    tone(tonePin, 73, 31.68);
-    delay(32.0);
-    delay(44.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(36.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(196.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(36.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(32.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(12.0);
-    delay(20.0);
-    tone(tonePin, 138, 23.76);
-    delay(24.0);
-    tone(tonePin, 155, 3.96);
-    delay(4.0);
-    tone(tonePin, 73, 23.76);
-    delay(24.0);
-    delay(32.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(28.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(12.0);
-    delay(8.0);
-    delay(16.0);
-    tone(tonePin, 138, 23.76);
-    delay(24.0);
-    tone(tonePin, 155, 3.96);
-    delay(4.0);
-    tone(tonePin, 73, 15.84);
-    delay(16.0);
-    delay(192.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(424.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(200.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(40.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(36.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(36.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(196.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(40.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(28.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(20.0);
-    delay(8.0);
-    delay(4.0);
-    tone(tonePin, 138, 35.64);
-    delay(36.0);
-    tone(tonePin, 155, 3.96);
-    delay(4.0);
-    tone(tonePin, 73, 3.96);
-    delay(4.0);
-    delay(36.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(36.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(24.0);
-    delay(8.0);
-    delay(8.0);
-    tone(tonePin, 155, 27.72);
-    delay(28.0);
-    tone(tonePin, 138, 3.96);
-    delay(4.0);
-    tone(tonePin, 73, 3.96);
-    delay(4.0);
-    delay(192.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(440.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(200.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(32.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(36.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(40.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(204.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    delay(40.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(28.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(16.0);
-    delay(12.0);
-    tone(tonePin, 155, 35.64);
-    delay(36.0);
-    tone(tonePin, 138, 3.96);
-    delay(4.0);
-    tone(tonePin, 73, 11.88);
-    delay(12.0);
-    delay(24.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(28.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(36.0);
-    delay(4.0);
-    tone(tonePin, 73, 39.6);
-    delay(40.0);
-    tone(tonePin, 138, 3.96);
-    delay(4.0);
-    tone(tonePin, 155, 7.92);
-    delay(8.0);
-    delay(180.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(432.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(196.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(36.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(32.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(28.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(192.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(36.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(28.0);
-    tone(tonePin, 73, 43.56);
-    delay(44.0);
-    delay(4.0);
-    delay(8.0);
-    delay(20.0);
-    tone(tonePin, 138, 23.76);
-    delay(24.0);
-    tone(tonePin, 155, 11.88);
-    delay(12.0);
-    tone(tonePin, 73, 7.92);
-    delay(8.0);
-    delay(36.0);
-    tone(tonePin, 73, 51.48);
-    delay(52.0);
-    delay(28.0);
-    tone(tonePin, 73, 47.52);
-    delay(48.0);
-    delay(20.0);
-    delay(12.0);
-    tone(tonePin, 138, 31.68);
-    delay(32.0);
-    tone(tonePin, 73, 19.8);
-    delay(20.0);
-    delay(192.0);
     tone(tonePin, 73, 39.6);
     delay(40.0);
     delay(440.0);
@@ -730,12 +505,10 @@ code = """
     tone(tonePin, 73, 43.56);
     delay(44.0);
 
+}
 
-"""
+void loop() {
+    // Play midi
+    midi();
+}
 
-song_name = "star_wars_drums"  # Reemplaza esto con el nombre de tu canción
-output = transform_code(code, song_name)
-print(output)
-
-pyperclip.copy(output)
-input("Presiona Enter para salir...")
