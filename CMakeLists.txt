@@ -9,7 +9,7 @@ IF(NOT DEFINED USE_FSM)
     MESSAGE(STATUS "No FSM library usage selected, using default (${USE_FSM}). You can override it by passing -DUSE_FSM=<use_fsm> to cmake")
 ENDIF()
 IF(NOT DEFINED USE_HAL)
-    SET(USE_HAL false) # set it to true to use HAL library by default
+    SET(USE_HAL true) # set it to true to use HAL library by default
     MESSAGE(STATUS "No HAL library usage selected, using default (${USE_HAL}). You can override it by passing -DUSE_HAL=<use_hal> to cmake")
 ENDIF()
 IF(NOT DEFINED PLATFORM)

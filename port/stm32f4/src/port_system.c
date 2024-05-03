@@ -9,8 +9,10 @@
 #include "port_system.h"
 
 /* Defines -------------------------------------------------------------------*/
-#define HSI_VALUE ((uint32_t)16000000) /*!< Value of the Internal oscillator in Hz */
 
+#ifndef __STM32F4xx_HAL_H
+#define HSI_VALUE ((uint32_t)16000000) /*!< Value of the Internal oscillator in Hz */
+#endif
 /* GLOBAL VARIABLES */
 static volatile uint32_t msTicks = 0; /*!< Variable to store millisecond ticks. @warning **It must be declared volatile!** Just because it is modified in an ISR. **Add it to the definition** after *static*. */
 
@@ -129,7 +131,7 @@ uint32_t port_system_get_millis()
 
 void port_system_set_millis(uint32_t ms)
 {
-  msTicks = ms;  
+  msTicks = ms;
 }
 
 void port_system_delay_ms(uint32_t ms)
@@ -255,15 +257,18 @@ void port_system_gpio_config_alternate(GPIO_TypeDef *p_port, uint8_t pin, uint8_
   p_port->AFR[(uint8_t)(pin / 8)] |= (alternate << displacement);
 }
 
-bool port_system_gpio_read(GPIO_TypeDef *p_port, uint8_t pin) {
-  return (bool) (p_port->IDR & BIT_POS_TO_MASK(pin));
+bool port_system_gpio_read(GPIO_TypeDef *p_port, uint8_t pin)
+{
+  return (bool)(p_port->IDR & BIT_POS_TO_MASK(pin));
 }
 
-void port_system_gpio_write(GPIO_TypeDef *p_port, uint8_t pin, bool value) {
+void port_system_gpio_write(GPIO_TypeDef *p_port, uint8_t pin, bool value)
+{
   p_port->BSRR = value ? BIT_POS_TO_MASK(pin) : BIT_POS_TO_MASK(pin) << 16;
 }
 
-void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin) {
+void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin)
+{
   port_system_gpio_write(p_port, pin, port_system_gpio_read(p_port, pin));
 }
 
@@ -273,22 +278,22 @@ void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin) {
 
 void port_system_power_stop()
 {
- MODIFY_REG(PWR->CR, (PWR_CR_PDDS | PWR_CR_LPDS), PWR_CR_LPDS);   // Select the regulator state in Stop mode: Set PDDS and LPDS bits according to PWR_Regulator value
- SCB->SCR |= ((uint32_t)SCB_SCR_SLEEPDEEP_Msk);   // Set SLEEPDEEP bit of Cortex System Control Register
- __WFI(); // Select Stop mode entry : Request Wait For Interrupt
- SCB->SCR &= ~((uint32_t)SCB_SCR_SLEEPDEEP_Msk); // Reset SLEEPDEEP bit of Cortex System Control Register
+  MODIFY_REG(PWR->CR, (PWR_CR_PDDS | PWR_CR_LPDS), PWR_CR_LPDS); // Select the regulator state in Stop mode: Set PDDS and LPDS bits according to PWR_Regulator value
+  SCB->SCR |= ((uint32_t)SCB_SCR_SLEEPDEEP_Msk);                 // Set SLEEPDEEP bit of Cortex System Control Register
+  __WFI();                                                       // Select Stop mode entry : Request Wait For Interrupt
+  SCB->SCR &= ~((uint32_t)SCB_SCR_SLEEPDEEP_Msk);                // Reset SLEEPDEEP bit of Cortex System Control Register
 }
 
 void port_system_power_sleep()
 {
- MODIFY_REG(PWR->CR, (PWR_CR_PDDS | PWR_CR_LPDS), PWR_CR_LPDS);   // Select the regulator state in Stop mode: Set PDDS and LPDS bits according to PWR_Regulator value
- SCB->SCR &= ~((uint32_t)SCB_SCR_SLEEPDEEP_Msk);   // Reset SLEEPDEEP bit of Cortex System Control Register
- __WFI(); // Select Sleep mode entry : Request Wait For Interrupt
+  MODIFY_REG(PWR->CR, (PWR_CR_PDDS | PWR_CR_LPDS), PWR_CR_LPDS); // Select the regulator state in Stop mode: Set PDDS and LPDS bits according to PWR_Regulator value
+  SCB->SCR &= ~((uint32_t)SCB_SCR_SLEEPDEEP_Msk);                // Reset SLEEPDEEP bit of Cortex System Control Register
+  __WFI();                                                       // Select Sleep mode entry : Request Wait For Interrupt
 }
 
 void port_system_systick_suspend()
 {
- SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
+  SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
 }
 
 void port_system_systick_resume()
@@ -296,7 +301,8 @@ void port_system_systick_resume()
   SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
 }
 
-void port_system_sleep() {
+void port_system_sleep()
+{
   port_system_systick_suspend();
   port_system_power_sleep();
 }

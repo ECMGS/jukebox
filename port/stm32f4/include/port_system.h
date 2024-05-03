@@ -42,7 +42,9 @@
 #define GPIO_MODE_IN 0x00        /*!< GPIO as input */
 #define GPIO_MODE_OUT 0x01       /*!< GPIO as output */
 #define GPIO_MODE_ALTERNATE 0x02 /*!< GPIO as alternate function */
-#define GPIO_MODE_ANALOG 0x03    /*!< GPIO as analog */
+#ifndef __STM32F4xx_HAL_H
+#define GPIO_MODE_ANALOG 0x03 /*!< GPIO as analog */
+#endif
 
 #define GPIO_PUPDR_NOPULL 0x00 /*!< GPIO no pull up or down */
 #define GPIO_PUPDR_PUP 0x01    /*!< GPIO pull up */
@@ -75,7 +77,8 @@
  *         The pending IRQ priority will be managed only by the subpriority.
  * @retval Init status
  */
-size_t port_system_init(void);
+size_t
+port_system_init(void);
 
 /**
  * @brief Get the count of the System tick in milliseconds
@@ -95,7 +98,7 @@ uint32_t port_system_get_millis(void);
  * > **TO-DO alumnos: HECHO**
  * >
  * > ✅ 1. Set System tick to the value received \n
- * 
+ *
  * @param ms New number of milliseconds since the system started.
 º */
 void port_system_set_millis(uint32_t ms);
@@ -248,28 +251,28 @@ void port_system_gpio_exti_disable(uint8_t pin);
 
 /**
  * @brief Reads the digital value of set pin and port
- * 
+ *
  * @param p_port selected port
  * @param pin selected pin
- * 
+ *
  * @retval if the port is high or low
-*/
+ */
 bool port_system_gpio_read(GPIO_TypeDef *p_port, uint8_t pin);
 
 /**
  * @brief Writes the digital value of set pin and port
- * 
+ *
  * @param p_port selected port
  * @param pin selected pin
-*/
+ */
 void port_system_gpio_write(GPIO_TypeDef *p_port, uint8_t pin, bool value);
 
 /**
  * @brief toggles the value of the output pin
- * 
+ *
  * @param p_port selected port
  * @param pin selected pin
-*/
+ */
 void port_system_gpio_toggle(GPIO_TypeDef *p_port, uint8_t pin);
 
 void port_system_power_stop();
