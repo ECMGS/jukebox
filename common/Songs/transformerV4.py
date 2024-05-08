@@ -10,14 +10,14 @@ def transform_code(code, song_name):
             _, freq, duration = line.split(",")
             note = freq.strip()
             notes.append(note)
-            duration = float(duration.split(")")[0].strip())
+            duration = float(duration.split(")")[0].strip()) 
             # Redondear la duración al número entero más cercano
             rounded_duration = int(round(duration))
             durations.append(rounded_duration)
             prev_note_duration = rounded_duration
         elif "delay(" in line:
             # Calcular la duración del silencio (delay) como la diferencia entre los dos delays
-            next_delay = float(line.split("(")[1].split(")")[0].strip())
+            next_delay = float(line.split("(")[1].split(")")[0].strip()) 
             silence_duration = int(round(next_delay - prev_note_duration))
             # Agregar una frecuencia de 0 para representar el silencio
             notes.append("0")

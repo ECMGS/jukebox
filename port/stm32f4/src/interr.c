@@ -26,9 +26,15 @@
 void SysTick_Handler(void)
 {
     uint32_t systemTime = port_system_get_millis();
+    HAL_IncTick();
 
     port_system_set_millis(systemTime + 1);
 }
+
+// uint32_t HAL_GetTick(void)
+//{
+//     return port_system_get_millis();
+// }
 
 void EXTI15_10_IRQHandler()
 {
