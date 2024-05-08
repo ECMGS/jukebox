@@ -43,6 +43,7 @@ void buzzer_director_set_melody(const melody_t *p_melody)
         fsm_buzzer_set_melody((fsm_t *)fsm_buzzer[i], p_melody);
         used_buzzers++;
         p_melody = p_next_melody;
+        p_next_melody = p_melody->next_melody;
     }
 
     for (i = 0; i < NUM_BUZZERS; i++)
@@ -92,7 +93,7 @@ bool buzzer_director_check_activity(void)
 {
     for (int i = 0; i < used_buzzers; i++)
     {
-        if (fsm_buzzer_check_activity((fsm_t *)fsm_buzzer[i]) != STOP)
+        if (fsm_buzzer_check_activity((fsm_t *)fsm_buzzer[i]))
         {
             return true;
         }
