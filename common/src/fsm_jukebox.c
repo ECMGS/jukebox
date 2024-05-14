@@ -119,7 +119,7 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     {
         double param = atoi(p_param);
         // fsm_buzzer_set_speed(p_fsm_jukebox->p_fsm_buzzer, param);
-        buzzer_director_set_speed(param);
+        buzzer_director_set_speed(param / 10.0);
         return;
     }
 
