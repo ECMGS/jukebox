@@ -47,6 +47,7 @@
 int main(void)
 {
     /* Init board */
+
     HAL_Init();
     port_system_init();
 
