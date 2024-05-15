@@ -25,7 +25,7 @@
 #include "port_usart.h"
 
 #include "buzzer_director.h"
-#include "lcd_controller.h"
+// #include "lcd_controller.h" //TODO BORRAR
 /* Defines ------------------------------------------------------------------*/
 #define MAX(a, b) ((a) > (b) ? (a) : (b)) /*!< Macro to get the maximum of two values. */
 
@@ -237,7 +237,8 @@ static void do_start_up(fsm_t *p_this)
     buzzer_director_set_speed(1);
     buzzer_director_set_melody(&(p_fsm->melodies[0]));
     buzzer_director_set_action(PLAY);
-    lcd_on();
+    // lcd_on();
+    // lcd_update(p_this);
 }
 
 static void do_start_jukebox(fsm_t *p_this)
@@ -264,7 +265,7 @@ static void do_load_next_song(fsm_t *p_this)
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button);
     _set_next_song(p_fsm);
-    // lcd_update_song(p_this);
+    // lcd_update(p_this);
 }
 
 static void do_read_command(fsm_t *p_this)
@@ -316,7 +317,7 @@ static void do_play_pause(fsm_t *p_this)
         // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
         buzzer_director_set_action(PLAY);
     }
-    lcd_update_state(p_this);
+    // lcd_update(p_this);
 }
 
 static void do_change_volume(fsm_t *p_this)
@@ -335,7 +336,7 @@ static void do_change_volume(fsm_t *p_this)
     {
         buzzer_director_set_volume(0.5);
     }
-    lcd_update_vol(p_this);
+    // lcd_update(p_this);
 }
 
 static fsm_trans_t fsm_trans_jukebox[] = {
@@ -364,7 +365,7 @@ fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint
     return p_fsm;
 }
 
-void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms)
+void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_press_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_init(p_this, p_this->p_tt);
@@ -374,13 +375,12 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     p_fsm->p_fsm_usart = p_fsm_usart;
     // p_fsm->p_fsm_buzzer = p_fsm_buzzer;
     p_fsm->next_song_press_time_ms = next_song_press_time_ms;
-    p_fsm->play_pause_press_time_ms = play_pause_time_ms;
+    p_fsm->play_pause_press_time_ms = play_pause_press_time_ms;
     p_fsm->change_volume_press_time_ms = change_volume_press_time_ms;
     p_fsm->melody_idx = 0;
     memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
 
     buzzer_director_init();
-    lcd_init();
 
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;

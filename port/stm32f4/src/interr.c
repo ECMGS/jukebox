@@ -56,7 +56,7 @@ void EXTI1_IRQHandler()
         buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
     }
-}x
+}
 
 void EXTI15_10_IRQHandler()
 {
