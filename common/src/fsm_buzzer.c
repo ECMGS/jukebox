@@ -15,6 +15,7 @@
 #include "fsm_buzzer.h"
 #include "melodies.h"
 
+// #include "lcd_controller.h" //TODO BORRAR
 /* State machine input or transition functions */
 
 bool fsm_buzzer_check_activity(fsm_t *p_this)
@@ -151,6 +152,7 @@ static void do_end_melody(fsm_t *p_this)
     port_buzzer_stop(p_fsm->buzzer_id);
     p_fsm->note_index = 0;
     p_fsm->user_action = STOP;
+    // lcd_update_state(p_this);
 }
 /**
  * @brief Pause the player.
