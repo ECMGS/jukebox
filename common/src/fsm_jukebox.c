@@ -25,7 +25,7 @@
 #include "port_usart.h"
 
 #include "buzzer_director.h"
-// #include "lcd_controller.h" //TODO BORRAR
+#include "lcd_controller.h"
 /* Defines ------------------------------------------------------------------*/
 #define MAX(a, b) ((a) > (b) ? (a) : (b)) /*!< Macro to get the maximum of two values. */
 
@@ -237,8 +237,8 @@ static void do_start_up(fsm_t *p_this)
     buzzer_director_set_speed(1);
     buzzer_director_set_melody(&(p_fsm->melodies[0]));
     buzzer_director_set_action(PLAY);
-    // lcd_on();
-    // lcd_update(p_this);
+    lcd_on();
+    lcd_update_song(p_this);
 }
 
 static void do_start_jukebox(fsm_t *p_this)
@@ -257,7 +257,7 @@ static void do_stop_jukebox(fsm_t *p_this)
     printf("Jukebox OFF\n");
     // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, STOP);
     buzzer_director_set_action(STOP);
-    // lcd_off();
+    lcd_off();
 }
 
 static void do_load_next_song(fsm_t *p_this)
@@ -265,7 +265,7 @@ static void do_load_next_song(fsm_t *p_this)
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button);
     _set_next_song(p_fsm);
-    // lcd_update(p_this);
+    lcd_update_song(p_this);
 }
 
 static void do_read_command(fsm_t *p_this)
@@ -317,7 +317,7 @@ static void do_play_pause(fsm_t *p_this)
         // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
         buzzer_director_set_action(PLAY);
     }
-    // lcd_update(p_this);
+    lcd_update_state(p_this);
 }
 
 static void do_change_volume(fsm_t *p_this)
@@ -336,7 +336,7 @@ static void do_change_volume(fsm_t *p_this)
     {
         buzzer_director_set_volume(0.5);
     }
-    // lcd_update(p_this);
+    lcd_update_vol(p_this);
 }
 
 static fsm_trans_t fsm_trans_jukebox[] = {
