@@ -36,28 +36,6 @@ void SysTick_Handler(void)
 //     return port_system_get_millis();
 // }
 
-void EXTI0_IRQHandler()
-{
-    /* ISR user button */
-    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin))
-    {
-        port_system_systick_resume();
-        buttons_arr[BUTTON_1_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_1_ID].p_port, buttons_arr[BUTTON_1_ID].pin);
-        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin);
-    }
-}
-
-void EXTI1_IRQHandler()
-{
-    /* ISR user button */
-    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
-    {
-        port_system_systick_resume();
-        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
-        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
-    }
-}
-
 void EXTI15_10_IRQHandler()
 {
     /* ISR user button */
@@ -66,6 +44,22 @@ void EXTI15_10_IRQHandler()
         port_system_systick_resume();
         buttons_arr[BUTTON_0_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_0_ID].p_port, buttons_arr[BUTTON_0_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin);
+    }
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_1_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_1_ID].p_port, buttons_arr[BUTTON_1_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin);
+    }
+}
+
+void EXTI9_5IRQHandler()
+{
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
     }
 }
 
