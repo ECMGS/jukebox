@@ -256,7 +256,7 @@ void fsm_buzzer_init(fsm_t *p_this, uint32_t buzzer_id)
     p_fsm->note_index = 0;
     p_fsm->user_action = STOP;
     p_fsm->player_speed = 1.0;
-    p_fsm->volume = 0.5;
+    p_fsm->volume = 0.995;
     port_buzzer_init(p_fsm->buzzer_id);
 }
 

@@ -18,26 +18,24 @@ static void DelayInit(void);
 static void DelayUS(uint32_t);
 
 uint8_t special1[8] = {
-        0b00000,
-        0b11001,
-        0b11011,
-        0b00110,
-        0b01100,
-        0b11011,
-        0b10011,
-        0b00000
-};
+    0b00000,
+    0b11001,
+    0b11011,
+    0b00110,
+    0b01100,
+    0b11011,
+    0b10011,
+    0b00000};
 
 uint8_t special2[8] = {
-        0b11000,
-        0b11000,
-        0b00110,
-        0b01001,
-        0b01000,
-        0b01001,
-        0b00110,
-        0b00000
-};
+    0b11000,
+    0b11000,
+    0b00110,
+    0b01001,
+    0b01000,
+    0b01001,
+    0b00110,
+    0b00000};
 
 void HD44780_Init(uint8_t rows)
 {
@@ -108,10 +106,10 @@ void HD44780_Home()
 
 void HD44780_SetCursor(uint8_t col, uint8_t row)
 {
-  int row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
+  int row_offsets[] = {0x00, 0x40, 0x14, 0x54};
   if (row >= dpRows)
   {
-    row = dpRows-1;
+    row = dpRows - 1;
   }
   SendCommand(LCD_SETDDRAMADDR | (col + row_offsets[row]));
 }
@@ -190,7 +188,7 @@ void HD44780_CreateSpecialChar(uint8_t location, uint8_t charmap[])
 {
   location &= 0x7;
   SendCommand(LCD_SETCGRAMADDR | (location << 3));
-  for (int i=0; i<8; i++)
+  for (int i = 0; i < 8; i++)
   {
     SendChar(charmap[i]);
   }
@@ -208,24 +206,27 @@ void HD44780_LoadCustomCharacter(uint8_t char_num, uint8_t *rows)
 
 void HD44780_PrintStr(const char c[])
 {
-  while(*c) SendChar(*c++);
+  while (*c)
+    SendChar(*c++);
 }
 
 void HD44780_SetBacklight(uint8_t new_val)
 {
-  if(new_val) HD44780_Backlight();
-  else HD44780_NoBacklight();
+  if (new_val)
+    HD44780_Backlight();
+  else
+    HD44780_NoBacklight();
 }
 
 void HD44780_NoBacklight(void)
 {
-  dpBacklight=LCD_NOBACKLIGHT;
+  dpBacklight = LCD_NOBACKLIGHT;
   ExpanderWrite(0);
 }
 
 void HD44780_Backlight(void)
 {
-  dpBacklight=LCD_BACKLIGHT;
+  dpBacklight = LCD_BACKLIGHT;
   ExpanderWrite(0);
 }
 
@@ -242,9 +243,9 @@ static void SendChar(uint8_t ch)
 static void Send(uint8_t value, uint8_t mode)
 {
   uint8_t highnib = value & 0xF0;
-  uint8_t lownib = (value<<4) & 0xF0;
-  Write4Bits((highnib)|mode);
-  Write4Bits((lownib)|mode);
+  uint8_t lownib = (value << 4) & 0xF0;
+  Write4Bits((highnib) | mode);
+  Write4Bits((lownib) | mode);
 }
 
 static void Write4Bits(uint8_t value)
@@ -256,7 +257,7 @@ static void Write4Bits(uint8_t value)
 static void ExpanderWrite(uint8_t _data)
 {
   uint8_t data = _data | dpBacklight;
-  HAL_I2C_Master_Transmit(&hi2c1, DEVICE_ADDR, (uint8_t*)&data, 1, 10);
+  HAL_I2C_Master_Transmit(&hi2c1, DEVICE_ADDR, (uint8_t *)&data, 1, 10);
 }
 
 static void PulseEnable(uint8_t _data)
@@ -271,26 +272,27 @@ static void PulseEnable(uint8_t _data)
 static void DelayInit(void)
 {
   CoreDebug->DEMCR &= ~CoreDebug_DEMCR_TRCENA_Msk;
-  CoreDebug->DEMCR |=  CoreDebug_DEMCR_TRCENA_Msk;
+  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 
   DWT->CTRL &= ~DWT_CTRL_CYCCNTENA_Msk; //~0x00000001;
-  DWT->CTRL |=  DWT_CTRL_CYCCNTENA_Msk; //0x00000001;
+  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;  // 0x00000001;
 
   DWT->CYCCNT = 0;
 
   /* 3 NO OPERATION instructions */
-  __ASM volatile ("NOP");
-  __ASM volatile ("NOP");
-  __ASM volatile ("NOP");
+  __ASM volatile("NOP");
+  __ASM volatile("NOP");
+  __ASM volatile("NOP");
 }
 
-static void DelayUS(uint32_t us) {
-  uint32_t cycles = (SystemCoreClock/1000000L)*us;
+static void DelayUS(uint32_t us)
+{
+  uint32_t cycles = (SystemCoreClock / 1000000L) * us;
   uint32_t start = DWT->CYCCNT;
   volatile uint32_t cnt;
-
+  /// TODO ARRELGAR
   do
   {
     cnt = DWT->CYCCNT - start;
-  } while(cnt < cycles);
+  } while (cnt < cycles);
 }

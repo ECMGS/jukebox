@@ -15,7 +15,8 @@
 /* Global variables ------------------------------------------------------------*/
 port_button_hw_t buttons_arr[] = {
     [BUTTON_0_ID] = {.p_port = BUTTON_0_GPIO, .pin = BUTTON_0_PIN, .flag_pressed = false},
-    [BUTTON_1_ID] = {.p_port = BUTTON_1_GPIO, .pin = BUTTON_1_PIN, .flag_pressed = false}};
+    [BUTTON_1_ID] = {.p_port = BUTTON_1_GPIO, .pin = BUTTON_1_PIN, .flag_pressed = false},
+    [BUTTON_2_ID] = {.p_port = BUTTON_2_GPIO, .pin = BUTTON_2_PIN, .flag_pressed = false}};
 
 /**
  * @brief Configure the HW specifications of a given button.

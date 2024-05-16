@@ -25,7 +25,7 @@
 #include "fsm_jukebox.h"
 
 #include "buzzer_director.h"
-#include "fsm_lcd.h"
+// #include "fsm_lcd.h"
 
 #include "main.h"
 
@@ -36,6 +36,7 @@
 #define PLAY_PAUSE_BUTTON_TIME_MS 500
 #define CHANGE_VOLUME_BUTTON_TIME_MS 500
 
+#define BUZZER_INITIAL_VOLUME HIGH
 #define LCD_TIMEOUT_MS 1000
 
 // #define FUNC_BUTTON_0_ID BUTTON_0_ID

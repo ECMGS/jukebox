@@ -381,7 +381,7 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
 
     buzzer_director_init();
-
+    lcd_init();
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
     p_fsm->melodies[2] = pokemon;

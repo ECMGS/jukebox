@@ -56,23 +56,23 @@ void lcd_update_vol(fsm_t *p_this)
 {
     HD44780_SetCursor(7, 1);
     HD44780_PrintStr("Vol: ");
-    HD44780_SetCursor(1, 11);
+    HD44780_SetCursor(12, 1);
     if (fsm_buzzer_get_volume(p_this) <= 0.7)
     {
         HD44780_PrintStr("HIGH");
     }
     else
     {
-        HD44780_PrintStr("LOW ");
+        HD44780_PrintStr("LOW");
     }
 }
 
 void lcd_update_state(fsm_t *p_this)
 {
-    HD44780_SetCursor(1, 0);
+    HD44780_SetCursor(0, 1);
     if (buzzer_director_get_action() == PLAY)
     {
-        HD44780_PrintStr("PLAY");
+        HD44780_PrintStr("PLAY ");
     }
     else if (buzzer_director_get_action() == PAUSE)
     {
@@ -80,12 +80,35 @@ void lcd_update_state(fsm_t *p_this)
     }
     else
     {
-        HD44780_PrintStr("STOP");
+        HD44780_PrintStr("STOP ");
     }
 }
 
-void lcd_init()
+/**
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void)
 {
+    /* USER CODE BEGIN Error_Handler_Debug */
+    /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    while (1)
+    {
+    }
+    /* USER CODE END Error_Handler_Debug */
+}
+
+static void MX_I2C1_Init(void)
+{
+
+    /* USER CODE BEGIN I2C1_Init 0 */
+
+    /* USER CODE END I2C1_Init 0 */
+
+    /* USER CODE BEGIN I2C1_Init 1 */
+
+    /* USER CODE END I2C1_Init 1 */
     hi2c1.Instance = I2C1;
     hi2c1.Init.ClockSpeed = 100000;
     hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
@@ -102,9 +125,17 @@ void lcd_init()
         {
         }
     }
+    /* USER CODE BEGIN I2C1_Init 2 */
 
+    /* USER CODE END I2C1_Init 2 */
+}
+
+void lcd_init()
+{
+    MX_I2C1_Init();
     HD44780_Init(2);
+    HD44780_NoCursor();
     HD44780_AutoScroll();
-    HD44780_NoBacklight();
+    HD44780_Backlight();
     HD44780_Clear();
 }
