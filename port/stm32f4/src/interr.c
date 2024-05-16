@@ -39,16 +39,21 @@ void EXTI15_10_IRQHandler()
         buttons_arr[BUTTON_0_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_0_ID].p_port, buttons_arr[BUTTON_0_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin);
     }
-}
-
-void EXTI4_IRQHandler()
-{
-    /* ISR user button */
     if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin))
     {
         port_system_systick_resume();
         buttons_arr[BUTTON_1_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_1_ID].p_port, buttons_arr[BUTTON_1_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin);
+    }
+}
+
+void EXTI9_5IRQHandler()
+{
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
     }
 }
 
