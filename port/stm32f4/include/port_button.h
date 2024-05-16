@@ -26,13 +26,13 @@
 #define BUTTON_0_DEBOUNCE_TIME_MS 50 /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
 
 #define BUTTON_1_ID 1
-#define BUTTON_1_GPIO GPIOC
-#define BUTTON_1_PIN 0
+#define BUTTON_1_GPIO GPIOB
+#define BUTTON_1_PIN 12
 #define BUTTON_1_DEBOUNCE_TIME_MS 50 /// PUEDE DAR PROBLEMAS PERO ALOBAJINI
 
 #define BUTTON_2_ID 2
 #define BUTTON_2_GPIO GPIOC
-#define BUTTON_2_PIN 1
+#define BUTTON_2_PIN 5
 #define BUTTON_2_DEBOUNCE_TIME_MS 50
 
 /* Typedefs --------------------------------------------------------------------*/
