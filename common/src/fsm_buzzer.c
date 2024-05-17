@@ -15,6 +15,7 @@
 #include "fsm_buzzer.h"
 #include "melodies.h"
 
+#include "fsm_jukebox.h"
 // #include "lcd_controller.h" //TODO BORRAR
 /* State machine input or transition functions */
 

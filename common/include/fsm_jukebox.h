@@ -61,6 +61,8 @@ typedef struct
  * @param change_volume_press_time_ms Button press time in milliseconds to change the volume.
  * @returns A pointer to the jukebox FSM
  */
+void lcd_update_state(fsm_t *p_this);
+
 fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms,
                        uint32_t play_pause_press_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms);
 
