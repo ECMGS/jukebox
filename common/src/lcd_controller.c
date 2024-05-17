@@ -28,18 +28,27 @@
 #include "lcd_controller.h"
 #include <liquidcrystal_i2c.h>
 
-I2C_HandleTypeDef hi2c1;
-
+#include "main.h"
+// I2C_HandleTypeDef hi2c1;
+#ifdef LCD_IN_JUKEBOX
 void lcd_on()
 {
     HD44780_Clear();
     HD44780_Backlight();
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr("Jukebox ON");
 }
 
 void lcd_off()
 {
     HD44780_Clear();
     HD44780_NoBacklight();
+}
+
+void lcd_update(fsm_t *p_this)
+{
+    // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    lcd_update_song(p_this);
 }
 
 void lcd_update_song(fsm_t *p_this)
@@ -57,13 +66,13 @@ void lcd_update_vol(fsm_t *p_this)
     HD44780_SetCursor(7, 1);
     HD44780_PrintStr("Vol: ");
     HD44780_SetCursor(12, 1);
-    if (fsm_buzzer_get_volume(p_this) <= 0.7)
+    if (fsm_buzzer_get_volume(p_this) == 0.5)
     {
         HD44780_PrintStr("HIGH");
     }
     else
     {
-        HD44780_PrintStr("LOW");
+        HD44780_PrintStr("LOW ");
     }
 }
 
@@ -88,54 +97,53 @@ void lcd_update_state(fsm_t *p_this)
  * @brief  This function is executed in case of error occurrence.
  * @retval None
  */
-void Error_Handler(void)
-{
-    /* USER CODE BEGIN Error_Handler_Debug */
-    /* User can add his own implementation to report the HAL error return state */
-    __disable_irq();
-    while (1)
-    {
-    }
-    /* USER CODE END Error_Handler_Debug */
-}
+// void Error_Handler(void)
+// {
+//     /* USER CODE BEGIN Error_Handler_Debug */
+//     /* User can add his own implementation to report the HAL error return state */
+//     __disable_irq();
+//     while (1)
+//     {
+//     }
+//     /* USER CODE END Error_Handler_Debug */
+// }
 
-static void MX_I2C1_Init(void)
-{
+// static void MX_I2C1_Init(void)
+// {
 
-    /* USER CODE BEGIN I2C1_Init 0 */
+//     /* USER CODE BEGIN I2C1_Init 0 */
 
-    /* USER CODE END I2C1_Init 0 */
+//     /* USER CODE END I2C1_Init 0 */
 
-    /* USER CODE BEGIN I2C1_Init 1 */
+//     /* USER CODE BEGIN I2C1_Init 1 */
 
-    /* USER CODE END I2C1_Init 1 */
-    hi2c1.Instance = I2C1;
-    hi2c1.Init.ClockSpeed = 100000;
-    hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-    hi2c1.Init.OwnAddress1 = 0;
-    hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-    hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-    hi2c1.Init.OwnAddress2 = 0;
-    hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-    hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-    if (HAL_I2C_Init(&hi2c1) != HAL_OK)
-    {
-        __disable_irq();
-        while (1)
-        {
-        }
-    }
-    /* USER CODE BEGIN I2C1_Init 2 */
+//     /* USER CODE END I2C1_Init 1 */
+//     hi2c1.Instance = I2C1;
+//     hi2c1.Init.ClockSpeed = 100000;
+//     hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+//     hi2c1.Init.OwnAddress1 = 0;
+//     hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+//     hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+//     hi2c1.Init.OwnAddress2 = 0;
+//     hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+//     hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+//     if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+//     {
+//         Error_Handler();
+//     }
+//     /* USER CODE BEGIN I2C1_Init 2 */
 
-    /* USER CODE END I2C1_Init 2 */
-}
+//     /* USER CODE END I2C1_Init 2 */
+// }
 
-void lcd_init()
-{
-    MX_I2C1_Init();
-    HD44780_Init(2);
-    HD44780_NoCursor();
-    HD44780_AutoScroll();
-    HD44780_Backlight();
-    HD44780_Clear();
-}
+// void lcd_init()
+// {
+//     MX_I2C1_Init();
+//     HD44780_Init(2);
+//     HD44780_NoCursor();
+//     HD44780_AutoScroll();
+//     HD44780_Backlight();
+//     HD44780_Clear();
+// }
+
+#endif

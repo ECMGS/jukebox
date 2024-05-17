@@ -31,9 +31,9 @@
 
 /* Defines ------------------------------------------------------------------*/
 #define ON_OFF_PRESS_TIME_MS 500 // 1 [s]
-#define NEXT_SONG_BUTTON_TIME_MS 500
+#define NEXT_SONG_BUTTON_TIME_MS 50
 
-#define PLAY_PAUSE_BUTTON_TIME_MS 500
+#define PLAY_PAUSE_BUTTON_TIME_MS 50
 #define CHANGE_VOLUME_BUTTON_TIME_MS 500
 
 #define BUZZER_INITIAL_VOLUME HIGH

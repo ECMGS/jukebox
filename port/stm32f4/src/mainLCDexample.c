@@ -19,44 +19,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "port_system.h"
-/* Standard C libraries */
-#include <stdio.h> // printf
-
-/* HW libraries */
-#include "port_system.h"
-
-#include "port_button.h"
-#include "port_usart.h"
-#include "port_buzzer.h"
-
-/* FSM libraries*/
-#include "fsm.h"
-
-#include "fsm_button.h"
-#include "fsm_usart.h"
-#include "fsm_buzzer.h"
-#include "fsm_jukebox.h"
-
-#include "buzzer_director.h"
-// #include "fsm_lcd.h"
 
 #include <stdlib.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <liquidcrystal_i2c.h>
 /* USER CODE END Includes */
-#define ON_OFF_PRESS_TIME_MS 500 // 1 [s]
-#define NEXT_SONG_BUTTON_TIME_MS 50
 
-#define PLAY_PAUSE_BUTTON_TIME_MS 50
-#define CHANGE_VOLUME_BUTTON_TIME_MS 500
-
-#define BUZZER_INITIAL_VOLUME HIGH
-#define LCD_TIMEOUT_MS 1000
-
-#define USART USART_0_ID
-#define BUZZER BUZZER_0_ID
-#define BUZZER_2 BUZZER_1_ID
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -110,6 +79,8 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+  port_system_init();
+
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -129,42 +100,63 @@ int main(void)
   HD44780_Init(2);
   HD44780_Clear();
   HD44780_SetCursor(0, 0);
-  HD44780_PrintStr("JUKEBOX STARTING");
-  HAL_Delay(1000);
-  HD44780_Clear();
-  HD44780_NoBacklight();
-  port_system_init();
+  HD44780_PrintStr("HELLO");
+  HD44780_SetCursor(10, 1);
+  HD44780_PrintStr("WORLD");
+  HAL_Delay(500);
 
-  fsm_t *p_fsm_button_t = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, BUTTON_0_ID);
-  fsm_t *p_fsm_button_play_pause_t = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
-  fsm_t *p_fsm_usart_t = fsm_usart_new(USART);
-  // fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER_0_ID);
-  // fsm_t *p_fsm_buzzer_2_t = fsm_buzzer_new(BUZZER_2);
-  // fsm_t *lcd = fsm_lcd_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS, CHANGE_VOLUME_BUTTON_TIME_MS, NEXT_SONG_BUTTON_TIME_MS, LCD_TIMEOUT_MS);
-  fsm_t *jukebox = fsm_jukebox_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS,
-                                   CHANGE_VOLUME_BUTTON_TIME_MS, p_fsm_usart_t, /*p_fsm_buzzer_t,*/ NEXT_SONG_BUTTON_TIME_MS);
+  HD44780_Clear();
+  HD44780_SetCursor(0, 0);
+  HD44780_PrintStr("HELLO");
+  HAL_Delay(500);
+  HD44780_NoBacklight();
+  HAL_Delay(500);
+  HD44780_Backlight();
+
+  HAL_Delay(2000);
+  HD44780_Cursor();
+  HAL_Delay(500);
+  HD44780_Blink();
+  HAL_Delay(5000);
+  HD44780_NoBlink();
+  HAL_Delay(1000);
+  HD44780_NoCursor();
+  HAL_Delay(1000);
+
+  HD44780_NoDisplay();
+  HAL_Delay(500);
+  HD44780_Display();
+
+  HD44780_Clear();
+  HD44780_SetCursor(0, 0);
+  HD44780_PrintStr("Learning STM32 with LCD is fun :-)");
+  // int x; // Comentado porque da error
+  for (int x = 0; x < 40; x = x + 1)
+  {
+    HD44780_ScrollDisplayLeft(); // HD44780_ScrollDisplayRight();
+    HAL_Delay(500);
+  }
+
+  char snum[5];
+  for (int x = 1; x <= 200; x++)
+  {
+    itoa(x, snum, 10);
+    HD44780_Clear();
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr(snum);
+    HAL_Delay(1000);
+  }
+  /* USER CODE END 2 */
 
   /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-    fsm_fire(p_fsm_button_t);
-    fsm_fire(p_fsm_button_play_pause_t);
-    fsm_fire(p_fsm_usart_t);
-    // fsm_fire(lcd);
-    // fsm_fire(p_fsm_buzzer_t);
-    buzzer_director_fire();
-    fsm_fire(jukebox);
-  } // End of while(1)
+    /* USER CODE END WHILE */
 
-  fsm_destroy(jukebox);
-
-  fsm_destroy((fsm_t *)p_fsm_button_t);
-  fsm_destroy((fsm_t *)p_fsm_button_play_pause_t);
-  fsm_destroy((fsm_t *)p_fsm_usart_t);
-  // fsm_destroy(lcd);
-  // fsm_destroy((fsm_t *) p_fsm_buzzer_t);
-
-  return 0;
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
 }
 
 /**

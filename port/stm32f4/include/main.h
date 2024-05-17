@@ -27,6 +27,8 @@ extern "C"
 {
 #endif
 
+  // I2C_HandleTypeDef hi2c1;
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 

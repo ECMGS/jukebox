@@ -26,6 +26,9 @@
 
 #include "buzzer_director.h"
 #include "lcd_controller.h"
+#include <liquidcrystal_i2c.h>
+
+#define LCD_IN_JUKEBOX
 /* Defines ------------------------------------------------------------------*/
 #define MAX(a, b) ((a) > (b) ? (a) : (b)) /*!< Macro to get the maximum of two values. */
 
@@ -164,6 +167,68 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     fsm_usart_set_out_data(p_fsm_jukebox->p_fsm_usart, "Command not found\n");
 }
 
+/* LCD FUNCTIONS */
+void lcd_on()
+{
+    HD44780_Clear();
+    HD44780_Backlight();
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr("Jukebox ON");
+}
+
+void lcd_off()
+{
+    HD44780_Clear();
+    HD44780_NoBacklight();
+}
+
+void lcd_update(fsm_t *p_this)
+{
+    lcd_update_song(p_this);
+}
+
+void lcd_update_song(fsm_t *p_this)
+{
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    HD44780_Clear();
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
+    lcd_update_state(p_this);
+    lcd_update_vol(p_this);
+}
+
+void lcd_update_vol(fsm_t *p_this)
+{
+    HD44780_SetCursor(7, 1);
+    HD44780_PrintStr("Vol: ");
+    HD44780_SetCursor(12, 1);
+    if (buzzer_director_get_volume() <= 0.7)
+    {
+        HD44780_PrintStr("HIGH");
+    }
+    else
+    {
+        HD44780_PrintStr("LOW ");
+    }
+}
+
+void lcd_update_state(fsm_t *p_this)
+{
+    HD44780_SetCursor(0, 1);
+    if (buzzer_director_get_action() == PLAY)
+    {
+        HD44780_PrintStr("PLAY ");
+    }
+    else if (buzzer_director_get_action() == PAUSE)
+    {
+        HD44780_PrintStr("PAUSE");
+    }
+    else
+    {
+        HD44780_PrintStr("STOP ");
+    }
+}
+
 /* State machine input or transition functions */
 
 static bool check_on(fsm_t *p_this)
@@ -238,7 +303,7 @@ static void do_start_up(fsm_t *p_this)
     buzzer_director_set_melody(&(p_fsm->melodies[0]));
     buzzer_director_set_action(PLAY);
     lcd_on();
-    lcd_update_song(p_this);
+    // lcd_update_song(p_this);
 }
 
 static void do_start_jukebox(fsm_t *p_this)
@@ -246,6 +311,11 @@ static void do_start_jukebox(fsm_t *p_this)
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     p_fsm->melody_idx = 1;
     p_fsm->p_melody = p_fsm->melodies[p_fsm->melody_idx].p_name;
+    HD44780_SetCursor(7, 1);
+    HD44780_PrintStr("Vol: ");
+    HD44780_SetCursor(12, 1);
+    lcd_update(p_this);
+    // lcd_update(p_this);
 }
 
 static void do_stop_jukebox(fsm_t *p_this)
@@ -265,7 +335,11 @@ static void do_load_next_song(fsm_t *p_this)
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button);
     _set_next_song(p_fsm);
-    lcd_update_song(p_this);
+    HD44780_Clear();
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
+    HD44780_SetCursor(0, 1);
+    lcd_update(p_this);
 }
 
 static void do_read_command(fsm_t *p_this)
@@ -318,6 +392,7 @@ static void do_play_pause(fsm_t *p_this)
         buzzer_director_set_action(PLAY);
     }
     lcd_update_state(p_this);
+    // lcd_update_state(p_this);
 }
 
 static void do_change_volume(fsm_t *p_this)
@@ -328,14 +403,18 @@ static void do_change_volume(fsm_t *p_this)
     double volume = buzzer_director_get_volume();
     // if (volume == 0.5) {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.995);}
     // else {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.5);}
+
     if (volume == 0.5)
     {
         buzzer_director_set_volume(0.995);
+        printf("Volume LOW\n");
     }
     else
     {
         buzzer_director_set_volume(0.5);
+        printf("Volume HIGH\n");
     }
+
     lcd_update_vol(p_this);
 }
 
@@ -381,7 +460,7 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
 
     buzzer_director_init();
-    lcd_init();
+    // lcd_init();
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
     p_fsm->melodies[2] = pokemon;
