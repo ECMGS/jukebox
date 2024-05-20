@@ -268,3 +268,8 @@ fsm_t *fsm_buzzer_new(uint32_t buzzer_id)
     fsm_buzzer_init(p_fsm, buzzer_id);
     return p_fsm;
 }
+
+void fsm_buzzer_note_end(fsm_t *p_this)
+{
+    do_note_end(p_this);
+}

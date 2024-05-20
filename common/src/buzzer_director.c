@@ -105,3 +105,11 @@ double buzzer_director_get_volume(void)
 {
     return fsm_buzzer_get_volume((fsm_t *)fsm_buzzer[0]);
 }
+
+// void buzzer_director_note_end(void)
+// {
+//     for (int i = 0; i < NUM_BUZZERS; i++)
+//     {
+//         fsm_buzzer_note_end((fsm_t *)fsm_buzzer[i]);
+//     }
+// }

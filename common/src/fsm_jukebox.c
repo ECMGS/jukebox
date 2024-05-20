@@ -172,29 +172,41 @@ void lcd_on()
 {
     HD44780_Clear();
     HD44780_Backlight();
-    HD44780_SetCursor(0, 0);
+    HD44780_SetCursor(2, 0);
     HD44780_PrintStr("Jukebox ON");
 }
 
 void lcd_off()
 {
     HD44780_Clear();
+    HD44780_SetCursor(2, 0);
+    HD44780_PrintStr("JUKEBOX OFF");
+    HAL_Delay(2000);
+    HD44780_Clear();
+    HD44780_PrintStr("PRESS ON BUTTON");
+    HD44780_SetCursor(2, 1);
+    HD44780_PrintStr("TO POWER UP");
+    HAL_Delay(2000);
+    HD44780_Clear();
     HD44780_NoBacklight();
 }
 
 void lcd_update(fsm_t *p_this)
 {
+    // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    HD44780_Clear();
     lcd_update_song(p_this);
+    lcd_update_state(p_this);
+    lcd_update_vol(p_this);
 }
 
 void lcd_update_song(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    HD44780_Clear();
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr("                ");
     HD44780_SetCursor(0, 0);
     HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
-    lcd_update_state(p_this);
-    lcd_update_vol(p_this);
 }
 
 void lcd_update_vol(fsm_t *p_this)
@@ -315,7 +327,6 @@ static void do_start_jukebox(fsm_t *p_this)
     HD44780_PrintStr("Vol: ");
     HD44780_SetCursor(12, 1);
     lcd_update(p_this);
-    // lcd_update(p_this);
 }
 
 static void do_stop_jukebox(fsm_t *p_this)
@@ -335,11 +346,8 @@ static void do_load_next_song(fsm_t *p_this)
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button);
     _set_next_song(p_fsm);
-    HD44780_Clear();
-    HD44780_SetCursor(0, 0);
-    HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
-    HD44780_SetCursor(0, 1);
-    lcd_update(p_this);
+    lcd_update_song(p_this);
+    lcd_update_state(p_this);
 }
 
 static void do_read_command(fsm_t *p_this)
@@ -392,7 +400,6 @@ static void do_play_pause(fsm_t *p_this)
         buzzer_director_set_action(PLAY);
     }
     lcd_update_state(p_this);
-    // lcd_update_state(p_this);
 }
 
 static void do_change_volume(fsm_t *p_this)
@@ -428,6 +435,7 @@ static fsm_trans_t fsm_trans_jukebox[] = {
     {WAIT_COMMAND, check_command_received, WAIT_COMMAND, do_read_command},
     {WAIT_COMMAND, check_no_activity, SLEEP_WHILE_ON, do_sleep_wait_command},
     {WAIT_COMMAND, check_play_pause_button, WAIT_COMMAND, do_play_pause},
+    {WAIT_COMMAND, check_melody_finished, WAIT_COMMAND, lcd_update_state},
     {SLEEP_WHILE_ON, check_no_activity, SLEEP_WHILE_ON, do_sleep_while_on},
     {SLEEP_WHILE_ON, check_activity, WAIT_COMMAND, NULL},
     {SLEEP_WHILE_OFF, check_no_activity, SLEEP_WHILE_OFF, do_sleep_while_off},

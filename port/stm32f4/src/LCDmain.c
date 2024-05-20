@@ -132,6 +132,11 @@ int main(void)
   HD44780_PrintStr("JUKEBOX STARTING");
   HAL_Delay(1000);
   HD44780_Clear();
+  HD44780_PrintStr("PRESS ON BUTTON");
+  HD44780_SetCursor(2, 1);
+  HD44780_PrintStr("TO POWER UP");
+  HAL_Delay(1500);
+  HD44780_Clear();
   HD44780_NoBacklight();
   port_system_init();
 

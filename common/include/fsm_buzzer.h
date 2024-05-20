@@ -153,4 +153,6 @@ bool fsm_buzzer_check_activity(fsm_t *p_this);
 void fsm_buzzer_set_volume(fsm_t *p_this, double volume);
 
 double fsm_buzzer_get_volume(fsm_t *p_this);
+
+void fsm_buzzer_note_end(fsm_t *p_this);
 #endif /* FSM_BUZZER_H_ */
