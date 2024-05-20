@@ -45,14 +45,8 @@
 /* USER CODE BEGIN Includes */
 #include <liquidcrystal_i2c.h>
 /* USER CODE END Includes */
-#define ON_OFF_PRESS_TIME_MS 500 // 1 [s]
-#define NEXT_SONG_BUTTON_TIME_MS 50
-
-#define PLAY_PAUSE_BUTTON_TIME_MS 50
-#define CHANGE_VOLUME_BUTTON_TIME_MS 500
-
-#define BUZZER_INITIAL_VOLUME HIGH
-#define LCD_TIMEOUT_MS 1000
+#define BUTTON_PRESS_TIME_MS 500 // 1 [s]
+#define BUTTON_CLICK_TIME_MS 50
 
 #define USART USART_0_ID
 #define BUZZER BUZZER_0_ID
@@ -140,21 +134,23 @@ int main(void)
   HD44780_NoBacklight();
   port_system_init();
 
-  fsm_t *p_fsm_button_t = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, BUTTON_0_ID);
-  fsm_t *p_fsm_button_play_pause_t = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
-  fsm_t *p_fsm_usart_t = fsm_usart_new(USART);
+  fsm_t *p_fsm_button = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, BUTTON_0_ID);
+  fsm_t *p_fsm_button_play_pause = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
+  fsm_t *p_fsm_button_prev_song = fsm_button_new(BUTTON_2_DEBOUNCE_TIME_MS, BUTTON_2_ID);
+  fsm_t *p_fsm_usart = fsm_usart_new(USART);
   // fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER_0_ID);
   // fsm_t *p_fsm_buzzer_2_t = fsm_buzzer_new(BUZZER_2);
   // fsm_t *lcd = fsm_lcd_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS, CHANGE_VOLUME_BUTTON_TIME_MS, NEXT_SONG_BUTTON_TIME_MS, LCD_TIMEOUT_MS);
-  fsm_t *jukebox = fsm_jukebox_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS,
-                                   CHANGE_VOLUME_BUTTON_TIME_MS, p_fsm_usart_t, /*p_fsm_buzzer_t,*/ NEXT_SONG_BUTTON_TIME_MS);
+  fsm_t *jukebox = fsm_jukebox_new(p_fsm_button, p_fsm_button_play_pause, p_fsm_button_prev_song, BUTTON_PRESS_TIME_MS, BUTTON_CLICK_TIME_MS,
+                                   p_fsm_usart);
 
   /* Infinite loop */
   while (1)
   {
-    fsm_fire(p_fsm_button_t);
-    fsm_fire(p_fsm_button_play_pause_t);
-    fsm_fire(p_fsm_usart_t);
+    fsm_fire(p_fsm_button);
+    fsm_fire(p_fsm_button_play_pause);
+    fsm_fire(p_fsm_button_prev_song);
+    fsm_fire(p_fsm_usart);
     // fsm_fire(lcd);
     // fsm_fire(p_fsm_buzzer_t);
     buzzer_director_fire();
@@ -163,9 +159,10 @@ int main(void)
 
   fsm_destroy(jukebox);
 
-  fsm_destroy((fsm_t *)p_fsm_button_t);
-  fsm_destroy((fsm_t *)p_fsm_button_play_pause_t);
-  fsm_destroy((fsm_t *)p_fsm_usart_t);
+  fsm_destroy((fsm_t *)p_fsm_button);
+  fsm_destroy((fsm_t *)p_fsm_button_play_pause);
+  fsm_destroy((fsm_t *)p_fsm_button_prev_song);
+  fsm_destroy((fsm_t *)p_fsm_usart);
   // fsm_destroy(lcd);
   // fsm_destroy((fsm_t *) p_fsm_buzzer_t);
 

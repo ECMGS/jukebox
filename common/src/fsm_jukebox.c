@@ -81,7 +81,6 @@ bool _parse_message(char *p_message, char *p_command, char *p_param)
 
 void _set_next_song(fsm_jukebox_t *p_fsm_jukebox)
 {
-    // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
     buzzer_director_set_action(STOP);
     p_fsm_jukebox->melody_idx = (p_fsm_jukebox->melody_idx + 1) % MELODIES_MEMORY_SIZE;
     if (!(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].melody_length > 0))
@@ -89,8 +88,19 @@ void _set_next_song(fsm_jukebox_t *p_fsm_jukebox)
     p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
     printf(": %s", p_fsm_jukebox->p_melody);
     printf("\n");
-    // fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
-    // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
+    buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
+    buzzer_director_set_action(PLAY);
+}
+
+void _set_prev_song(fsm_jukebox_t *p_fsm_jukebox)
+{
+    buzzer_director_set_action(STOP);
+    p_fsm_jukebox->melody_idx = (p_fsm_jukebox->melody_idx - 1) % MELODIES_MEMORY_SIZE;
+    if (!(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].melody_length > 0))
+        p_fsm_jukebox->melody_idx = MELODIES_MEMORY_SIZE - 1;
+    p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
+    printf(": %s", p_fsm_jukebox->p_melody);
+    printf("\n");
     buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
     buzzer_director_set_action(PLAY);
 }
@@ -246,7 +256,7 @@ void lcd_update_state(fsm_t *p_this)
 static bool check_on(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->on_off_press_time_ms;
+    return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->button_press_time_ms;
 }
 
 static bool check_off(fsm_t *p_this)
@@ -270,7 +280,7 @@ static bool check_command_received(fsm_t *p_this)
 static bool check_next_song_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->next_song_press_time_ms;
+    return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->button_click_time_ms;
 }
 
 static bool check_activity(fsm_t *p_this)
@@ -291,13 +301,19 @@ static bool check_no_activity(fsm_t *p_this)
 static bool check_play_pause_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    return fsm_button_get_duration(p_fsm->p_fsm_button_play_pause) > p_fsm->play_pause_press_time_ms;
+    return fsm_button_get_duration(p_fsm->p_fsm_button_play_pause) > p_fsm->button_click_time_ms;
 }
 
 static bool check_volume_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    return fsm_button_get_duration(p_fsm->p_fsm_button_play_pause) > p_fsm->change_volume_press_time_ms;
+    return fsm_button_get_duration(p_fsm->p_fsm_button_play_pause) > p_fsm->button_press_time_ms;
+}
+
+static bool check_prev_song_button(fsm_t *p_this)
+{
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    return fsm_button_get_duration(p_fsm->p_fsm_button_prev_song) > p_fsm->button_click_time_ms;
 }
 
 /* State machine output or action functions */
@@ -425,6 +441,15 @@ static void do_change_volume(fsm_t *p_this)
     lcd_update_vol(p_this);
 }
 
+static void do_load_prev_song(fsm_t *p_this)
+{
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    fsm_button_reset_duration(p_fsm->p_fsm_button);
+    _set_prev_song(p_fsm);
+    lcd_update_song(p_this);
+    lcd_update_state(p_this);
+}
+
 static fsm_trans_t fsm_trans_jukebox[] = {
     {OFF, check_on, START_UP, do_start_up},
     {OFF, check_no_activity, SLEEP_WHILE_OFF, do_sleep_off},
@@ -435,6 +460,7 @@ static fsm_trans_t fsm_trans_jukebox[] = {
     {WAIT_COMMAND, check_command_received, WAIT_COMMAND, do_read_command},
     {WAIT_COMMAND, check_no_activity, SLEEP_WHILE_ON, do_sleep_wait_command},
     {WAIT_COMMAND, check_play_pause_button, WAIT_COMMAND, do_play_pause},
+    {WAIT_COMMAND, check_prev_song_button, WAIT_COMMAND, do_load_prev_song},
     {WAIT_COMMAND, check_melody_finished, WAIT_COMMAND, lcd_update_state},
     {SLEEP_WHILE_ON, check_no_activity, SLEEP_WHILE_ON, do_sleep_while_on},
     {SLEEP_WHILE_ON, check_activity, WAIT_COMMAND, NULL},
@@ -443,27 +469,29 @@ static fsm_trans_t fsm_trans_jukebox[] = {
     {-1, NULL, -1, NULL}};
 
 /* Public functions */
-fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms)
+fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, fsm_t *p_fsm_button_prev_song, uint32_t button_press_time_ms, uint32_t button_click_time_ms,
+                       fsm_t *p_fsm_usart)
 {
     fsm_t *p_fsm = malloc(sizeof(fsm_jukebox_t));
     fsm_init(p_fsm, fsm_trans_jukebox);
-    fsm_jukebox_init(p_fsm, p_fsm_button, p_fsm_button_play_pause, on_off_press_time_ms, play_pause_time_ms, change_volume_press_time_ms, p_fsm_usart, /*p_fsm_buzzer,*/ next_song_press_time_ms);
+    fsm_jukebox_init(p_fsm, p_fsm_button, p_fsm_button_play_pause, p_fsm_button_prev_song, button_press_time_ms, button_click_time_ms,
+                     p_fsm_usart);
 
     return p_fsm;
 }
 
-void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms, uint32_t play_pause_press_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms)
+void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause,
+                      fsm_t *p_fsm_button_prev_song, uint32_t button_press_time_ms, uint32_t button_click_time_ms,
+                      fsm_t *p_fsm_usart)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_init(p_this, p_this->p_tt);
     p_fsm->p_fsm_button = p_fsm_button;
     p_fsm->p_fsm_button_play_pause = p_fsm_button_play_pause;
-    p_fsm->on_off_press_time_ms = on_off_press_time_ms;
+    p_fsm->p_fsm_button_prev_song = p_fsm_button_prev_song;
+    p_fsm->button_press_time_ms = button_press_time_ms;
+    p_fsm->button_click_time_ms = button_click_time_ms;
     p_fsm->p_fsm_usart = p_fsm_usart;
-    // p_fsm->p_fsm_buzzer = p_fsm_buzzer;
-    p_fsm->next_song_press_time_ms = next_song_press_time_ms;
-    p_fsm->play_pause_press_time_ms = play_pause_press_time_ms;
-    p_fsm->change_volume_press_time_ms = change_volume_press_time_ms;
     p_fsm->melody_idx = 0;
     memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
 

@@ -25,5 +25,4 @@ bool buzzer_director_check_activity(void);
 
 double buzzer_director_get_volume(void);
 
-// void buzzer_director_note_end(void);
 #endif /* BUZZER_DIRECTOR_H */
