@@ -40,6 +40,7 @@ void buzzer_director_set_melody(const melody_t *p_melody)
         {
             break;
         }
+        port_buzzer_set_note_end(i);
         fsm_buzzer_set_melody((fsm_t *)fsm_buzzer[i], p_melody);
         used_buzzers++;
         p_melody = p_next_melody;

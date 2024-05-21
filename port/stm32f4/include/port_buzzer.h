@@ -113,4 +113,6 @@ bool port_buzzer_get_note_timeout(uint32_t buzzer_id);
 void port_buzzer_stop(uint32_t buzzer_id);
 
 void port_buzzer_set_volume(uint32_t buzzer_id, double volume);
+
+void port_buzzer_set_note_end(uint32_t buzzer_id);
 #endif

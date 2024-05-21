@@ -209,6 +209,14 @@ void port_buzzer_set_note_frequency(uint32_t buzzer_id, double frequency_hz, dou
   }*/
 }
 
+void port_buzzer_set_note_end(uint32_t buzzer_id)
+{
+  if (valid_buzzer(buzzer_id))
+  {
+    buzzers_arr[buzzer_id].note_end = true;
+  }
+}
+
 void port_buzzer_stop(uint32_t buzzer_id)
 {
   if (valid_buzzer(buzzer_id))
