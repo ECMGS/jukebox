@@ -31,8 +31,8 @@
 #define BUTTON_1_DEBOUNCE_TIME_MS 50
 
 #define BUTTON_2_ID 2
-#define BUTTON_2_GPIO GPIOC
-#define BUTTON_2_PIN 6
+#define BUTTON_2_GPIO GPIOB
+#define BUTTON_2_PIN 15
 #define BUTTON_2_DEBOUNCE_TIME_MS 50
 
 /* Typedefs --------------------------------------------------------------------*/
