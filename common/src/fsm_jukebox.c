@@ -444,7 +444,7 @@ static void do_change_volume(fsm_t *p_this)
 static void do_load_prev_song(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    fsm_button_reset_duration(p_fsm->p_fsm_button);
+    fsm_button_reset_duration(p_fsm->p_fsm_button_prev_song);
     _set_prev_song(p_fsm);
     lcd_update_song(p_this);
     lcd_update_state(p_this);
