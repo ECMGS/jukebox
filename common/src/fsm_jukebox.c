@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-
+#include <math.h>
 // Other includes
 #include "fsm.h"
 #include "fsm_jukebox.h"
@@ -95,7 +95,7 @@ void _set_next_song(fsm_jukebox_t *p_fsm_jukebox)
 void _set_prev_song(fsm_jukebox_t *p_fsm_jukebox)
 {
     buzzer_director_set_action(STOP);
-    p_fsm_jukebox->melody_idx = (p_fsm_jukebox->melody_idx - 1) % MELODIES_MEMORY_SIZE;
+    p_fsm_jukebox->melody_idx = abs((p_fsm_jukebox->melody_idx - 1) % MELODIES_MEMORY_SIZE);
     if (!(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].melody_length > 0))
         p_fsm_jukebox->melody_idx = MELODIES_MEMORY_SIZE - 1;
     p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
