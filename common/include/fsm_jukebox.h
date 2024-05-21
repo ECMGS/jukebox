@@ -18,7 +18,7 @@
 
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
-#define MELODIES_MEMORY_SIZE 9 // Number of melodies in the melodies array
+#define MELODIES_MEMORY_SIZE 11 // Number of melodies in the melodies array
 
 /* Enums */
 enum FSM_JUKEBOX
@@ -39,12 +39,11 @@ typedef struct
     char *p_melody;
     fsm_t *p_fsm_button;
     fsm_t *p_fsm_button_play_pause;
-    uint32_t on_off_press_time_ms;
+    fsm_t *p_fsm_button_prev_song;
+    uint32_t button_press_time_ms;
+    uint32_t button_click_time_ms;
     fsm_t *p_fsm_usart;
     fsm_t *p_fsm_buzzer;
-    uint32_t next_song_press_time_ms;
-    uint32_t play_pause_press_time_ms;
-    uint32_t change_volume_press_time_ms;
     double speed;
 } fsm_jukebox_t;
 
@@ -53,28 +52,27 @@ typedef struct
 /**
  * @brief Create a new jukebox FSM.
  * @param p_fsm_button	Pointer to the button FSM
- * @param on_off_press_time_ms	Button press time in milliseconds to turn the system ON or OFF
+ * @param p_fsm_button_play_pause
+ * @param p_fsm_button_prev_song
+ * @param button_press_time_ms	Button press time in milliseconds to turn the system ON or OFF
+ * @param button_click_time_ms	Button press time in milliseconds to change to the next song.
  * @param p_fsm_usart	Pointer to the USART FSM
- * @param p_fsm_buzzer	Pointer to the buzzer FSM.
- * @param next_song_press_time_ms	Button press time in milliseconds to change to the next song.
- * @param play_pause_press_time_ms  Button press time in milliseconds to play or pause the song.
- * @param change_volume_press_time_ms Button press time in milliseconds to change the volume.
- * @returns A pointer to the button FSM
+ * @returns A pointer to the jukebox FSM
  */
-fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms,
-                       uint32_t play_pause_press_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms);
+void lcd_update_state(fsm_t *p_this);
+
+fsm_t *fsm_jukebox_new(fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, fsm_t *p_fsm_button_prev_song, uint32_t button_press_time_ms, uint32_t button_click_time_ms,
+                       fsm_t *p_fsm_usart);
 
 /**
  * @brief Initialize a jukebox FSM.
  * @param p_this	Pointer to the jukebox FSM
  * @param p_fsm_button	Pointer to the button FSM
- * @param on_off_press_time_ms	Button press time in milliseconds to turn the system ON or OFF
+ * @param button_press_time_ms	Button press time in milliseconds to turn the system ON or OFF
+ * @param button_click_time_ms	Button press time in milliseconds to change to the next song.
  * @param p_fsm_usart	Pointer to the USART FSM
  * @param p_fsm_buzzer	Pointer to the buzzer FSM.
- * @param next_song_press_time_ms	Button press time in milliseconds to change to the next song.
- * @param play_pause_press_time_ms  Button press time in milliseconds to play or pause the song.
- * @param change_volume_press_time_ms Button press time in milliseconds to change the volume.
  */
-void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, uint32_t on_off_press_time_ms,
-                      uint32_t play_pause_press_time_ms, uint32_t change_volume_press_time_ms, fsm_t *p_fsm_usart, /*fsm_t *p_fsm_buzzer,*/ uint32_t next_song_press_time_ms);
+void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_play_pause, fsm_t *p_fsm_button_prev_song, uint32_t button_press_time_ms, uint32_t button_click_time_ms,
+                      fsm_t *p_fsm_usart);
 #endif /* FSM_JUKEBOX_H_ */

@@ -26,9 +26,15 @@
 void SysTick_Handler(void)
 {
     uint32_t systemTime = port_system_get_millis();
+    HAL_IncTick();
 
     port_system_set_millis(systemTime + 1);
 }
+
+// uint32_t HAL_GetTick(void)
+//{
+//     return port_system_get_millis();
+// }
 
 void EXTI15_10_IRQHandler()
 {
@@ -44,6 +50,12 @@ void EXTI15_10_IRQHandler()
         port_system_systick_resume();
         buttons_arr[BUTTON_1_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_1_ID].p_port, buttons_arr[BUTTON_1_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin);
+    }
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
     }
 }
 

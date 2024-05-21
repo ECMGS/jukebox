@@ -87,20 +87,20 @@ extern const melody_t one_up_melody;
 extern const melody_t nokia;
 
 extern const melody_t kerosene;
-
 extern const melody_t kerosene_bass;
 
 extern const melody_t mario_death;
 
-extern const melody_t jingle_bells;
-
 extern const melody_t star_wars_trumpet;
-
 extern const melody_t star_wars_trombone;
-
 extern const melody_t star_wars_drums;
-
 extern const melody_t star_wars_glockenspiel;
+
+extern const melody_t pokemon;
+extern const melody_t pokemon_guitar;
+
+extern const melody_t minecraft_1;
+extern const melody_t minecraft_1_sub;
 
 /*
 star_wars_cello
