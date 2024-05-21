@@ -32,7 +32,6 @@
 /* Defines ------------------------------------------------------------------*/
 #define BUTTON_PRESS_TIME_MS 500 // 1 [s]
 #define BUTTON_CLICK_TIME_MS 50
-
 // #define FUNC_BUTTON_0_ID BUTTON_0_ID
 // #define FUNC_BUTTON_1_ID BUTTON_1_ID
 #define USART USART_0_ID
@@ -48,7 +47,7 @@ int main(void)
     /* Init board */
 
     port_system_init();
-
+  
     fsm_t *p_fsm_button = fsm_button_new(BUTTON_0_DEBOUNCE_TIME_MS, BUTTON_0_ID);
     fsm_t *p_fsm_button_play_pause = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
     fsm_t *p_fsm_button_prev_song = fsm_button_new(BUTTON_2_DEBOUNCE_TIME_MS, BUTTON_2_ID);
@@ -77,6 +76,5 @@ int main(void)
     fsm_destroy((fsm_t *)p_fsm_usart);
     // fsm_destroy(lcd);
     // fsm_destroy((fsm_t *) p_fsm_buzzer_t);
-
     return 0;
 }

@@ -59,15 +59,15 @@ void EXTI15_10_IRQHandler()
     }
 }
 
-// void EXTI9_5IRQHandler()
-// {
-//     if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
-//     {
-//         port_system_systick_resume();
-//         buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
-//         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
-//     }
-// }
+void EXTI9_5IRQHandler()
+{
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
+    }
+}
 
 /**
  * @brief This function handles USART3 global interrupt.

@@ -36,22 +36,22 @@
 #define BUZZER_0_FREQUENCY_TIMER TIM3         /*!< Timer for the frequency of the note */
 
 #define BUZZER_1_ID 1                         /*!< integer identifyer of the buzzer */
-#define BUZZER_1_GPIO GPIOA                   /*!< GPIO port of the buzzer */
-#define BUZZER_1_PIN 7                        /*!< GPIO pin of the buzzer */
-#define BUZZER_1_AF 9                         /*!< Alternate function for the buzzer*/
+#define BUZZER_1_GPIO GPIOB                   /*!< GPIO port of the buzzer */
+#define BUZZER_1_PIN 6                        /*!< GPIO pin of the buzzer */
+#define BUZZER_1_AF 2                         /*!< Alternate function for the buzzer*/
 #define BUZZER_1_NOTE_END false               /*!< Default value for ending notes*/
 #define BUZZER_1_DURATION_TIMER TIM5          /*!< Timer for the duration of the note */
 #define BUZZER_1_DURATION_TIMER_IRQ TIM5_IRQn /*!< Timer for the duration of the note */
-#define BUZZER_1_FREQUENCY_TIMER TIM14        /*!< Timer for the frequency of the note */
+#define BUZZER_1_FREQUENCY_TIMER TIM4        /*!< Timer for the frequency of the note */
 
 #define BUZZER_2_ID 2                         /*!< integer identifyer of the buzzer */
-#define BUZZER_2_GPIO GPIOB                   /*!< GPIO port of the buzzer */
-#define BUZZER_2_PIN 6                        /*!< GPIO pin of the buzzer */
-#define BUZZER_2_AF 2                         /*!< Alternate function for the buzzer*/
+#define BUZZER_2_GPIO GPIOA                   /*!< GPIO port of the buzzer */
+#define BUZZER_2_PIN 7                        /*!< GPIO pin of the buzzer */
+#define BUZZER_2_AF 9                         /*!< Alternate function for the buzzer*/
 #define BUZZER_2_NOTE_END false               /*!< Default value for ending notes*/
 #define BUZZER_2_DURATION_TIMER TIM7          /*!< Timer for the duration of the note */
 #define BUZZER_2_DURATION_TIMER_IRQ TIM7_IRQn /*!< Timer for the duration of the note */
-#define BUZZER_2_FREQUENCY_TIMER TIM4         /*!< Timer for the frequency of the note */
+#define BUZZER_2_FREQUENCY_TIMER TIM14         /*!< Timer for the frequency of the note */
 
 #define NUM_BUZZERS 3
 
