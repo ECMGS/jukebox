@@ -68,7 +68,6 @@
         "description": "Enter the target:",
         "default": "main",
         "options": [
-          "LCDmain",
           "main",
           "mainLCDexample",
           "test_port_button",
