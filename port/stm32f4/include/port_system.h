@@ -83,10 +83,6 @@ port_system_init(void);
 /**
  * @brief Get the count of the System tick in milliseconds
  *
- * > **TO-DO alumnos: HECHO**
- * >
- * > ✅ 1. Return System tick \n
- *
  * @return uint32_t
  */
 uint32_t port_system_get_millis(void);
@@ -94,10 +90,6 @@ uint32_t port_system_get_millis(void);
 /**
  * @brief Sets the number of milliseconds since the system started.
  * @warning This function must be used only by the SysTick_Handler() ISR in file `interr.c`.
- *
- * > **TO-DO alumnos: HECHO**
- * >
- * > ✅ 1. Set System tick to the value received \n
  *
  * @param ms New number of milliseconds since the system started.
 º */
@@ -198,27 +190,6 @@ void port_system_gpio_config_alternate(GPIO_TypeDef *p_port, uint8_t pin, uint8_
 
 /**
  * @brief Configure the external interruption or event of a GPIO
- *
- * > **TO-DO alumnos:**
- * >
- * > ✅ 1. **Enable the System configuration controller clock (SYSCFG).** Enable the SYSCFG by setting the bit SYSCFGEN of the peripheral clock enable register (RCC_APB2ENR). The system configuration controller is used here to manage the external interrupt line connection to the GPIOs. \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 As usual, you can access to the register (`APB2ENR`) as element of the structure `RCC`. You can use the macro `RCC_APB2ENR_SYSCFGEN` defined in `stm32f446xx.h` to set the bit. Look for the "RCC_APB2ENR" register in the Reference Manual if you need more information. \n
- * > \n
- * > ✅ 2. **Associate the external interruption line to the given port.** Clean and set the bits **as shown in the tutorial document**. \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 Depending on the pin number, use the register SYSCFG_EXTICR1, SYSCFG_EXTICR2, SYSCFG_EXTICR3, or SYSCFG_EXTICR4. The structure `SYSCFG` contains a 4-element array called `EXTICR`; the first element (`EXTICR[0]`) configures the register SYSCFG_EXTICR1, and so on. \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 To clean the EXTIx bits, you can create a mask depending on the `pin` value.   \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 To associate the external interruption to the given port, *i.e.* to set the EXTIx bits, you can create another mask depending on the `port` value.   \n
- * > \n
- * > ✅ 3. **Select the direction of the trigger**: rising edge, falling edge, or both, depending on the value of the given `mode`.  \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 If *rising edge*: activate the corresponding bit on the EXTI_RTSR register (element `RTSR`) of the `EXTI` structure. \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 If *falling edge*: activate the corresponding bit on the EXTI_FTSR register (element `FTSR`) of the `EXTI` structure. \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 If *both*: activate the corresponding bit on both registers. \n
- * > \n
- * > ✅ 4. **Select the interrupt and/or event request**: depending on the  value of the given `mode`.  \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 If *event request* enable: activate the corresponding bit on the EXTI_EMR register (element `EMR`) of the `EXTI` structure. \n
- * > &nbsp;&nbsp;&nbsp;&nbsp;💡 If *interrupt request* enable: activate the corresponding bit on the EXTI_IMR register (element `IMR`) of the `EXTI` structure. \n
- * \n
- * > 💡 **You can define your own masks for each pin value (not recommended), or you can use the `BIT_POS_TO_MASK(pin)` macro to get the mask of a pin.**
  *
  * @warning It is highly recommended to clean the corresponding bit of each register (`RSTR`, `FTSR`, `EMR`, `IMR`) before activating it.
  *

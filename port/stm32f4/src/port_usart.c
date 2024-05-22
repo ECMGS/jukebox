@@ -49,7 +49,6 @@ void port_usart_init(uint32_t usart_id)
     uint8_t alt_func_tx = usart_arr[usart_id].alt_func_tx;
     uint8_t alt_func_rx = usart_arr[usart_id].alt_func_rx;
 
-    /* TO-DO alumnos: */
     port_system_gpio_config(p_port_tx, pin_tx, GPIO_MODE_ALTERNATE, GPIO_PUPDR_PUP);
     port_system_gpio_config(p_port_rx, pin_rx, GPIO_MODE_ALTERNATE, GPIO_PUPDR_PUP);
 
