@@ -500,7 +500,7 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     // lcd_init();
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
-    p_fsm->melodies[2] = pokemon;
+    p_fsm->melodies[2] = zelda_theme_song;
     p_fsm->melodies[3] = star_wars_trumpet;
     p_fsm->melodies[4] = minecraft_1;
     p_fsm->melodies[5] = kerosene;
@@ -508,4 +508,5 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     p_fsm->melodies[7] = scale_melody;
     p_fsm->melodies[8] = happy_birthday_melody;
     p_fsm->melodies[9] = mario_death;
+    p_fsm->melodies[10] = pokemon;
 }

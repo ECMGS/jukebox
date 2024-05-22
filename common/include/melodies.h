@@ -102,6 +102,9 @@ extern const melody_t pokemon_guitar;
 extern const melody_t minecraft_1;
 extern const melody_t minecraft_1_sub;
 
+extern const melody_t zelda_theme_song;
+extern const melody_t zelda_bass;
+extern const melody_t zelda_trombone;
 /*
 star_wars_cello
 star_wars_trumpet
