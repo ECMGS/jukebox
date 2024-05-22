@@ -109,4 +109,8 @@ extern const melody_t zelda_trombone;
 extern const melody_t megalovania;
 extern const melody_t megalovania_secondary;
 extern const melody_t megalovania_drums;
+
+extern const melody_t coconut_mall;
+extern const melody_t coconut_mall_secondary;
+extern const melody_t coconut_mall_third;
 #endif /* MELODIES_H_ */
