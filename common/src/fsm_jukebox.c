@@ -288,7 +288,7 @@ static bool check_activity(fsm_t *p_this)
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     return fsm_button_check_activity(p_fsm->p_fsm_button) ||
            fsm_button_check_activity(p_fsm->p_fsm_button_play_pause) ||
-           fms_button_check_activity(p_fsm->p_fsm_button_prev_song) ||
+           fsm_button_check_activity(p_fsm->p_fsm_button_prev_song) ||
            fsm_usart_check_activity(p_fsm->p_fsm_usart) ||
            buzzer_director_check_activity()
         /*||fsm_buzzer_check_activity(p_fsm->p_fsm_buzzer)*/;
