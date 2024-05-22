@@ -105,12 +105,8 @@ extern const melody_t minecraft_1_sub;
 extern const melody_t zelda_theme_song;
 extern const melody_t zelda_bass;
 extern const melody_t zelda_trombone;
-/*
-star_wars_cello
-star_wars_trumpet
-star_wars_trombone
-star_wars_drums
-star_wars_glockenspiel
 
-*/
+extern const melody_t megalovania;
+extern const melody_t megalovania_secondary;
+extern const melody_t megalovania_drums;
 #endif /* MELODIES_H_ */
