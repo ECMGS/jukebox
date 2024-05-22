@@ -224,13 +224,4 @@ void port_buzzer_stop(uint32_t buzzer_id)
     buzzers_arr[buzzer_id].p_duration_timer->CR1 &= ~TIM_CR1_CEN;
     buzzers_arr[buzzer_id].p_frequency_timer->CR1 &= ~TIM_CR1_CEN;
   }
-  /*
-  if (buzzer_id == BUZZER_0_ID) {
-    TIM2->CR1 &= ~TIM_CR1_CEN;
-    TIM3->CR1 &= ~TIM_CR1_CEN;
-  }
-  if (buzzer_id == BUZZER_1_ID) {
-    TIM5->CR1 &= ~TIM_CR1_CEN;
-    TIM4->CR1 &= ~TIM_CR1_CEN;
-  }*/
 }
