@@ -1,7 +1,7 @@
 /**
  * @file fsm_usart.h
  * @brief Header for fsm_usart.c file.
- * @author Jorge Lajeandro Estefania Hidalgo
+ * @author Jorge Aljeandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 27/02/2024 
  */

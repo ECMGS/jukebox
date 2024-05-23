@@ -1,7 +1,7 @@
 /**
  * @file fsm_usart.c
  * @brief USART FSM main file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 27/02/2024
  */

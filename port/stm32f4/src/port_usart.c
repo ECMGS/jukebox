@@ -1,7 +1,7 @@
 /**
  * @file port_usart.c
  * @brief Portable functions to interact with the USART FSM library.
- * @author Jorge Estefanía Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 28/02/2024
  */

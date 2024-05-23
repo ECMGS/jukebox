@@ -2,7 +2,7 @@
  * @file port_buzzer.c
  * @brief Portable functions to interact with the Buzzer melody player FSM library.
  * @author Eugenio Cano Muñoz
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @date 06/03/2024
  */
 /* Includes ------------------------------------------------------------------*/

@@ -1,7 +1,7 @@
 /**
- * @file lcd_controller.h
- * @brief Header for lcd_controller.c file.
- * @author Jorge Lajeandro Estefania Hidalgo
+ * @file buzzer_director.h
+ * @brief Header for buzzer_director.c file.
+ * @author Jorge Aljeandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 08/05/2024
  */

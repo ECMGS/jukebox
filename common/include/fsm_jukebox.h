@@ -1,7 +1,7 @@
 /**
  * @file fsm_jukebox.h
  * @brief Header for fsm_jukebox.c file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 10/04/2024
  */

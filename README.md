@@ -2,7 +2,7 @@
 
 ## Authors of the project
 
-* **Jorge Alejandro Estefania Hidalgo** - email: [jorge.estefania@alumnos.upm.es](mailto:jorge.estefania@alumnos.upm.es)
+* **Jorge Alejandro Estefanía Hidalgo** - email: [jorge.estefania@alumnos.upm.es](mailto:jorge.estefania@alumnos.upm.es)
 * **Eugenio Cano Muñoz** - email: [eugenio.cano@alumnos.upm.es](mailto:eugenio.cano@alumnos.upm.es)
 
 ## Description of the project
@@ -16,7 +16,7 @@ Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all yo
 
 1. 3 buzzers in order to enjoy all your favorite melodies!! (You can add as many buzzers as you want if you can find any available timers and pins)
 2. A state of the art (for the 80s) LCD to see what song are you listening to.
-3. Design implemented in a HSCB (Homemade Soddered Circuit Board) because the cables kept falling from the breadboard.
+3. Design implemented in a HSCB (Homemade Soldered Circuit Board) because the cables kept falling from the breadboard.
 4. A case to hold everything in a grat form factor.
 5. Button to set the previous song, use it if you passed your favorite song by mistake :(
 6. Button to stop and play songs (If you aren't very fast it sets a quiet mode to listen to in quieter enviroments, as the library)
@@ -45,10 +45,10 @@ In order to implmement this, we have created a "Buzzer director" that manages al
 ### LCD
 
 The LCD is implemented by using the HAL and I2C, as controlling it with the cmsis enviroment would be very time consuming and would get the same result.
-
+We downloaded the "liquidcrystal_i2c" library to interface with the LCD via I2C.
 ### Custom soddered circuit and DIY 3D printed case
 
-These were late on additions, thought when we finished adding hardware. We used Thinkercad to make the design. The link to the Tinkercad design is https://www.tinkercad.com/things/4ZQXu1ZOIWi-sdg2-jukebox-case and the STL files can be found in the 3D folder.
+These were late on additions, once we finished adding hardware and knew everithing worked. We used Thinkercad to make the design of the case. The link to the Tinkercad design is https://www.tinkercad.com/things/4ZQXu1ZOIWi-sdg2-jukebox-case and the STL files can be found in the 3D folder.
 
 ### Added buttons
 

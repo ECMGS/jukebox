@@ -1,7 +1,7 @@
 /**
  * @file port_usart.h
  * @brief Header for port_usart.c file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 28/02/2024
  */

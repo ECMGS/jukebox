@@ -1,7 +1,7 @@
 /**
  * @file fsm_jukebox.c
  * @brief Jukebox FSM main file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 10/04/2024
  */
@@ -78,6 +78,11 @@ bool _parse_message(char *p_message, char *p_command, char *p_param)
     return true;
 }
 
+/**
+ * @brief Set the next song to play.
+ *
+ * @param p_fsm_jukebox Pointer to the jukebox FSM.
+*/
 void _set_next_song(fsm_jukebox_t *p_fsm_jukebox)
 {
     buzzer_director_set_action(STOP);
@@ -90,7 +95,11 @@ void _set_next_song(fsm_jukebox_t *p_fsm_jukebox)
     buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
     buzzer_director_set_action(PLAY);
 }
-
+/**
+ * @brief Set the previous song to play.
+ *
+ * @param p_fsm_jukebox Pointer to the jukebox FSM.
+*/
 void _set_prev_song(fsm_jukebox_t *p_fsm_jukebox)
 {
     buzzer_director_set_action(STOP);
@@ -103,7 +112,14 @@ void _set_prev_song(fsm_jukebox_t *p_fsm_jukebox)
     buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
     buzzer_director_set_action(PLAY);
 }
+/**
+ * @brief Execute the command received by the USART. This function is called by do_read_command() to execute the command received by the USART if it is valid.
+ * 
+ * @param p_fsm_jukebox	Pointer to the Jukebox FSM.
+ * @param p_command	Pointer to the command to be executed.
+ * @param p_param	Pointer to the parameter of the command to be executed.
 
+*/
 void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_param)
 {
     if (!strcmp(p_command, "play"))
@@ -177,6 +193,9 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
 }
 
 /* LCD FUNCTIONS */
+/**
+ * @brief Turn on the LCD.
+*/
 void lcd_on()
 {
     HD44780_Clear();
@@ -184,7 +203,9 @@ void lcd_on()
     HD44780_SetCursor(2, 0);
     HD44780_PrintStr("Jukebox ON");
 }
-
+/**
+ * @brief Turn off the LCD.
+*/
 void lcd_off()
 {
     HD44780_Clear();
@@ -199,7 +220,11 @@ void lcd_off()
     HD44780_Clear();
     HD44780_NoBacklight();
 }
-
+/**
+ * @brief Update the song name on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
 void lcd_update_song(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -208,7 +233,11 @@ void lcd_update_song(fsm_t *p_this)
     HD44780_SetCursor(0, 0);
     HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
 }
-
+/**
+ * @brief Update the volume on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
 void lcd_update_vol(fsm_t *p_this)
 {
     HD44780_SetCursor(7, 1);
@@ -223,7 +252,11 @@ void lcd_update_vol(fsm_t *p_this)
         HD44780_PrintStr("LOW ");
     }
 }
-
+/**
+ * @brief Update the state of the player on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
 void lcd_update_state(fsm_t *p_this)
 {
     HD44780_SetCursor(0, 1);
@@ -240,6 +273,12 @@ void lcd_update_state(fsm_t *p_this)
         HD44780_PrintStr("STOP ");
     }
 }
+
+/**
+ * @brief Update sond, state and volume on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
 void lcd_update(fsm_t *p_this)
 {
     // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -250,36 +289,62 @@ void lcd_update(fsm_t *p_this)
 }
 /* State machine input or transition functions */
 
+/**
+ * @brief Check if the ON-OFF button is pressed.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_on(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->button_press_time_ms;
 }
-
+/**
+ * @brief Check if the ON-OFF button is pressed.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_off(fsm_t *p_this)
 {
     return check_on(p_this);
 }
 
+/**
+ * @brief Check if the melody has finished.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_melody_finished(fsm_t *p_this)
 {
     // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     // return fsm_buzzer_get_action(p_fsm->p_fsm_buzzer) == STOP;
     return buzzer_director_check_melody_finished();
 }
-
+/**
+ * @brief Check if a command has been received by the USART.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_command_received(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     return fsm_usart_check_data_received(p_fsm->p_fsm_usart);
 }
-
+/**
+ * @brief Check if the next song button (which is the same as ON-OFF button) has been clicked.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_next_song_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     return fsm_button_get_duration(p_fsm->p_fsm_button) > p_fsm->button_click_time_ms;
 }
-
+/**
+ * @brief Check if there is activity from the buttons.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_activity(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -290,24 +355,40 @@ static bool check_activity(fsm_t *p_this)
            buzzer_director_check_activity()
         /*||fsm_buzzer_check_activity(p_fsm->p_fsm_buzzer)*/;
 }
-
+/**
+ * @brief Check if there is no activity from the buttons.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_no_activity(fsm_t *p_this)
 {
     return !check_activity(p_this);
 }
-
+/**
+ * @brief Check if the play-pause button has been clicked.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_play_pause_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     return fsm_button_get_duration(p_fsm->p_fsm_button_play_pause) > p_fsm->button_click_time_ms;
 }
-
+/**
+ * @brief Check if the volume button (which is the same as play-pause) has been pressed.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_volume_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     return fsm_button_get_duration(p_fsm->p_fsm_button_play_pause) > p_fsm->button_press_time_ms;
 }
-
+/**
+ * @brief Check if the previous song button has been clicked.
+ * 
+ * @param p_this Pointer to the jukebox FSM.
+*/
 static bool check_prev_song_button(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -315,23 +396,27 @@ static bool check_prev_song_button(fsm_t *p_this)
 }
 
 /* State machine output or action functions */
-
+/**
+ * @brief Initialize the Jukebox by playing the intro melody, at the beginning of the program.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_start_up(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button);
     fsm_usart_enable_rx_interrupt(p_fsm->p_fsm_usart);
     printf("Jukebox ON\n");
-    // fsm_buzzer_set_speed(p_fsm->p_fsm_buzzer, 1);
-    // fsm_buzzer_set_melody(p_fsm->p_fsm_buzzer, &(p_fsm->melodies[0]));
-    // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
     buzzer_director_set_speed(1);
     buzzer_director_set_melody(&(p_fsm->melodies[0]));
     buzzer_director_set_action(PLAY);
     lcd_on();
-    // lcd_update_song(p_this);
 }
-
+/**
+ * @brief After playing the intro melody, start the Jukebox.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_start_jukebox(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -342,7 +427,11 @@ static void do_start_jukebox(fsm_t *p_this)
     HD44780_SetCursor(12, 1);
     lcd_update(p_this);
 }
-
+/**
+ * @brief Stop the Jukebox.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_stop_jukebox(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -354,7 +443,11 @@ static void do_stop_jukebox(fsm_t *p_this)
     buzzer_director_set_action(STOP);
     lcd_off();
 }
-
+/**
+ * @brief Load the next song.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_load_next_song(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -363,7 +456,11 @@ static void do_load_next_song(fsm_t *p_this)
     lcd_update_song(p_this);
     lcd_update_state(p_this);
 }
-
+/**
+ * @brief Read the command received by the USART.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_read_command(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -376,27 +473,47 @@ static void do_read_command(fsm_t *p_this)
     fsm_usart_reset_input_data(p_fsm->p_fsm_usart);
     p_message[0] = '\0';
 }
-
+/**
+ * @brief Put the system to sleep.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_sleep_off(fsm_t *p_this)
 {
     port_system_sleep();
 }
-
+/**
+ * @brief Put the system to sleep.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_sleep_wait_command(fsm_t *p_this)
 {
     port_system_sleep();
 }
-
+/**
+ * @brief Put the system to sleep.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_sleep_while_off(fsm_t *p_this)
 {
     port_system_sleep();
 }
-
+/**
+ * @brief Put the system to sleep.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_sleep_while_on(fsm_t *p_this)
 {
     port_system_sleep();
 }
-
+/**
+ * @brief Play or pause the melody.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_play_pause(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -415,16 +532,16 @@ static void do_play_pause(fsm_t *p_this)
     }
     lcd_update_state(p_this);
 }
-
+/**
+ * @brief Change the volume of the melody.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_change_volume(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
     fsm_button_reset_duration(p_fsm->p_fsm_button_play_pause);
-    // double volume = fsm_buzzer_get_volume(p_fsm->p_fsm_buzzer);
     double volume = buzzer_director_get_volume();
-    // if (volume == 0.5) {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.995);}
-    // else {fsm_buzzer_set_volume(p_fsm->p_fsm_buzzer, 0.5);}
-
     if (volume == 0.5)
     {
         buzzer_director_set_volume(0.995);
@@ -438,7 +555,11 @@ static void do_change_volume(fsm_t *p_this)
 
     lcd_update_vol(p_this);
 }
-
+/**
+ * @brief Load the previous song.
+ * 
+ * @param p_this Pointer to an fsm_t struct that contains an fsm_jukebox_t.
+*/
 static void do_load_prev_song(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -447,7 +568,11 @@ static void do_load_prev_song(fsm_t *p_this)
     lcd_update_song(p_this);
     lcd_update_state(p_this);
 }
-
+/**
+ * @brief Array representing the transitions table of the FSM Jukebox. 
+ * 
+ * !()
+*/
 static fsm_trans_t fsm_trans_jukebox[] = {
     {OFF, check_on, START_UP, do_start_up},
     {OFF, check_no_activity, SLEEP_WHILE_OFF, do_sleep_off},

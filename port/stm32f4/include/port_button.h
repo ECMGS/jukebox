@@ -1,7 +1,7 @@
 /**
  * @file port_button.h
  * @brief Header for port_button.c file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date fecha
  */

@@ -1,7 +1,7 @@
 /**
  * @file fsm_button.c
  * @brief Button FSM main file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 21/02/2024
  */

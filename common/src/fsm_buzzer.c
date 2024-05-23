@@ -2,7 +2,7 @@
  * @file fsm_buzzer.c
  * @brief Buzzer melody player FSM main file.
  * @author Eugenio Cano Muñoz
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @date 06/03/2024
  */
 
