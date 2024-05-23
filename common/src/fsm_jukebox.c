@@ -505,10 +505,8 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     p_fsm->melodies[4] = minecraft_1;
     p_fsm->melodies[5] = kerosene;
     p_fsm->melodies[6] = tetris_melody;
-    p_fsm->melodies[7] = scale_melody;
-    p_fsm->melodies[8] = happy_birthday_melody;
+    p_fsm->melodies[7] = megalovania;
+    p_fsm->melodies[8] = zelda_theme_song;
     p_fsm->melodies[9] = mario_death;
     p_fsm->melodies[10] = pokemon;
-    p_fsm->melodies[11] = zelda_theme_song;
-    p_fsm->melodies[12] = megalovania;
 }

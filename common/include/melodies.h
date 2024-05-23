@@ -73,11 +73,6 @@ struct melody_t
 typedef struct melody_t melody_t;
 
 // Melodies must be defined in melodies.c, and declared here as extern
-// Scale melody
-extern const melody_t scale_melody;
-
-// Melody Happy Birthday
-extern const melody_t happy_birthday_melody;
 
 // Tetris melody
 extern const melody_t tetris_melody;
