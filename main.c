@@ -73,7 +73,6 @@ static void MX_I2C1_Init(void);
  */
 int main(void)
 {
-
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
@@ -81,12 +80,13 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_I2C1_Init();
+
   /* USER CODE BEGIN 2 */
   HD44780_Init(2);
   HD44780_Clear();
   HD44780_SetCursor(0, 0);
   HD44780_PrintStr("JUKEBOX STARTING");
-  HAL_Delay(200);
+  HAL_Delay(1000);
   HD44780_Clear();
   HD44780_PrintStr("PRESS ON BUTTON");
   HD44780_SetCursor(2, 1);

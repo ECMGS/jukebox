@@ -25,7 +25,6 @@
 #include "port_usart.h"
 
 #include "buzzer_director.h"
-#include "lcd_controller.h"
 #include <liquidcrystal_i2c.h>
 
 #define LCD_IN_JUKEBOX
@@ -201,15 +200,6 @@ void lcd_off()
     HD44780_NoBacklight();
 }
 
-void lcd_update(fsm_t *p_this)
-{
-    // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    HD44780_Clear();
-    lcd_update_song(p_this);
-    lcd_update_state(p_this);
-    lcd_update_vol(p_this);
-}
-
 void lcd_update_song(fsm_t *p_this)
 {
     fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
@@ -250,7 +240,14 @@ void lcd_update_state(fsm_t *p_this)
         HD44780_PrintStr("STOP ");
     }
 }
-
+void lcd_update(fsm_t *p_this)
+{
+    // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    HD44780_Clear();
+    lcd_update_song(p_this);
+    lcd_update_state(p_this);
+    lcd_update_vol(p_this);
+}
 /* State machine input or transition functions */
 
 static bool check_on(fsm_t *p_this)
@@ -497,7 +494,6 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     memset(p_fsm->melodies, 0, sizeof(p_fsm->melodies));
 
     buzzer_director_init();
-    // lcd_init();
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
     p_fsm->melodies[2] = coconut_mall;

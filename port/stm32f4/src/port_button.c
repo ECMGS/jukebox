@@ -4,8 +4,8 @@
  *
  * This file defines an internal struct which contains the HW information of the button.
  *
- * @author alumno1
- * @author alumno2
+ * @author jorge alejandro estefania hidalgo
+ * @author eugenio cano muñoz
  * @date fecha
  */
 
