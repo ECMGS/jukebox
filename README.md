@@ -20,6 +20,8 @@ Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all yo
 4. A case to hold everything in a grat form factor.
 5. Button to set the previous song, use it if you passed your favorite song by mistake :(
 6. Button to stop and play songs (If you aren't very fast it sets a quiet mode to listen to in quieter enviroments, as the library)
+7. Awesome python script to ease the workflow of adding songs to the jukebox.
+8. A lot of new songs, some of them with accompaniment melodies, by implementing a linked list.
 
 **Some of the melodies we added are:**
 
@@ -53,3 +55,21 @@ These were late on additions, once we finished adding hardware and knew everithi
 ### Added buttons
 
 The added buttons are just simple modifications to the jukebox FSM, these were the first modifications that we did to the V4 just to get the hang of doing unguided additions on our own.
+
+### Python Script
+To be able to add songs in a reasonable time, we wrote a Python script to help during the song adding process.
+The workflow to add new songs to the jukebox is a bit tedious, in consists of the following steps:
+1. Downloading the midi version of such song.
+2. Upload your .mid file to a web to to convert a raw midi file for use to play on an Arduino (via the tone function). I used https://extramaster.net/tools/midiToArduino/ becouse it was the only web I found that kept the the timin of the note durations correctly.
+3. Convert the midi file and copy the output to the clipboard.
+4. Reformat the arduino code to fit the format we are using while developing the jukebox software. 
+This is the moment to execute the script. It is located at "Songs/transformerV4.py". You will need to have Python installed in your PC.
+When the window appears, introduce the name of the song you want to add an press Enter. The generated code will appear and be pasted to your clipboard.
+Now all you have to do is press enter again to close the python window and paste the generated code to melodies.c file.
+5. Add the song to melodies.h adding the following line: "extern const melody_t name_of_the_song;"
+6. Add the song to the melodies array in jukebox.c and increment the number of songs in jukebox.h
+
+With the help of the python script we were able to add numerous songs, including accompaniment melodies.
+
+### Accompaniment melodies
+In order to play more than one song, we link one melody to another using a linked list, so when the buzzer director is called to play a song, it reads 
