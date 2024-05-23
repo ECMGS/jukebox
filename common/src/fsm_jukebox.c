@@ -222,6 +222,8 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     {
         // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
         buzzer_director_set_action(PLAY);
+        lcd_update_state((fsm_t *)p_fsm_jukebox);
+
         return;
     }
 
@@ -229,6 +231,8 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     {
         // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
         buzzer_director_set_action(STOP);
+        lcd_update_state((fsm_t *)p_fsm_jukebox);
+
         return;
     }
 
@@ -236,6 +240,8 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     {
         // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PAUSE);
         buzzer_director_set_action(PAUSE);
+        lcd_update_state((fsm_t *)p_fsm_jukebox);
+
         return;
     }
 
@@ -264,17 +270,10 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
             printf("Melody not found\n");
             return;
         }
-
-        // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, STOP);
         buzzer_director_set_action(STOP);
-
         p_fsm_jukebox->melody_idx = melody_selected;
-
-        // fsm_buzzer_set_melody(p_fsm_jukebox->p_fsm_buzzer, &(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
         buzzer_director_set_melody(&(p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx]));
         p_fsm_jukebox->p_melody = p_fsm_jukebox->melodies[p_fsm_jukebox->melody_idx].p_name;
-
-        // fsm_buzzer_set_action(p_fsm_jukebox->p_fsm_buzzer, PLAY);
         buzzer_director_set_action(PLAY);
         return;
     }
