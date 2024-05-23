@@ -75,3 +75,5 @@ docs/html/*
 
 .DS_Store
 .vscode/settings.json
+
+web_server/node_modules

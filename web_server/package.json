@@ -1,0 +1,18 @@
+{
+  "name": "web_server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ecmgs",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "node-ejs": "^1.2.3",
+    "nodemon": "^3.1.0",
+    "serialport": "^12.0.0"
+  }
+}
