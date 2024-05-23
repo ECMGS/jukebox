@@ -2,7 +2,7 @@
  * @file fsm_button.h
  * @brief Header for fsm_button.c file.
  * @author Eugenio Cano
- * @author Jorge Estefanía
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @date 21/02/2024
  */
 

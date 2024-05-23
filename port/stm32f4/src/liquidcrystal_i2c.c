@@ -1,3 +1,10 @@
+/**
+ * @file port_button.c
+ * @brief File containing functions related to the LCD comunication via i2c.
+ * @author unknown
+ * @date 23/05/2024
+ */
+
 #include "liquidcrystal_i2c.h"
 
 extern I2C_HandleTypeDef hi2c1;

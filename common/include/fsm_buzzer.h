@@ -2,7 +2,7 @@
  * @file fsm_buzzer.h
  * @brief Header for fsm_buzzer.c file.
  * @author Eugenio Cano Muñoz
- * @author Jorge Alejandro Estefania
+ * @author Jorge Alejandro Estefanía
  * @date 06/03/2024
  */
 

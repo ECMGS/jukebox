@@ -1,7 +1,7 @@
 /**
  * @file fsm_usart.c
  * @brief USART FSM main file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 27/02/2024
  */
@@ -15,7 +15,12 @@
 /* Other libraries */
 
 /* State machine input or transition functions */
-
+/**
+ * @brief Check if data has been received.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_usart_t.
+ * @returns true or false
+*/
 bool fsm_usart_check_activity (fsm_t *p_this){
     fsm_usart_t *p_fsm = (fsm_usart_t *)(p_this);
 

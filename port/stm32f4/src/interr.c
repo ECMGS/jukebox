@@ -34,8 +34,11 @@ void SysTick_Handler(void)
 // uint32_t HAL_GetTick(void)
 //{
 //     return port_system_get_millis();
-// }
-
+//}
+/**
+ * @brief This function handles Px10-Px15 global interrupts.
+ * First, this function identifies the line/ pin which has raised the interruption. Then, perform the desired action. Before leaving it cleans the interrupt pending register.
+*/
 void EXTI15_10_IRQHandler()
 {
     /* ISR user button */
@@ -58,7 +61,9 @@ void EXTI15_10_IRQHandler()
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
     }
 }
-
+/**
+ * @brief This function handles Px10-Px15 global interrupts.
+*/
 void EXTI9_5IRQHandler()
 {
     if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
@@ -98,13 +103,17 @@ void TIM2_IRQHandler(void)
     TIM2->SR &= ~TIM_SR_UIF;
     buzzers_arr[BUZZER_0_ID].note_end = true;
 }
-
+/**
+ * @brief This function handles TIM5 global interrupt.
+*/
 void TIM5_IRQHandler(void)
 {
     TIM5->SR &= ~TIM_SR_UIF;
     buzzers_arr[BUZZER_1_ID].note_end = true;
 }
-
+/**
+ * @brief This function handles TIM7 global interrupt.
+*/
 void TIM7_IRQHandler(void)
 {
     TIM7->SR &= ~TIM_SR_UIF;

@@ -1,3 +1,10 @@
+/**
+ * @file liquidcrystal_i2c.h
+ * @brief Header for liquidcrystal_i2c.c file.
+ * @author Unknown
+ * @date 23/05/2024
+ */
+
 #ifndef LIQUIDCRYSTAL_I2C_H_
 #define LIQUIDCRYSTAL_I2C_H_
 

@@ -2,7 +2,7 @@
  * @file port_buzzer.h
  * @brief Header for port_buzzer.c file.
  * @author Eugenio Cano Muñoz
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @date 6/03/2024
  */
 #ifndef PORT_BUZZER_H_
