@@ -31,6 +31,102 @@
 /* Defines ------------------------------------------------------------------*/
 #define MAX(a, b) ((a) > (b) ? (a) : (b)) /*!< Macro to get the maximum of two values. */
 
+/* LCD FUNCTIONS */
+/**
+ * @brief Turn on the LCD.
+*/
+void lcd_on()
+{
+    HD44780_Clear();
+    HD44780_Backlight();
+    HD44780_SetCursor(2, 0);
+    HD44780_PrintStr("Jukebox ON");
+}
+/**
+ * @brief Turn off the LCD.
+*/
+void lcd_off()
+{
+    HD44780_Clear();
+    HD44780_SetCursor(2, 0);
+    HD44780_PrintStr("JUKEBOX OFF");
+    HAL_Delay(2000);
+    HD44780_Clear();
+    HD44780_PrintStr("PRESS ON BUTTON");
+    HD44780_SetCursor(2, 1);
+    HD44780_PrintStr("TO POWER UP");
+    HAL_Delay(2000);
+    HD44780_Clear();
+    HD44780_NoBacklight();
+}
+/**
+ * @brief Update the song name on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
+void lcd_update_song(fsm_t *p_this)
+{
+    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr("                ");
+    HD44780_SetCursor(0, 0);
+    HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
+}
+/**
+ * @brief Update the volume on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
+void lcd_update_vol(fsm_t *p_this)
+{
+    HD44780_SetCursor(7, 1);
+    HD44780_PrintStr("Vol: ");
+    HD44780_SetCursor(12, 1);
+    if (buzzer_director_get_volume() <= 0.7)
+    {
+        HD44780_PrintStr("HIGH");
+    }
+    else
+    {
+        HD44780_PrintStr("LOW ");
+    }
+}
+/**
+ * @brief Update the state of the player on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
+void lcd_update_state(fsm_t *p_this)
+{
+    HD44780_SetCursor(0, 1);
+    if (buzzer_director_get_action() == PLAY)
+    {
+        HD44780_PrintStr("PLAY ");
+    }
+    else if (buzzer_director_get_action() == PAUSE)
+    {
+        HD44780_PrintStr("PAUSE");
+    }
+    else
+    {
+        HD44780_PrintStr("STOP ");
+    }
+}
+
+/**
+ * @brief Update sond, state and volume on the LCD.
+ * 
+ * @param p_this	Pointer to the jukebox FSM
+*/
+void lcd_update(fsm_t *p_this)
+{
+    // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
+    HD44780_Clear();
+    lcd_update_song(p_this);
+    lcd_update_state(p_this);
+    lcd_update_vol(p_this);
+}
+
 /* Private functions */
 /**
  * @brief Parse the message received by the USART.
@@ -154,6 +250,8 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     if (!strcmp(p_command, "next"))
     {
         _set_next_song(p_fsm_jukebox);
+        lcd_update_song((fsm_t *)p_fsm_jukebox);
+        lcd_update_state((fsm_t *)p_fsm_jukebox);
         return;
     }
 
@@ -192,101 +290,7 @@ void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_par
     fsm_usart_set_out_data(p_fsm_jukebox->p_fsm_usart, "Command not found\n");
 }
 
-/* LCD FUNCTIONS */
-/**
- * @brief Turn on the LCD.
-*/
-void lcd_on()
-{
-    HD44780_Clear();
-    HD44780_Backlight();
-    HD44780_SetCursor(2, 0);
-    HD44780_PrintStr("Jukebox ON");
-}
-/**
- * @brief Turn off the LCD.
-*/
-void lcd_off()
-{
-    HD44780_Clear();
-    HD44780_SetCursor(2, 0);
-    HD44780_PrintStr("JUKEBOX OFF");
-    HAL_Delay(2000);
-    HD44780_Clear();
-    HD44780_PrintStr("PRESS ON BUTTON");
-    HD44780_SetCursor(2, 1);
-    HD44780_PrintStr("TO POWER UP");
-    HAL_Delay(2000);
-    HD44780_Clear();
-    HD44780_NoBacklight();
-}
-/**
- * @brief Update the song name on the LCD.
- * 
- * @param p_this	Pointer to the jukebox FSM
-*/
-void lcd_update_song(fsm_t *p_this)
-{
-    fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    HD44780_SetCursor(0, 0);
-    HD44780_PrintStr("                ");
-    HD44780_SetCursor(0, 0);
-    HD44780_PrintStr(p_fsm->melodies[p_fsm->melody_idx].p_name);
-}
-/**
- * @brief Update the volume on the LCD.
- * 
- * @param p_this	Pointer to the jukebox FSM
-*/
-void lcd_update_vol(fsm_t *p_this)
-{
-    HD44780_SetCursor(7, 1);
-    HD44780_PrintStr("Vol: ");
-    HD44780_SetCursor(12, 1);
-    if (buzzer_director_get_volume() <= 0.7)
-    {
-        HD44780_PrintStr("HIGH");
-    }
-    else
-    {
-        HD44780_PrintStr("LOW ");
-    }
-}
-/**
- * @brief Update the state of the player on the LCD.
- * 
- * @param p_this	Pointer to the jukebox FSM
-*/
-void lcd_update_state(fsm_t *p_this)
-{
-    HD44780_SetCursor(0, 1);
-    if (buzzer_director_get_action() == PLAY)
-    {
-        HD44780_PrintStr("PLAY ");
-    }
-    else if (buzzer_director_get_action() == PAUSE)
-    {
-        HD44780_PrintStr("PAUSE");
-    }
-    else
-    {
-        HD44780_PrintStr("STOP ");
-    }
-}
 
-/**
- * @brief Update sond, state and volume on the LCD.
- * 
- * @param p_this	Pointer to the jukebox FSM
-*/
-void lcd_update(fsm_t *p_this)
-{
-    // fsm_jukebox_t *p_fsm = (fsm_jukebox_t *)(p_this);
-    HD44780_Clear();
-    lcd_update_song(p_this);
-    lcd_update_state(p_this);
-    lcd_update_vol(p_this);
-}
 /* State machine input or transition functions */
 
 /**
