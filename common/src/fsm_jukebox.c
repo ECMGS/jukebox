@@ -501,8 +501,8 @@ void fsm_jukebox_init(fsm_t *p_this, fsm_t *p_fsm_button, fsm_t *p_fsm_button_pl
     p_fsm->melodies[0] = one_up_melody;
     p_fsm->melodies[1] = nokia;
     p_fsm->melodies[2] = coconut_mall;
-    p_fsm->melodies[3] = star_wars_trumpet;
-    p_fsm->melodies[4] = minecraft_1;
+    p_fsm->melodies[3] = star_wars;
+    p_fsm->melodies[4] = minecraft;
     p_fsm->melodies[5] = kerosene;
     p_fsm->melodies[6] = tetris_melody;
     p_fsm->melodies[7] = megalovania;

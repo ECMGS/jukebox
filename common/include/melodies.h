@@ -73,38 +73,37 @@ struct melody_t
 typedef struct melody_t melody_t;
 
 // Melodies must be defined in melodies.c, and declared here as extern
-
 // Tetris melody
 extern const melody_t tetris_melody;
-
+// One up melody
 extern const melody_t one_up_melody;
-
+// nokia melody
 extern const melody_t nokia;
-
+// kerosene melody
 extern const melody_t kerosene;
 extern const melody_t kerosene_bass;
-
+// mario_death melody
 extern const melody_t mario_death;
-
-extern const melody_t star_wars_trumpet;
+// star_wars melody
+extern const melody_t star_wars;
 extern const melody_t star_wars_trombone;
 extern const melody_t star_wars_drums;
 extern const melody_t star_wars_glockenspiel;
-
+// pokemon melody
 extern const melody_t pokemon;
 extern const melody_t pokemon_guitar;
-
-extern const melody_t minecraft_1;
-extern const melody_t minecraft_1_sub;
-
+// minecraft melody
+extern const melody_t minecraft;
+extern const melody_t minecraft_sub;
+// zelda_theme_song melody
 extern const melody_t zelda_theme_song;
 extern const melody_t zelda_bass;
 extern const melody_t zelda_trombone;
-
+// megalovania melody
 extern const melody_t megalovania;
 extern const melody_t megalovania_secondary;
 extern const melody_t megalovania_drums;
-
+// coconut_mall melody
 extern const melody_t coconut_mall;
 extern const melody_t coconut_mall_secondary;
 extern const melody_t coconut_mall_third;

@@ -185,26 +185,26 @@ const melody_t mario_death = {
     .melody_length = MARIO_DEATH_LENGTH,
     .next_melody = NULL};
 
-#define STAR_WARS_TRUMPET_LENGTH 197 /*!< star_wars_trumpet melody length */
+#define STAR_WARS_LENGTH 197 /*!< star_wars melody length */
 /**
- * @brief star_wars_trumpet melody notes.
+ * @brief star_wars melody notes.
  *
- * This array contains the frequencies of the notes for the star_wars_trumpet song.
+ * This array contains the frequencies of the notes for the star_wars song.
  * The notes are defined as frequency values in Hertz, and they are arranged in the order they are played in the song.
  */
-static const double star_wars_trumpet_notes[STAR_WARS_TRUMPET_LENGTH] = {391, 0, 0, 391, 0, 0, 391, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 587, 0, 0, 587, 0, 0, 587, 0, 0, 622, 0, 0, 466, 0, 0, 369, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 783, 0, 0, 391, 0, 0, 391, 0, 0, 783, 0, 0, 739, 0, 0, 698, 0, 0, 659, 0, 0, 622, 0, 0, 659, 0, 0, 415, 0, 0, 554, 0, 0, 523, 0, 0, 493, 0, 0, 466, 0, 0, 440, 0, 0, 466, 0, 0, 311, 0, 0, 369, 0, 0, 311, 0, 0, 369, 0, 0, 466, 0, 0, 391, 0, 0, 466, 0, 0, 587, 0, 0, 783, 0, 0, 391, 0, 0, 391, 0, 0, 783, 0, 0, 739, 0, 0, 698, 0, 0, 659, 0, 0, 622, 0, 0, 659, 0, 0, 415, 0, 0, 554, 0, 0, 523, 0, 0, 493, 0, 0, 466, 0, 0, 440, 0, 0, 466, 0, 0, 311, 0, 0, 369, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0};
+static const double star_wars_notes[STAR_WARS_LENGTH] = {391, 0, 0, 391, 0, 0, 391, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 587, 0, 0, 587, 0, 0, 587, 0, 0, 622, 0, 0, 466, 0, 0, 369, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 783, 0, 0, 391, 0, 0, 391, 0, 0, 783, 0, 0, 739, 0, 0, 698, 0, 0, 659, 0, 0, 622, 0, 0, 659, 0, 0, 415, 0, 0, 554, 0, 0, 523, 0, 0, 493, 0, 0, 466, 0, 0, 440, 0, 0, 466, 0, 0, 311, 0, 0, 369, 0, 0, 311, 0, 0, 369, 0, 0, 466, 0, 0, 391, 0, 0, 466, 0, 0, 587, 0, 0, 783, 0, 0, 391, 0, 0, 391, 0, 0, 783, 0, 0, 739, 0, 0, 698, 0, 0, 659, 0, 0, 622, 0, 0, 659, 0, 0, 415, 0, 0, 554, 0, 0, 523, 0, 0, 493, 0, 0, 466, 0, 0, 440, 0, 0, 466, 0, 0, 311, 0, 0, 369, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0, 0, 311, 0, 0, 466, 0, 0, 391, 0};
 /**
- * @brief star_wars_trumpet melody durations in miliseconds.
+ * @brief star_wars melody durations in miliseconds.
  *
- * This array contains the duration of each note in the star_wars_trumpet song.
+ * This array contains the duration of each note in the star_wars song.
  * The durations are defined in milliseconds, and they are arranged in the order they are played in the song.
  */
-static const uint16_t star_wars_trumpet_durations[STAR_WARS_TRUMPET_LENGTH] = {309, 3, 188, 321, 3, 168, 285, 3, 160, 242, 2, 100, 71, 1, 60, 376, 4, 108, 206, 2, 160, 71, 1, 52, 626, 6, 324, 321, 3, 148, 317, 3, 172, 313, 3, 164, 210, 2, 136, 63, 1, 60, 301, 3, 168, 253, 3, 104, 79, 1, 52, 578, 6, 388, 289, 3, 160, 174, 2, 216, 75, 1, 36, 321, 3, 156, 246, 2, 124, 79, 1, 24, 83, 1, 28, 71, 1, 24, 154, 2, 344, 83, 1, 168, 356, 4, 116, 293, 3, 64, 83, 1, 44, 83, 1, 32, 79, 1, 44, 67, 1, 412, 87, 1, 144, 337, 3, 132, 297, 3, 72, 67, 1, 56, 329, 3, 152, 238, 2, 112, 63, 1, 60, 665, 7, 292, 289, 3, 160, 174, 2, 216, 75, 1, 36, 321, 3, 156, 246, 2, 124, 79, 1, 24, 83, 1, 28, 71, 1, 24, 154, 2, 344, 83, 1, 168, 356, 4, 116, 293, 3, 64, 83, 1, 44, 83, 1, 32, 79, 1, 44, 67, 1, 412, 87, 1, 144, 337, 3, 132, 297, 3, 72, 67, 1, 56, 329, 3, 152, 238, 2, 112, 63, 1, 60, 665, 7};
-const melody_t star_wars_trumpet = {
-    .p_name = "star_wars_trumpet",
-    .p_notes = (double *)star_wars_trumpet_notes,
-    .p_durations = (uint16_t *)star_wars_trumpet_durations,
-    .melody_length = STAR_WARS_TRUMPET_LENGTH,
+static const uint16_t star_wars_durations[STAR_WARS_LENGTH] = {309, 3, 188, 321, 3, 168, 285, 3, 160, 242, 2, 100, 71, 1, 60, 376, 4, 108, 206, 2, 160, 71, 1, 52, 626, 6, 324, 321, 3, 148, 317, 3, 172, 313, 3, 164, 210, 2, 136, 63, 1, 60, 301, 3, 168, 253, 3, 104, 79, 1, 52, 578, 6, 388, 289, 3, 160, 174, 2, 216, 75, 1, 36, 321, 3, 156, 246, 2, 124, 79, 1, 24, 83, 1, 28, 71, 1, 24, 154, 2, 344, 83, 1, 168, 356, 4, 116, 293, 3, 64, 83, 1, 44, 83, 1, 32, 79, 1, 44, 67, 1, 412, 87, 1, 144, 337, 3, 132, 297, 3, 72, 67, 1, 56, 329, 3, 152, 238, 2, 112, 63, 1, 60, 665, 7, 292, 289, 3, 160, 174, 2, 216, 75, 1, 36, 321, 3, 156, 246, 2, 124, 79, 1, 24, 83, 1, 28, 71, 1, 24, 154, 2, 344, 83, 1, 168, 356, 4, 116, 293, 3, 64, 83, 1, 44, 83, 1, 32, 79, 1, 44, 67, 1, 412, 87, 1, 144, 337, 3, 132, 297, 3, 72, 67, 1, 56, 329, 3, 152, 238, 2, 112, 63, 1, 60, 665, 7};
+const melody_t star_wars = {
+    .p_name = "star_wars",
+    .p_notes = (double *)star_wars_notes,
+    .p_durations = (uint16_t *)star_wars_durations,
+    .melody_length = STAR_WARS_LENGTH,
     .next_melody = (const melody_t *)&star_wars_trombone};
 /**
  * @brief star_wars_trombone melody struct.
@@ -352,60 +352,60 @@ const melody_t pokemon_guitar = {
     .melody_length = POKEMON_GUITAR_LENGTH,
     .next_melody = NULL};
 
-#define MINECRAFT_1_LENGTH 146 /*!< minecraft_1 melody length */
+#define MINECRAFT_LENGTH 146 /*!< minecraft melody length */
 /**
- * @brief minecraft_1 melody notes.
+ * @brief minecraft melody notes.
  *
- * This array contains the frequencies of the notes for the minecraft_1 song.
+ * This array contains the frequencies of the notes for the minecraft song.
  * The notes are defined as frequency values in Hertz, and they are arranged in the order they are played in the song.
  */
-static const double minecraft_1_notes[MINECRAFT_1_LENGTH] = {698, 0, 0, 739, 0, 0, 830, 0, 0, 932, 0, 0, 830, 0, 0, 698, 0, 0, 739, 0, 0, 554, 0, 0, 698, 0, 0, 932, 0, 0, 830, 0, 0, 932, 0, 0, 1108, 0, 0, 932, 0, 0, 830, 0, 0, 554, 0, 0, 987, 0, 0, 932, 0, 0, 739, 0, 0, 622, 0, 0, 830, 0, 0, 739, 0, 0, 698, 0, 0, 554, 0, 0, 698, 0, 0, 932, 0, 0, 830, 0, 0, 932, 0, 0, 1108, 0, 0, 932, 0, 0, 830, 0, 0, 554, 0, 0, 1396, 0, 0, 1108, 0, 0, 830, 0, 0, 932, 0, 0, 554, 0, 0, 1479, 0, 0, 1661, 0, 0, 1108, 0, 0, 739, 0, 0, 830, 0, 0, 554, 0, 0, 1396, 0, 0, 1108, 0, 0, 830, 0, 0, 739, 0, 0, 554, 0, 0, 1479, 0};
+static const double minecraft_notes[MINECRAFT_LENGTH] = {698, 0, 0, 739, 0, 0, 830, 0, 0, 932, 0, 0, 830, 0, 0, 698, 0, 0, 739, 0, 0, 554, 0, 0, 698, 0, 0, 932, 0, 0, 830, 0, 0, 932, 0, 0, 1108, 0, 0, 932, 0, 0, 830, 0, 0, 554, 0, 0, 987, 0, 0, 932, 0, 0, 739, 0, 0, 622, 0, 0, 830, 0, 0, 739, 0, 0, 698, 0, 0, 554, 0, 0, 698, 0, 0, 932, 0, 0, 830, 0, 0, 932, 0, 0, 1108, 0, 0, 932, 0, 0, 830, 0, 0, 554, 0, 0, 1396, 0, 0, 1108, 0, 0, 830, 0, 0, 932, 0, 0, 554, 0, 0, 1479, 0, 0, 1661, 0, 0, 1108, 0, 0, 739, 0, 0, 830, 0, 0, 554, 0, 0, 1396, 0, 0, 1108, 0, 0, 830, 0, 0, 739, 0, 0, 554, 0, 0, 1479, 0};
 /**
- * @brief minecraft_1 melody durations in miliseconds.
+ * @brief minecraft melody durations in miliseconds.
  *
- * This array contains the duration of each note in the minecraft_1 song.
+ * This array contains the duration of each note in the minecraft song.
  * The durations are defined in milliseconds, and they are arranged in the order they are played in the song.
  */
-static const uint16_t minecraft_1_durations[MINECRAFT_1_LENGTH] = {170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 341, 38, 21, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 512, 57, 31, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 341, 38, 21, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 512, 57, 31, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 341, 38, 21, 854, 95, 51, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 341, 38, 21, 854, 95, 51, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 1367, 152};
+static const uint16_t minecraft_durations[MINECRAFT_LENGTH] = {170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 341, 38, 21, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 512, 57, 31, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 341, 38, 21, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 170, 19, 11, 341, 38, 21, 512, 57, 31, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 341, 38, 21, 854, 95, 51, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 170, 19, 11, 170, 19, 11, 1025, 114, 61, 341, 38, 21, 854, 95, 51, 170, 19, 11, 341, 38, 21, 1025, 114, 61, 1367, 152};
 /**
- * @brief minecraft_1 melody struct.
+ * @brief minecraft melody struct.
  *
  * This struct contains the information of the Tetris melody.
  * It is used to play the melody using the buzzer.
  */
-const melody_t minecraft_1 = {
-    .p_name = "minecraft_1",
-    .p_notes = (double *)minecraft_1_notes,
-    .p_durations = (uint16_t *)minecraft_1_durations,
-    .melody_length = MINECRAFT_1_LENGTH,
-    .next_melody = (const melody_t *)&minecraft_1_sub};
+const melody_t minecraft = {
+    .p_name = "minecraft",
+    .p_notes = (double *)minecraft_notes,
+    .p_durations = (uint16_t *)minecraft_durations,
+    .melody_length = MINECRAFT_LENGTH,
+    .next_melody = (const melody_t *)&minecraft_sub};
 
-#define MINECRAFT_1_SUB_LENGTH 151 /*!< minecraft_1_sub melody length */
+#define MINECRAFT_SUB_LENGTH 151 /*!< minecraft_sub melody length */
 /**
- * @brief minecraft_1_sub melody notes.
+ * @brief minecraft_sub melody notes.
  *
- * This array contains the frequencies of the notes for the minecraft_1_sub song.
+ * This array contains the frequencies of the notes for the minecraft_sub song.
  * The notes are defined as frequency values in Hertz, and they are arranged in the order they are played in the song.
  */
-static const double minecraft_1_sub_notes[MINECRAFT_1_SUB_LENGTH] = {184, 0, 0, 349, 0, 0, 277, 0, 0, 233, 0, 0, 0, 0, 277, 0, 184, 0, 0, 155, 0, 0, 233, 0, 0, 349, 0, 0, 277, 0, 0, 0, 0, 233, 0, 155, 0, 0, 123, 0, 0, 369, 0, 0, 277, 0, 0, 184, 0, 0, 0, 0, 0, 155, 0, 123, 0, 0, 138, 0, 0, 207, 0, 0, 349, 0, 0, 277, 0, 0, 0, 0, 207, 0, 138, 0, 0, 184, 0, 0, 349, 0, 0, 277, 0, 0, 233, 0, 0, 184, 0, 0, 277, 0, 0, 233, 0, 0, 349, 0, 0, 184, 0, 0, 233, 0, 0, 349, 0, 0, 277, 0, 0, 184, 0, 0, 277, 0, 0, 233, 0, 0, 349, 0, 0, 184, 0, 0, 349, 0, 0, 277, 0, 0, 233, 0, 0, 184, 0, 0, 277, 0, 0, 233, 0, 0, 349, 0, 0, 184, 0};
+static const double minecraft_sub_notes[MINECRAFT_SUB_LENGTH] = {184, 0, 0, 349, 0, 0, 277, 0, 0, 233, 0, 0, 0, 0, 277, 0, 184, 0, 0, 155, 0, 0, 233, 0, 0, 349, 0, 0, 277, 0, 0, 0, 0, 233, 0, 155, 0, 0, 123, 0, 0, 369, 0, 0, 277, 0, 0, 184, 0, 0, 0, 0, 0, 155, 0, 123, 0, 0, 138, 0, 0, 207, 0, 0, 349, 0, 0, 277, 0, 0, 0, 0, 207, 0, 138, 0, 0, 184, 0, 0, 349, 0, 0, 277, 0, 0, 233, 0, 0, 184, 0, 0, 277, 0, 0, 233, 0, 0, 349, 0, 0, 184, 0, 0, 233, 0, 0, 349, 0, 0, 277, 0, 0, 184, 0, 0, 277, 0, 0, 233, 0, 0, 349, 0, 0, 184, 0, 0, 349, 0, 0, 277, 0, 0, 233, 0, 0, 184, 0, 0, 277, 0, 0, 233, 0, 0, 349, 0, 0, 184, 0};
 /**
- * @brief minecraft_1_sub melody durations in miliseconds.
+ * @brief minecraft_sub melody durations in miliseconds.
  *
- * This array contains the duration of each note in the minecraft_1_sub song.
+ * This array contains the duration of each note in the minecraft_sub song.
  * The durations are defined in milliseconds, and they are arranged in the order they are played in the song.
  */
-static const uint16_t minecraft_1_sub_durations[MINECRAFT_1_SUB_LENGTH] = {170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 1384, 154, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 1384, 154, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 32, 1355, 151, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 1384, 154, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 1367, 152};
+static const uint16_t minecraft_sub_durations[MINECRAFT_SUB_LENGTH] = {170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 1384, 154, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 1384, 154, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 32, 1355, 151, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 30, 30, 1384, 154, 1, 0, 1, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 170, 19, 11, 170, 19, 11, 170, 19, 11, 854, 95, 51, 1367, 152};
 /**
- * @brief minecraft_1_sub melody struct.
+ * @brief minecraft_sub melody struct.
  *
  * This struct contains the information of the Tetris melody.
  * It is used to play the melody using the buzzer.
  */
-const melody_t minecraft_1_sub = {
-    .p_name = "minecraft_1_sub",
-    .p_notes = (double *)minecraft_1_sub_notes,
-    .p_durations = (uint16_t *)minecraft_1_sub_durations,
-    .melody_length = MINECRAFT_1_SUB_LENGTH,
+const melody_t minecraft_sub = {
+    .p_name = "minecraft_sub",
+    .p_notes = (double *)minecraft_sub_notes,
+    .p_durations = (uint16_t *)minecraft_sub_durations,
+    .melody_length = MINECRAFT_SUB_LENGTH,
     .next_melody = NULL};
 
 #define ZELDA_THEME_SONG_LENGTH 908 /*!< zelda_theme_song melody length */
