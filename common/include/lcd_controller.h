@@ -24,6 +24,9 @@ void lcd_on(void);
  */
 void lcd_off(void);
 
+/**
+ * Calls update method of the lcd
+*/
 void lcd_update(fsm_t *p_this);
 
 /**

@@ -63,6 +63,8 @@ void buzzer_director_set_speed(double speed)
 
 void buzzer_director_set_volume(double volume)
 {
+    if (volume > 1 || volume < 0)
+        volume = 0;
     for (int i = 0; i < NUM_BUZZERS; i++)
     {
         fsm_buzzer_set_volume((fsm_t *)fsm_buzzer[i], volume);

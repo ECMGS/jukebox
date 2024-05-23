@@ -33,7 +33,6 @@ static void _timer_duration_setup(uint32_t buzzer_id)
   if (valid_buzzer(buzzer_id))
   {
     printf("Valid buffer\n");
-    // TO-DO alumnos
     RCC->APB1ENR |= get_timer_duration_RCC(buzzer_id);
 
     buzzers_arr[buzzer_id].p_duration_timer->CR1 = 0x0000;

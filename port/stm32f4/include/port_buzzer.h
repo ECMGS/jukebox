@@ -112,7 +112,16 @@ bool port_buzzer_get_note_timeout(uint32_t buzzer_id);
  */
 void port_buzzer_stop(uint32_t buzzer_id);
 
+/**
+ * @brief Set the volume of the buzzer, changing the PWM duty cycle of the buzzer.
+ * 
+ * @param buzzer_id	Buzzer melody player ID. This index is used to select the element of the buzzers_arr[] array
+ * @param volume	Volume of the buzzer, a double value between 0 and 1.
+*/
 void port_buzzer_set_volume(uint32_t buzzer_id, double volume);
 
+/**
+ * @brief Set the note end flag to true.
+*/
 void port_buzzer_set_note_end(uint32_t buzzer_id);
 #endif
