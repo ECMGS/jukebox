@@ -455,7 +455,7 @@ static void do_load_next_song(fsm_t *p_this)
     _set_next_song(p_fsm);
     lcd_update_song(p_this);
     lcd_update_state(p_this);
-    _execute_command(p_this, "info", "");
+    _execute_command(p_fsm, "info", "");
 }
 /**
  * @brief Read the command received by the USART.
@@ -568,7 +568,7 @@ static void do_load_prev_song(fsm_t *p_this)
     _set_prev_song(p_fsm);
     lcd_update_song(p_this);
     lcd_update_state(p_this);
-    _execute_command(p_this, "info", "");
+    _execute_command(p_fsm, "info", "");
 
 }
 /**
