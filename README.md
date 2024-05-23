@@ -1,88 +1,55 @@
-# Título del proyecto
+# The 8 bit Jukebox
 
-
-## Authors
+## Authors of the project
 
 * **Jorge Alejandro Estefania Hidalgo** - email: [jorge.estefania@alumnos.upm.es](mailto:jorge.estefania@alumnos.upm.es)
 * **Eugenio Cano Muñoz** - email: [eugenio.cano@alumnos.upm.es](mailto:eugenio.cano@alumnos.upm.es)
 
+## Description of the project
 
-Ponga una breve descripción del proyecto **aquí** en castellano e inglés.
+Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all your favorite melodies in 8 bit style!
 
-Puede añadir una imagen de portada **de su propiedad** aquí. Por ejemplo, del montaje final, o una captura de osciloscopio, etc.
+# Añadir imagen
+![Image of the board]()
 
-**Las imágenes se deben guardar en la carpeta `docs/assets/imgs/` y se pueden incluir en el documento de la siguiente manera:**
+**A brief summary of what we added:**
 
-```markdown
-![Texto alternativo](docs/assets/imgs/imagen.png)
-``` 
+1. 3 buzzers in order to enjoy all your favorite melodies!! (You can add as many buzzers as you want if you can find any available timers and pins)
+2. A state of the art (for the 80s) LCD to see what song are you listening to.
+3. Design implemented in a HSCB (Homemade Soddered Circuit Board) because the cables kept falling from the breadboard.
+4. A case to hold everything in a grat form factor.
+5. Button to set the previous song, use it if you passed your favorite song by mistake :(
+6. Button to stop and play songs (If you aren't very fast it sets a quiet mode to listen to in quieter enviroments, as the library)
 
-**Añada un enlace a un vídeo público de su propiedad aquí con la demostración del proyecto explicando lo que haya hecho en la versión V5.**
+**Some of the melodies we added are:**
 
-Para añadir un enlace a un vídeo de Youtube, puede usar el siguiente código:
+- Nokia song
+- Kerosene (2 channels)
+- Mario death song
+- Star wars imperial march (4 channels - 3 actually used)
+- Pokémon (2 channels)
+- Minecraft (2 channels)
+- Zelda theme song (3 channels)
+- Megalovania (3 channels)
+- Coconut mall (3 channels)
 
-```markdown
-[![Texto alternativo](docs/assets/imgs/imagen.png)](https://youtu.be/ID_DEL_VIDEO "Texto al pasar el ratón por encima de la imagen.")
-```
+## IMPORTANT NOTE:
+To implement the LCD, we had to activate the HAL. In order to compile the code, it is important to copy the HAL configuration file located in "common/include/stm32f4xx_hal_conf.h" and paste it in the MatrixMCU HAL drivers folder: "MatrixMCU/drivers/stm32f4xx/STM32F4xx_HAL_Driver/Inc".
 
-## Version 1
-Breve descripción de la versión 1.
+## Explanation of some of the added functionality:
 
-- Para poner un texto en negrita se usa el símbolo `**` de manera consecutiva. Por ejemplo: **Texto en negrita**
-- Para poner un texto en cursiva se usa el símbolo `*` de manera consecutiva. Por ejemplo: *Texto en cursiva*
-- Para poner un texto en cursiva y negrita se usa el símbolo `***` de manera consecutiva. Por ejemplo: ***Texto en cursiva y negrita***
+### 3 Buzzers
 
-Para añadir subsecciones se usa el símbolo `#` de manera consecutiva. Por ejemplo:
+In order to implmement this, we have created a "Buzzer director" that manages all the necesary FSMs for the different buzzers, you can think of this as the manager for a pool of buzzers in parallelism programming. This buzzer director adapts to the available buzzers in the port buzzer automatically, so the only thing you need to do to add a new buzzer is to add the required defines, increment MAX_BUZZERS and add it to the buzzers_arr.
 
-### Subsección 1
-Breve descripción de la subsección 1.
+### LCD
 
-Para añadir una lista de elementos se usa el símbolo `-` de manera consecutiva. Por ejemplo:
+The LCD is implemented by using the HAL and I2C, as controlling it with the cmsis enviroment would be very time consuming and would get the same result.
 
-- Elemento 1
-- Elemento 2
-- Elemento 3
+### Custom soddered circuit and DIY 3D printed case
 
-Para añadir una lista de elementos numerados se usa el símbolo `1.` de manera consecutiva. Por ejemplo:
+These were late on additions, thought when we finished adding hardware. We used Thinkercad to make the design. The link to the Tinkercad design is https://www.tinkercad.com/things/4ZQXu1ZOIWi-sdg2-jukebox-case and the STL files can be found in the 3D folder.
 
-1. Elemento 1
-2. Elemento 2
-3. Elemento 3
+### Added buttons
 
-Para añadir un enlace a una página web se usa el siguiente código:
-
-```markdown
-Enlace a [Google](https://www.google.com).
-```
-
-Puede añadir tablas de la siguiente manera:
-
-| Columna 1 | Columna 2 | Columna 3 |
-| --------- | --------- | --------- |
-| Valor 1   | Valor 2   | Valor 3   |
-| Valor 4   | Valor 5   | Valor 6   |
-
-Para añadir un enlace a un fichero `.c` o `.h` puede usar el siguiente código. Se trata de enlaces a ficheros `.html` que se generan automáticamente con la documentación del código al ejecutar Doxygen y que se encuentran en la carpeta `docs/html/`.
-
-```markdown
-Enlace a la [FSM de Version 1](fsm__button_8c.html).
-```
-
-
-
-## Version 2
-Breve descripción de la versión 2.
-
-
-## Version 3
-Breve descripción de la versión 3.
-
-
-## Version 4
-Breve descripción de la versión 4.
-
-
-## Version 5
-
-Breve descripción de la versión 5.
-
+The added buttons are just simple modifications to the jukebox FSM, these were the first modifications that we did to the V4 just to get the hang of doing unguided additions on our own.
