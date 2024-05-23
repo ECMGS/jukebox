@@ -22,6 +22,7 @@ Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all yo
 6. Button to stop and play songs (If you aren't very fast it sets a quiet mode to listen to in quieter enviroments, as the library)
 7. Awesome python script to ease the workflow of adding songs to the jukebox.
 8. A lot of new songs, some of them with accompaniment melodies, by implementing a linked list.
+9. Little change to the "speed" command while using the usart interface.
 
 **Some of the melodies we added are:**
 
@@ -72,4 +73,8 @@ Now all you have to do is press enter again to close the python window and paste
 With the help of the python script we were able to add numerous songs, including accompaniment melodies.
 
 ### Accompaniment melodies
-In order to play more than one song, we link one melody to another using a linked list, so when the buzzer director is called to play a song, it reads 
+In order to play more than one song, we link one melody to another using a linked list, so when the buzzer director is called to play a song, it reads the properties of the song and if it has a song attached to it and there is enough buzzers it plays each melody on a buzzer. With our settup we could have as many melodies as buzzers, and as many buzzers as the stm32f446re board timers allows us.
+Some songs like the zelda theme song benefit a lof from this as it plays three different melodies at once, enriching the music listening experience.
+
+### Speed command usart
+We changed the behaviour of the speed command such that you now have to send the speed you want multiplied by 10 in order to be able to set speeds with one decimal.
