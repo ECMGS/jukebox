@@ -28,6 +28,15 @@ port_buzzer_hw_t buzzers_arr[] = {
 };
 
 /* Private functions */
+/**
+ * @brief Configure the timer that controls the duration of the note.
+ *
+ * This function is called by the port_buzzer_init() public function to configure the timer that controls the duration of the note.
+ *
+ * Because there could be several notes playing at the same time, each buzzer melody player has its own timer. So, the timer to be configured is selected by the buzzer_id parameter, and you **must encapsulate the configuration of the timer in a switch or if statement.*
+ * 
+ * @param buzzer_id
+*/
 static void _timer_duration_setup(uint32_t buzzer_id)
 {
   if (valid_buzzer(buzzer_id))
@@ -49,7 +58,13 @@ static void _timer_duration_setup(uint32_t buzzer_id)
     NVIC_EnableIRQ(get_timer_duration_IRQn(buzzer_id));
   }
 }
-
+/**
+ * @brief Configure the timer that controls the PWM of the buzzer.
+ *
+ * This function is called by the port_buzzer_init() public function to configure the timer that controls the PWM of the buzzer. Because there could be several notes playing at the same time, each buzzer melody player has its own timer. So, the timer to be configured is selected by the buzzer_id parameter, and you **must encapsulate the configuration of the timer in a switch or if statement.*
+ *
+ * @param buzzer_id
+*/
 static void _timer_pwm_setup(uint32_t buzzer_id)
 {
   if (valid_buzzer(buzzer_id))

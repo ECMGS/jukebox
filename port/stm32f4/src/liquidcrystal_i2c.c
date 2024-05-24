@@ -1,5 +1,5 @@
 /**
- * @file port_button.c
+ * @file liquidcrystal_i2c.c
  * @brief File containing functions related to the LCD comunication via i2c.
  * @author unknown
  * @date 23/05/2024
@@ -297,7 +297,7 @@ static void DelayUS(uint32_t us)
   uint32_t cycles = (SystemCoreClock / 1000000L) * us;
   uint32_t start = DWT->CYCCNT;
   volatile uint32_t cnt;
-  /// TODO ARRELGAR
+  /
   do
   {
     cnt = DWT->CYCCNT - start;
