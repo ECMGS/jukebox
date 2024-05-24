@@ -13,6 +13,8 @@ Project on UART communication and PWM music player of the SDG2 2023-24 course.
 This is our final result!
 ![Image of the board](docs/assets/imgs/IMG_8665.jpeg)
 
+**You can watch a video showing all the features here: [https://www.youtube.com/watch?v=uztb5DlaXZM](https://www.youtube.com/watch?v=uztb5DlaXZM)**
+
 **A brief summary of what we added:**
 
 1. 3 buzzers in order to enjoy all your favorite melodies!! (You can add as many buzzers as you want if you can find any available timers and pins)
