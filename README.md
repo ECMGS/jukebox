@@ -9,7 +9,6 @@
 
 Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all your favorite melodies in 8 bit style!
 
-# Añadir imagen
 ![Image of the board]()
 
 **A brief summary of what we added:**
@@ -23,6 +22,7 @@ Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all yo
 7. Awesome python script to ease the workflow of adding songs to the jukebox.
 8. A lot of new songs, some of them with accompaniment melodies, by implementing a linked list.
 9. Little change to the "speed" command while using the usart interface.
+10. WEB interface to control the jukebox from potentially anywhere in the world.
 
 **Some of the melodies we added are:**
 
@@ -61,7 +61,7 @@ The added buttons are just simple modifications to the jukebox FSM, these were t
 To be able to add songs in a reasonable time, we wrote a Python script to help during the song adding process.
 The workflow to add new songs to the jukebox is a bit tedious, in consists of the following steps:
 1. Downloading the midi version of such song.
-2. Upload your .mid file to a web to to convert a raw midi file for use to play on an Arduino (via the tone function). I used https://extramaster.net/tools/midiToArduino/ becouse it was the only web I found that kept the the timin of the note durations correctly.
+2. Upload your .mid file to a web to to convert a raw midi file for use to play on an Arduino (via the tone function). I used https://extramaster.net/tools/midiToArduino/ becouse it was the only web I found that kept the the timinG of the note durations correctly.
 3. Convert the midi file and copy the output to the clipboard.
 4. Reformat the arduino code to fit the format we are using while developing the jukebox software. 
 This is the moment to execute the script. It is located at "Songs/transformerV4.py". You will need to have Python installed in your PC.
@@ -78,3 +78,31 @@ Some songs like the zelda theme song benefit a lof from this as it plays three d
 
 ### Speed command usart
 We changed the behaviour of the speed command such that you now have to send the speed you want multiplied by 10 in order to be able to set speeds with one decimal.
+
+### WEB interface
+Being the web launched on a server, it can be accesed from the local network. However the conexion could be opened to the internet network so that the jukebox could be controlled from anywhere. 
+
+## Images related to the jukebox:
+
+### Final jukebox fsm diagram
+![FSM jukebox](docs/assets/imgs/jukebox_fsm.jpeg)
+
+### Osciloscope captures of the USART comunication
+Here we can see the voltage changes when we send the command "info" and the beginning of the response.
+![USART osciloscope capture](docs/assets/imgs/osciloscope_uart.jpeg)
+
+Here we can see the end of the response. The response is larger than the command becouse "info" only has 4 characters whereas the response, which in this case is: "melody: scale" which has more characters.
+![USART osciloscope capture](docs/assets/imgs/oscioscope_uart_2.jpeg)
+
+## What's inside the box
+The jukebox looks like this without the cover:
+![Jukebox insides](docs/assets/imgs/IMG_8660.jpeg)
+
+### HSCB (Homemade Solderec Circuit Board)
+This is the jukebox from below:
+![HSBC](docs/assets/imgs/HSCB.jpeg)
+
+Hope you enjoy our project! 
+![Just chilling](docs/assets/imgs/IMG_8666.jpeg)
+
+If there is any question, just ask, we'll be open to answer!
