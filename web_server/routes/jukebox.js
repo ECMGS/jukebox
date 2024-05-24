@@ -11,21 +11,18 @@ router.get("/song", serialController.getSong,
 );
 
 router.get("/next",     serialController.next,
-                        serialController.getSong,
                         (req, res) => {
                             res.json({ song: req.song });
                         }
 );
 
 router.get("/pause",    serialController.pause,
-                        serialController.getSong,
                         (req, res) => {
                             res.json({ song: req.song });
                         }
 );
 
-router.get("/play", serialController.play,
-                        serialController.getSong,
+router.get("/play",     serialController.play,
                         (req, res) => {
                             res.json({ song: req.song });
                         }

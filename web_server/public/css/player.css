@@ -1,0 +1,18 @@
+#button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#button-container button {
+    border-radius: 0;
+}
+
+#button-container button:first-of-type {
+    border-radius: 0.5rem 0 0 0.5rem ;
+}
+
+#button-container button:last-of-type {
+    border-radius: 0 0.5rem 0.5rem 0;
+}

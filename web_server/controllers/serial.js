@@ -1,8 +1,11 @@
 const { SerialPort } = require("serialport");
 
+const uartTimeoutTime = 60; // MS
+
 let song = "";
 let commandSent = (data) => {};
 let serial = null;
+let uartBusy = false;
 
 const songSetter = (rawData) => {
     const data = rawData.toString();
@@ -16,6 +19,10 @@ const songSetter = (rawData) => {
     song += data;
     console.log(song);
 };
+
+const releaseUart = () => {
+    uartBusy = false;
+}
 
 exports.list = (req, res, next) => {
     SerialPort.list().then((ports) => {
@@ -31,7 +38,13 @@ exports.connectSerial = (req, res, next) => {
     next();
 }
 
-exports.getSong = (req, res, next) => {    
+exports.getSong = (req, res, next) => {  
+    if (uartBusy) {
+        req.song = song;
+        next();
+        return;
+    }
+
     if (serial == null) {
         res.send("forbidden");
         return;
@@ -42,6 +55,9 @@ exports.getSong = (req, res, next) => {
         req.song = song;
         next();
     };
+
+    uartBusy = true;
+    setTimeout(releaseUart, uartTimeoutTime);
 }
 
 exports.next = (req, res, next) => {
@@ -55,6 +71,7 @@ exports.next = (req, res, next) => {
 }
 
 exports.pause = (req, res, next) => {
+
     if (serial == null) {
         res.send("forbidden");
         return;
@@ -65,6 +82,7 @@ exports.pause = (req, res, next) => {
 }
 
 exports.play = (req, res, next) => {
+
     if (serial == null) {
         res.send("forbidden");
         return;

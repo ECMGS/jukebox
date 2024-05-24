@@ -6,37 +6,22 @@ const updateSong = () => {
     fetch("/api/jukebox/song")
         .then((res) => res.json())
         .then((data) => {
+            if (data.song == "" || data.song.includes("ommand")) return;
             songHeader.innerText = data.song;
             console.log(data);
         });
 }
 
 const nextSong = () => {
-    fetch("/api/jukebox/next")
-        .then((res) => res.json())
-        .then((data) => {
-            songHeader.innerText = data.song;
-            console.log(data);
-        });
+    fetch("/api/jukebox/next").then(updateSong);
 }
 
 const pause = () => {
-    fetch("/api/jukebox/pause")
-        .then((res) => res.json())
-        .then((data) => {
-            songHeader.innerText = data.song;
-            console.log(data);
-        });
+    fetch("/api/jukebox/pause").then(updateSong);
 }
 
 const play = () => {
-    fetch("/api/jukebox/play")
-        .then((res) => res.json())
-        .then((data) => {
-            songHeader.innerText = data.song;
-            console.log(data);
-        });
-
+    fetch("/api/jukebox/play").then(updateSong);
 }
 
-setInterval(updateSong, 100);
+setInterval(updateSong, 500);

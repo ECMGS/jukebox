@@ -2,21 +2,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>jukebox web controller</title>
+
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-    <h1>Hi! welcome to the web interface</h1>
-    <h2>Here you can control the jukebox</h2>
-    <div>
-        <p>First, turn on the jukebox and select a serial port to use</p>
-        <form action="/player" method="get" enctype="application/x-www-form-urlencoded">
-            <select name="comport" id="comport">
-                <% ports.forEach((port) => { %>
-                    <option value="<%= port.path %>"><%= port.friendlyName %></option>
-                <% }); %>
-            </select>
-            <button type="submit">Go!</button>
-        </form>
+    <div id="container">
+        <h1>Hi! welcome to the web interface</h1>
+        <h2>Here you can control the jukebox</h2>
+        <div>
+            <p>First, turn on the jukebox and select a serial port to use</p>
+            <form action="/player" method="get" enctype="application/x-www-form-urlencoded">
+                <select name="comport" id="comport">
+                    <% ports.forEach((port) => { %>
+                        <option value="<%= port.path %>"><%= port.friendlyName %></option>
+                    <% }); %>
+                </select>
+                <button type="submit">Go!</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
