@@ -8,7 +8,9 @@
 ## Description of the project
 
 Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all your favorite melodies in 8 bit style!
+Project on UART communication and PWM music player of the SDG2 2023-24 course.
 
+This is our final result!
 ![Image of the board](docs/assets/imgs/IMG_8665.jpeg)
 
 **A brief summary of what we added:**
