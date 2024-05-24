@@ -17,14 +17,14 @@ This is our final result!
 
 1. 3 buzzers in order to enjoy all your favorite melodies!! (You can add as many buzzers as you want if you can find any available timers and pins)
 2. A state of the art (for the 80s) LCD to see what song are you listening to.
-3. Design implemented in a HSCB (Homemade Soldered Circuit Board) because the cables kept falling from the breadboard.
-4. A case to hold everything in a grat form factor.
-5. Button to set the previous song, use it if you passed your favorite song by mistake :(
-6. Button to stop and play songs (If you aren't very fast it sets a quiet mode to listen to in quieter enviroments, as the library)
-7. Awesome python script to ease the workflow of adding songs to the jukebox.
-8. A lot of new songs, some of them with accompaniment melodies, by implementing a linked list.
-9. Little change to the "speed" command while using the usart interface.
-10. WEB interface to control the jukebox from potentially anywhere in the world.
+3. WEB interface to control the jukebox from potentially anywhere in the world.
+4. Design implemented in a HSCB (Homemade Soldered Circuit Board) because the cables kept falling from the breadboard.
+5. A case to hold everything in a grat form factor.
+6. Button to set the previous song, use it if you passed your favorite song by mistake :(
+7. Button to stop and play songs (If you aren't very fast it sets a quiet mode to listen to in quieter enviroments, as the library)
+8. Awesome python script to ease the workflow of adding songs to the jukebox.
+9. A lot of new songs, some of them with accompaniment melodies, by implementing a linked list.
+10. Little change to the "speed" command while using the usart interface.
 
 **Some of the melodies we added are:**
 
@@ -51,6 +51,15 @@ In order to implmement this, we have created a "Buzzer director" that manages al
 
 The LCD is implemented by using the HAL and I2C, as controlling it with the cmsis enviroment would be very time consuming and would get the same result.
 We downloaded the "liquidcrystal_i2c" library to interface with the LCD via I2C.
+
+### Web interface
+
+The web interface expands tremendously the posibilities of the jukebox, the only need is to add another device with USB or just serial UART protocol, allowing the user to change simple things like start *playing a song*, *pause it*, *skip the song*, or *know what song is being played*. The server uses nodejs and express. The files can be found in the `web_server/` folder
+
+![Image to configure the port](./docs/assets/imgs/configure_port.png)
+
+![Use of the jukebox](./docs/assets/imgs/web_server.png)
+
 ### Custom soddered circuit and DIY 3D printed case
 
 These were late on additions, once we finished adding hardware and knew everithing worked. We used Thinkercad to make the design of the case. The link to the Tinkercad design is https://www.tinkercad.com/things/4ZQXu1ZOIWi-sdg2-jukebox-case and the STL files can be found in the 3D folder.
@@ -107,4 +116,4 @@ This is the jukebox from below:
 Hope you enjoy our project! 
 ![Just chilling](docs/assets/imgs/IMG_8666.jpeg)
 
-If there is any question, just ask, we'll be open to answer!
+If there are any questions, just ask, we'll be open to answer!
