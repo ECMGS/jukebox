@@ -13,6 +13,8 @@
  * in the root directory of this software component.
  * If no LICENSE file comes with this software, it is provided AS-IS.
  *
+ * 
+ * File modified adding the implementation of the jukebox on top of the LCD related code.
  ******************************************************************************
  */
 /* USER CODE END Header */
@@ -57,10 +59,6 @@ I2C_HandleTypeDef hi2c1;
 
 UART_HandleTypeDef huart2;
 
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -100,9 +98,6 @@ int main(void)
   fsm_t *p_fsm_button_play_pause = fsm_button_new(BUTTON_1_DEBOUNCE_TIME_MS, BUTTON_1_ID);
   fsm_t *p_fsm_button_prev_song = fsm_button_new(BUTTON_2_DEBOUNCE_TIME_MS, BUTTON_2_ID);
   fsm_t *p_fsm_usart = fsm_usart_new(USART);
-  // fsm_t *p_fsm_buzzer_t = fsm_buzzer_new(BUZZER_0_ID);
-  // fsm_t *p_fsm_buzzer_2_t = fsm_buzzer_new(BUZZER_2);
-  // fsm_t *lcd = fsm_lcd_new(p_fsm_button_t, p_fsm_button_play_pause_t, ON_OFF_PRESS_TIME_MS, PLAY_PAUSE_BUTTON_TIME_MS, CHANGE_VOLUME_BUTTON_TIME_MS, NEXT_SONG_BUTTON_TIME_MS, LCD_TIMEOUT_MS);
   fsm_t *jukebox = fsm_jukebox_new(p_fsm_button, p_fsm_button_play_pause, p_fsm_button_prev_song, BUTTON_PRESS_TIME_MS, BUTTON_CLICK_TIME_MS,
                                    p_fsm_usart);
 
@@ -113,11 +108,9 @@ int main(void)
     fsm_fire(p_fsm_button_play_pause);
     fsm_fire(p_fsm_button_prev_song);
     fsm_fire(p_fsm_usart);
-    // fsm_fire(lcd);
-    // fsm_fire(p_fsm_buzzer_t);
     buzzer_director_fire();
     fsm_fire(jukebox);
-  } // End of while(1)
+  }
 
   fsm_destroy(jukebox);
 
@@ -125,8 +118,6 @@ int main(void)
   fsm_destroy((fsm_t *)p_fsm_button_play_pause);
   fsm_destroy((fsm_t *)p_fsm_button_prev_song);
   fsm_destroy((fsm_t *)p_fsm_usart);
-  // fsm_destroy(lcd);
-  // fsm_destroy((fsm_t *) p_fsm_buzzer_t);
 
   return 0;
 }
@@ -140,8 +131,7 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Configure the main internal regulator output voltage
-   */
+  /** Configure the main internal regulator output voltage */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
 
@@ -277,9 +267,6 @@ void Error_Handler(void)
  */
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
+
 }
 #endif /* USE_FULL_ASSERT */
