@@ -35,7 +35,7 @@ enum FSM_USART {
 */
 #define USART_INPUT_BUFFER_LENGTH 10
 #define USART_OUTPUT_BUFFER_LENGTH 100
-#define EMPTY_BUFFER_CONSTANT 0 // TODO FIX
+#define EMPTY_BUFFER_CONSTANT 0 
 
 typedef struct {
     fsm_t f;                                    /*!< USART FSM */

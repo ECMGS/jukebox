@@ -30,7 +30,7 @@ uint8_t buzzer_director_get_action(void)
 
 void buzzer_director_set_melody(const melody_t *p_melody)
 {
-    // TODO - FIX THIS METHOD
+    
     const melody_t *p_next_melody = p_melody->next_melody;
     used_buzzers = 0;
     int i = 0;

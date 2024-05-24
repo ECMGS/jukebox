@@ -214,7 +214,6 @@ void _set_prev_song(fsm_jukebox_t *p_fsm_jukebox)
  * @param p_fsm_jukebox	Pointer to the Jukebox FSM.
  * @param p_command	Pointer to the command to be executed.
  * @param p_param	Pointer to the parameter of the command to be executed.
-
 */
 void _execute_command(fsm_jukebox_t *p_fsm_jukebox, char *p_command, char *p_param)
 {
@@ -356,7 +355,6 @@ static bool check_activity(fsm_t *p_this)
            fsm_button_check_activity(p_fsm->p_fsm_button_prev_song) ||
            fsm_usart_check_activity(p_fsm->p_fsm_usart) ||
            buzzer_director_check_activity()
-        /*||fsm_buzzer_check_activity(p_fsm->p_fsm_buzzer)*/;
 }
 /**
  * @brief Check if there is no activity from the buttons.
@@ -442,7 +440,6 @@ static void do_stop_jukebox(fsm_t *p_this)
     fsm_usart_disable_tx_interrupt(p_fsm->p_fsm_usart);
     fsm_usart_disable_rx_interrupt(p_fsm->p_fsm_usart);
     printf("Jukebox OFF\n");
-    // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, STOP);
     buzzer_director_set_action(STOP);
     lcd_off();
 }
@@ -525,13 +522,11 @@ static void do_play_pause(fsm_t *p_this)
     if (buzzer_director_get_action() == PLAY)
     {
         printf("PAUSE\n");
-        // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PAUSE);
         buzzer_director_set_action(PAUSE);
     }
     else
     {
         printf("PLAY\n");
-        // fsm_buzzer_set_action(p_fsm->p_fsm_buzzer, PLAY);
         buzzer_director_set_action(PLAY);
     }
     lcd_update_state(p_this);

@@ -8,8 +8,10 @@
 ## Description of the project
 
 Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all your favorite melodies in 8 bit style!
+Project on UART communication and PWM music player of the SDG2 2023-24 course.
 
-![Image of the board]()
+This is our final result!
+![Image of the board](docs/assets/imgs/IMG_8665.jpeg)
 
 **A brief summary of what we added:**
 
@@ -37,7 +39,7 @@ Hi! We are Eugenio and Jorge, and we made a three buzzers jukebox to play all yo
 - Coconut mall (3 channels)
 
 ## IMPORTANT NOTE:
-To implement the LCD, we had to activate the HAL. In order to compile the code, it is important to copy the HAL configuration file located in "common/include/stm32f4xx_hal_conf.h" and paste it in the MatrixMCU HAL drivers folder: "MatrixMCU/drivers/stm32f4xx/STM32F4xx_HAL_Driver/Inc".
+To implement the LCD, we had to activate the HAL. In order to compile the code, it is important to copy the HAL configuration file located in "common/include/stm32f4xx_hal_conf.h" and paste it in the MatrixMCU HAL drivers folder: "MatrixMCU/drivers/stm32f4xx/STM32F4xx_HAL_Driver/Inc/".
 
 ## Explanation of some of the added functionality:
 

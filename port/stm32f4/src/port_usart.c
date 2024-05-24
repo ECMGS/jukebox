@@ -31,7 +31,12 @@ port_usart_hw_t usart_arr[] = {
 };
 
 /* Private functions */
-
+/**
+ * @brief Reset a buffer to a default value.
+ * 
+ * @param buffer	Pointer to the buffer to be reset
+ * @param length	Length of the buffer
+*/
 void _reset_buffer(char *p_buffer, uint32_t length){
     memset(p_buffer, EMPTY_BUFFER_CONSTANT, length);
 }
@@ -69,7 +74,7 @@ void port_usart_init(uint32_t usart_id)
     //p_usart->BRR = 0b0000011010000011;   // Actual value 16MHz/(8x2x96000) = 104.1667 aprox 104,(12.5)
     uint32_t div_int = SystemCoreClock / (8*2*9600);
     uint8_t div_dec = (
-        ((SystemCoreClock << 5) / (8*2*9600))+1 // TODO: MEJORA V5 PER
+        ((SystemCoreClock << 5) / (8*2*9600))+1 
     )>>1 & 0xf;
     p_usart->BRR = (div_int << 4) | div_dec;
     // especial mencion a esta parte, tremendo leño
@@ -79,7 +84,7 @@ void port_usart_init(uint32_t usart_id)
     p_usart->CR1 &= ~(USART_CR1_TXEIE | USART_CR1_TCIE);
 
     // Enable USART interrupts globally
-    if (p_usart == USART3) // TODO: V5 Varias usart
+    if (p_usart == USART3) 
     {
         NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 2, 0));
         NVIC_EnableIRQ(USART3_IRQn);
@@ -122,7 +127,7 @@ bool port_usart_tx_done (uint32_t usart_id){
 }
 
 void port_usart_store_data(uint32_t usart_id){
-    if (usart_arr[usart_id].p_usart->DR == END_CHAR_CONSTANT) //TODO: DONE MEJORA V5 PER varias usart
+    if (usart_arr[usart_id].p_usart->DR == END_CHAR_CONSTANT) 
     {
         usart_arr[usart_id].read_complete = true;
         usart_arr[usart_id].i_idx = 0;
@@ -138,7 +143,7 @@ void port_usart_store_data(uint32_t usart_id){
 void port_usart_write_data(uint32_t usart_id){
     if (usart_arr[usart_id].o_idx == USART_OUTPUT_BUFFER_LENGTH - 1 || 
         usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx] == END_CHAR_CONSTANT)
-    {  //TODO: DONE MEJORA V5 PER varias usart
+    {  
        usart_arr[usart_id].p_usart->DR = usart_arr[usart_id].output_buffer[usart_arr[usart_id].o_idx]; 
        port_usart_disable_tx_interrupt(usart_id);
        usart_arr[usart_id].o_idx = 0;
@@ -152,17 +157,17 @@ void port_usart_write_data(uint32_t usart_id){
 }
 
 void port_usart_enable_rx_interrupt(uint32_t usart_id){
-    usart_arr[usart_id].p_usart->CR1 |= USART_CR1_RXNEIE; //TODO: DONE MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 |= USART_CR1_RXNEIE; 
 }
 
 void port_usart_enable_tx_interrupt(uint32_t usart_id){
-    usart_arr[usart_id].p_usart->CR1 |= USART_CR1_TXEIE; //TODO: DONE MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 |= USART_CR1_TXEIE; 
 }
 
 void port_usart_disable_rx_interrupt(uint32_t usart_id){
-    usart_arr[usart_id].p_usart->CR1 &= ~USART_CR1_RXNEIE; //TODO: DONE MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 &= ~USART_CR1_RXNEIE; 
 }
 
 void port_usart_disable_tx_interrupt(uint32_t usart_id){
-    usart_arr[usart_id].p_usart->CR1 &= ~USART_CR1_TXEIE; //TODO: DONE MEJORA V5 PER varias usart
+    usart_arr[usart_id].p_usart->CR1 &= ~USART_CR1_TXEIE; 
 }
