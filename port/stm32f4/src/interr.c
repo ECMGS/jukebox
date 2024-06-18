@@ -9,6 +9,8 @@
 
 // Include headers of different port elements:
 #include "port_button.h"
+#include "port_usart.h"
+#include "port_buzzer.h"
 //------------------------------------------------------
 // INTERRUPT SERVICE ROUTINES
 //------------------------------------------------------
@@ -24,16 +26,96 @@
 void SysTick_Handler(void)
 {
     uint32_t systemTime = port_system_get_millis();
+    HAL_IncTick();
 
     port_system_set_millis(systemTime + 1);
 }
 
-void EXTI15_10_IRQHandler ()
+// uint32_t HAL_GetTick(void)
+//{
+//     return port_system_get_millis();
+//}
+/**
+ * @brief This function handles Px10-Px15 global interrupts.
+ * First, this function identifies the line/ pin which has raised the interruption. Then, perform the desired action. Before leaving it cleans the interrupt pending register.
+*/
+void EXTI15_10_IRQHandler()
 {
     /* ISR user button */
     if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin))
     {
-        buttons_arr[BUTTON_0_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_0_ID].p_port,buttons_arr[BUTTON_0_ID].pin);
+        port_system_systick_resume();
+        buttons_arr[BUTTON_0_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_0_ID].p_port, buttons_arr[BUTTON_0_ID].pin);
         EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_0_ID].pin);
     }
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_1_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_1_ID].p_port, buttons_arr[BUTTON_1_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_1_ID].pin);
+    }
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
+    }
+}
+/**
+ * @brief This function handles Px10-Px15 global interrupts.
+*/
+void EXTI9_5IRQHandler()
+{
+    if (EXTI->PR & BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin))
+    {
+        port_system_systick_resume();
+        buttons_arr[BUTTON_2_ID].flag_pressed = !port_system_gpio_read(buttons_arr[BUTTON_2_ID].p_port, buttons_arr[BUTTON_2_ID].pin);
+        EXTI->PR = BIT_POS_TO_MASK(buttons_arr[BUTTON_2_ID].pin);
+    }
+}
+
+/**
+ * @brief This function handles USART3 global interrupt.
+ * First, this function identifies the line/ pin which has raised the interruption. Then, perform the desired action. Before leaving it cleans the interrupt pending register.
+ * The program flow jumps to this ISR when the USART3 generates an interrupt. It can be due to:
+ * Reception of a new byte (RXNE)
+ * Transmission of a byte has finished (TC)
+ * Transmission buffer is empty (TXE)
+ *
+ */
+void USART3_IRQHandler(void)
+{
+    port_system_systick_resume();
+    if (USART_SR_RXNE & USART3->SR && USART_CR1_RXNEIE & USART3->CR1)
+    {
+        port_usart_store_data(USART_0_ID);
+    }
+    if (USART_SR_TXE & USART3->SR && USART_CR1_TXEIE & USART3->CR1)
+    {
+        port_usart_write_data(USART_0_ID);
+    }
+}
+/**
+ * @brief This function handles TIM2 global interrupt.
+ */
+void TIM2_IRQHandler(void)
+{
+    TIM2->SR &= ~TIM_SR_UIF;
+    buzzers_arr[BUZZER_0_ID].note_end = true;
+}
+/**
+ * @brief This function handles TIM5 global interrupt.
+*/
+void TIM5_IRQHandler(void)
+{
+    TIM5->SR &= ~TIM_SR_UIF;
+    buzzers_arr[BUZZER_1_ID].note_end = true;
+}
+/**
+ * @brief This function handles TIM7 global interrupt.
+*/
+void TIM7_IRQHandler(void)
+{
+    TIM7->SR &= ~TIM_SR_UIF;
+    buzzers_arr[BUZZER_2_ID].note_end = true;
 }

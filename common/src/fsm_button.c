@@ -1,7 +1,7 @@
 /**
  * @file fsm_button.c
  * @brief Button FSM main file.
- * @author Jorge Alejandro Estefania Hidalgo
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @author Eugenio Cano Muñoz
  * @date 21/02/2024
  */
@@ -10,6 +10,11 @@
 #include "fsm_button.h"
 #include "port_button.h"
 
+bool fsm_button_check_activity (fsm_t *p_this) {
+    fsm_button_t *p_fsm = (fsm_button_t*) (p_this);
+
+    return BUTTON_RELEASED != p_fsm->f.current_state;
+}
 
 /**
  * @brief checks if the button is pressed.
@@ -44,6 +49,7 @@ static bool check_timeout(fsm_t *p_this) {
 
     return port_button_get_tick() > p_fsm->next_timeout;
 }
+
 
 /* State machine output or action functions */
 /**

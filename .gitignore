@@ -69,5 +69,11 @@ bin*/
 build*/
 docs/html/
 
+bin/*
+build/*
+docs/html/*
+
 .DS_Store
 .vscode/settings.json
+
+web_server/node_modules

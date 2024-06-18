@@ -2,7 +2,7 @@
  * @file fsm_button.h
  * @brief Header for fsm_button.c file.
  * @author Eugenio Cano
- * @author Jorge Estefanía
+ * @author Jorge Alejandro Estefanía Hidalgo
  * @date 21/02/2024
  */
 
@@ -22,11 +22,11 @@
 /* Enums */
 
 /**
- * @brief States for the finite state machine for the button
+ * @brief States for the finite state machine for the button.
  * 
 */
 enum FSM_BUTTON {
-    BUTTON_RELEASED = 0,        /*!< Starting state, button hasn't been pressed*/
+    BUTTON_RELEASED = 0,    /*!< Starting state, button hasn't been pressed*/
     BUTTON_PRESSED_WAIT,    /*!< Button has been pressed, wait some time to remove false positives from mechanical noise*/
     BUTTON_PRESSED,         /*!< Button is currently pressed*/
     BUTTON_RELEASED_WAIT    /*!< Button has been released, wait some time to filter false positives from mechanical noise*/
@@ -35,7 +35,7 @@ enum FSM_BUTTON {
 /* Typedefs --------------------------------------------------------------------*/
 
 /**
- * @brief FSM structure for the button
+ * @brief FSM structure for the button.
 */
 typedef struct {
     fsm_t f;                /*!< Internal FSM*/
@@ -51,12 +51,9 @@ typedef struct {
 /* Function prototypes and explanation -------------------------------------------------*/
 /**
  * @brief Creates a new FSM for measuring how long the button is pressed.
- *
- * @note this function uses malloc to save memory space in the heap for the FSM.
- * @note If you are done with the FSM, you must call fsm_destroy to free memory.
- *
+ * 
  * @param debounce_time time (in ms) the FSM will wait in intermediate steps to avoid mechanical gltiches.
- * @param button_id id of the button
+ * @param button_id id of the button.
  * 
  * @return fsm_t* pointer to the button FSM.
  */
@@ -68,7 +65,7 @@ fsm_t *fsm_button_new(uint32_t debounce_time, uint32_t button_id);
  *
  * @param p_fsm pointer to the FSM.
  * @param debounce_time time (in ms) the FSM will wait in intermediate steps to avoid mechanical gltiches.
- * @param button_id id of the button
+ * @param button_id id of the button.
  * 
  */
 void fsm_button_init(fsm_t *p_fsm, uint32_t debounce_time, uint32_t button_id);
@@ -86,8 +83,15 @@ uint32_t fsm_button_get_duration(fsm_t *p_fsm);
  * @brief It sets the duration measured by the button FSM to 0.
  *
  * @param p_fsm pointer to the button FSM.
- * @param button_id id of the button
+ * @param button_id id of the button.
  */
 void fsm_button_reset_duration(fsm_t *p_fsm);
 
+/**
+ * @brief Check if the button FSM is active, or not.
+ * 
+ * @param p_this Pointer to an fsm_t struct than contains an fsm_button_t.
+ * @returns true or false.
+*/
+bool fsm_button_check_activity(fsm_t *p_this);
 #endif

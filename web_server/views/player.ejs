@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player on port <%= comport %></title>
+
+    <script src="/static/js/player.js"></script>
+
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/player.css">
+    
+</head>
+<body>
+    <div>
+        <h1 id="song"></h1>
+        <div id="button-container">
+            <button id="play" onclick="play()">Play</button>
+            <button id="pause" onclick="pause()">Pause</button>
+            <button id="next" onclick="nextSong()">Next</button>
+        </div>
+    </div>
+</body>
+</html>

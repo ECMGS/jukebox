@@ -9,7 +9,7 @@ IF(NOT DEFINED USE_FSM)
     MESSAGE(STATUS "No FSM library usage selected, using default (${USE_FSM}). You can override it by passing -DUSE_FSM=<use_fsm> to cmake")
 ENDIF()
 IF(NOT DEFINED USE_HAL)
-    SET(USE_HAL false) # set it to true to use HAL library by default
+    SET(USE_HAL true) # set it to true to use HAL library by default
     MESSAGE(STATUS "No HAL library usage selected, using default (${USE_HAL}). You can override it by passing -DUSE_HAL=<use_hal> to cmake")
 ENDIF()
 IF(NOT DEFINED PLATFORM)
@@ -72,6 +72,18 @@ FILE(GLOB PROJECT_MAIN ${CMAKE_CURRENT_SOURCE_DIR}/main.c) # main routine
 ADD_EXECUTABLE(main ${PROJECT_MAIN} ${PROJECT_ISR_SOURCES})
 IF(DEFINED PLATFORM_EXTENSION)
     SET_TARGET_PROPERTIES(main PROPERTIES SUFFIX ${PLATFORM_EXTENSION})
+ENDIF()
+
+FILE(GLOB LCD_MAIN ${CMAKE_CURRENT_SOURCE_DIR}/LCDmain.c) # main routine
+ADD_EXECUTABLE(LCDmain ${LCD_MAIN} ${PROJECT_ISR_SOURCES})
+IF(DEFINED PLATFORM_EXTENSION)
+    SET_TARGET_PROPERTIES(LCDmain PROPERTIES SUFFIX ${PLATFORM_EXTENSION})
+ENDIF()
+
+FILE(GLOB V2_LCD_MAIN ${CMAKE_CURRENT_SOURCE_DIR}/mainLCDexample.c) # main routine
+ADD_EXECUTABLE(mainLCDexample ${V2_LCD_MAIN} ${PROJECT_ISR_SOURCES})
+IF(DEFINED PLATFORM_EXTENSION)
+    SET_TARGET_PROPERTIES(mainLCDexample PROPERTIES SUFFIX ${PLATFORM_EXTENSION})
 ENDIF()
 
 # Rules to run (native) or flash (OpenOCD) main executable

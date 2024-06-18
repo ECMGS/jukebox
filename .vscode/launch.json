@@ -69,6 +69,7 @@
         "default": "main",
         "options": [
           "main",
+          "mainLCDexample",
           "test_port_button",
           "test_fsm_button",
           "test_v1",
